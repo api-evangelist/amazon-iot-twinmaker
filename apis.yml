@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - IoT
-  - Digital Twins
-  - Industrial IoT
   - 3D Visualization
   - AWS
+  - Digital Twins
+  - Industrial IoT
+  - IoT
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/iot-twinmaker/
     baseURL: https://iottwinmaker.amazonaws.com
     tags:
-      - IoT
       - Digital Twins
       - Industrial IoT
+      - IoT
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/Welcome.html
