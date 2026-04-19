@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-scene-response-structure.json",
+  "name": "GetSceneResponse",
+  "description": "GetSceneResponse schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace that contains the scene."
+        }
+      ]
+    },
+    "sceneId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the scene."
+        }
+      ]
+    },
+    "contentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Url"
+        },
+        {
+          "description": "The relative path that specifies the location of the content definition file."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the scene."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the scene was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the scene was last updated."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the scene."
+        }
+      ]
+    },
+    "capabilities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneCapabilities"
+        },
+        {
+          "description": "A list of capabilities that the scene uses to render."
+        }
+      ]
+    },
+    "sceneMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneMetadataMap"
+        },
+        {
+          "description": "The response metadata."
+        }
+      ]
+    },
+    "generatedSceneMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GeneratedSceneMetadataMap"
+        },
+        {
+          "description": "The generated scene metadata."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneError"
+        },
+        {
+          "description": "The SceneResponse error."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "sceneId",
+    "contentLocation",
+    "arn",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

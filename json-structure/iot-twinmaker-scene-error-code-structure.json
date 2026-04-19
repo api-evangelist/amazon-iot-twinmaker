@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-scene-error-code-structure.json",
+  "name": "SceneErrorCode",
+  "description": "SceneErrorCode schema",
+  "type": "string",
+  "enum": [
+    "MATTERPORT_ERROR"
+  ]
+}

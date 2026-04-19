@@ -1,0 +1,8 @@
+{
+  "entityId": "id-abc123",
+  "entityName": "example-resource",
+  "description": "example-value",
+  "components": "example-value",
+  "parentEntityId": "id-abc123",
+  "tags": "example-value"
+}

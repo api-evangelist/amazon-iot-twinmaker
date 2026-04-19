@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-execute-query-request-schema.json",
+  "title": "ExecuteQueryRequest",
+  "description": "ExecuteQueryRequest schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace."
+        }
+      ]
+    },
+    "queryStatement": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryStatement"
+        },
+        {
+          "description": "The query statement."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/QueryServiceMaxResults"
+        },
+        {
+          "description": "<p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>"
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "queryStatement"
+  ]
+}

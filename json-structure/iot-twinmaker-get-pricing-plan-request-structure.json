@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-pricing-plan-request-structure.json",
+  "name": "GetPricingPlanRequest",
+  "description": "GetPricingPlanRequest schema",
+  "type": "object",
+  "properties": {}
+}

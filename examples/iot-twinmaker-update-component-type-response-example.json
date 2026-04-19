@@ -1,0 +1,6 @@
+{
+  "workspaceId": "id-abc123",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "componentTypeId": "id-abc123",
+  "state": "example-value"
+}

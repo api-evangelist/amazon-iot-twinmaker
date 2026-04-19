@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-entity-summary-schema.json",
+  "title": "EntitySummary",
+  "description": "An object that contains information about an entity.",
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the entity."
+        }
+      ]
+    },
+    "entityName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the entity."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the entity."
+        }
+      ]
+    },
+    "parentEntityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParentEntityId"
+        },
+        {
+          "description": "The ID of the parent entity."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The current status of the entity."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the entity."
+        }
+      ]
+    },
+    "hasChildEntities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the entity has child entities or not."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the entity was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The last date and time when the entity was updated."
+        }
+      ]
+    }
+  },
+  "required": [
+    "entityId",
+    "entityName",
+    "arn",
+    "status",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

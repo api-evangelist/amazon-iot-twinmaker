@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-create-entity-response-schema.json",
+  "title": "CreateEntityResponse",
+  "description": "CreateEntityResponse schema",
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the entity."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the entity."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the entity was created."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the entity."
+        }
+      ]
+    }
+  },
+  "required": [
+    "entityId",
+    "arn",
+    "creationDateTime",
+    "state"
+  ]
+}

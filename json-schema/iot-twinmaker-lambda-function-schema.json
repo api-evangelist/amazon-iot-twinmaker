@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-lambda-function-schema.json",
+  "title": "LambdaFunction",
+  "description": "The Lambda function.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaArn"
+        },
+        {
+          "description": "The ARN of the Lambda function."
+        }
+      ]
+    }
+  },
+  "required": [
+    "arn"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-batch-put-property-values-request-schema.json",
+  "title": "BatchPutPropertyValuesRequest",
+  "description": "BatchPutPropertyValuesRequest schema",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Entries"
+        },
+        {
+          "description": "An object that maps strings to the property value entries to set. Each string in the mapping must be unique to this object."
+        }
+      ]
+    }
+  },
+  "required": [
+    "entries"
+  ]
+}

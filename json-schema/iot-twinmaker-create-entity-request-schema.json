@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-create-entity-request-schema.json",
+  "title": "CreateEntityRequest",
+  "description": "CreateEntityRequest schema",
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the entity."
+        }
+      ]
+    },
+    "entityName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the entity."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the entity."
+        }
+      ]
+    },
+    "components": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentsMapRequest"
+        },
+        {
+          "description": "An object that maps strings to the components in the entity. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "parentEntityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParentEntityId"
+        },
+        {
+          "description": "The ID of the entity's parent entity."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Metadata that you can use to manage the entity."
+        }
+      ]
+    }
+  },
+  "required": [
+    "entityName"
+  ]
+}

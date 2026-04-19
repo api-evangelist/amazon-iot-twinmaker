@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-error-code-schema.json",
+  "title": "ErrorCode",
+  "description": "ErrorCode schema",
+  "type": "string",
+  "enum": [
+    "VALIDATION_ERROR",
+    "INTERNAL_FAILURE",
+    "SYNC_INITIALIZING_ERROR",
+    "SYNC_CREATING_ERROR",
+    "SYNC_PROCESSING_ERROR"
+  ]
+}

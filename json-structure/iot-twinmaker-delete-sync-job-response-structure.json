@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-delete-sync-job-response-structure.json",
+  "name": "DeleteSyncJobResponse",
+  "description": "DeleteSyncJobResponse schema",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncJobState"
+        },
+        {
+          "description": "The SyncJob response state."
+        }
+      ]
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

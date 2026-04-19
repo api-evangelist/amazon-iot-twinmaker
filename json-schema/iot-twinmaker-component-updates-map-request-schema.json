@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-component-updates-map-request-schema.json",
+  "title": "ComponentUpdatesMapRequest",
+  "description": "ComponentUpdatesMapRequest schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "updateType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentUpdateType"
+          },
+          {
+            "description": "The update type of the component update request."
+          }
+        ]
+      },
+      "description": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Description"
+          },
+          {
+            "description": "The description of the component type."
+          }
+        ]
+      },
+      "componentTypeId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentTypeId"
+          },
+          {
+            "description": "The ID of the component type."
+          }
+        ]
+      },
+      "propertyUpdates": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PropertyRequests"
+          },
+          {
+            "description": "An object that maps strings to the properties to set in the component type update. Each string in the mapping must be unique to this object."
+          }
+        ]
+      },
+      "propertyGroupUpdates": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentPropertyGroupRequests"
+          },
+          {
+            "description": "The property group updates."
+          }
+        ]
+      }
+    },
+    "description": "The component update request."
+  }
+}

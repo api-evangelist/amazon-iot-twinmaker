@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-update-type-structure.json",
+  "name": "PropertyUpdateType",
+  "description": "PropertyUpdateType schema",
+  "type": "string",
+  "enum": [
+    "UPDATE",
+    "DELETE",
+    "CREATE"
+  ]
+}

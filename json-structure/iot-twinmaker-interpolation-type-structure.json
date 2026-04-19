@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-interpolation-type-structure.json",
+  "name": "InterpolationType",
+  "description": "InterpolationType schema",
+  "type": "string",
+  "enum": [
+    "LINEAR"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "componentName": "example-resource",
+  "externalIdProperty": "id-abc123",
+  "entityId": "id-abc123",
+  "propertyName": "example-resource"
+}

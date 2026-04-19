@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-create-scene-request-schema.json",
+  "title": "CreateSceneRequest",
+  "description": "CreateSceneRequest schema",
+  "type": "object",
+  "properties": {
+    "sceneId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the scene."
+        }
+      ]
+    },
+    "contentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Url"
+        },
+        {
+          "description": "The relative path that specifies the location of the content definition file."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description for this scene."
+        }
+      ]
+    },
+    "capabilities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneCapabilities"
+        },
+        {
+          "description": "A list of capabilities that the scene uses to render itself."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Metadata that you can use to manage the scene."
+        }
+      ]
+    },
+    "sceneMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneMetadataMap"
+        },
+        {
+          "description": "The request metadata."
+        }
+      ]
+    }
+  },
+  "required": [
+    "sceneId",
+    "contentLocation"
+  ]
+}

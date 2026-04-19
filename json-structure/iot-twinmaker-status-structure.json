@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-status-structure.json",
+  "name": "Status",
+  "description": "An object that represents the status of an entity, component, component type, or workspace.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the entity, component, component type, or workspace."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorDetails"
+        },
+        {
+          "description": "The error message."
+        }
+      ]
+    }
+  }
+}

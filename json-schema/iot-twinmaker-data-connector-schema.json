@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-data-connector-schema.json",
+  "title": "DataConnector",
+  "description": "The data connector.",
+  "type": "object",
+  "properties": {
+    "lambda": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaFunction"
+        },
+        {
+          "description": "The Lambda function associated with this data connector."
+        }
+      ]
+    },
+    "isNative": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the data connector is native to IoT TwinMaker."
+        }
+      ]
+    }
+  }
+}

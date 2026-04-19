@@ -1,0 +1,11 @@
+{
+  "booleanValue": "example-value",
+  "doubleValue": "example-value",
+  "integerValue": "example-value",
+  "longValue": "example-value",
+  "stringValue": "example-value",
+  "listValue": "example-value",
+  "mapValue": "example-value",
+  "relationshipValue": "example-value",
+  "expression": "example-value"
+}

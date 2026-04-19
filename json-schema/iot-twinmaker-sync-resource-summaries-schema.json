@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-sync-resource-summaries-schema.json",
+  "title": "SyncResourceSummaries",
+  "description": "SyncResourceSummaries schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "resourceType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SyncResourceType"
+          },
+          {
+            "description": "The resource type."
+          }
+        ]
+      },
+      "externalId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Id"
+          },
+          {
+            "description": "The external ID."
+          }
+        ]
+      },
+      "resourceId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Id"
+          },
+          {
+            "description": "The resource ID."
+          }
+        ]
+      },
+      "status": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SyncResourceStatus"
+          },
+          {
+            "description": "The sync resource summary status."
+          }
+        ]
+      },
+      "updateDateTime": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "The update date and time."
+          }
+        ]
+      }
+    },
+    "description": "The sync resource summary."
+  }
+}

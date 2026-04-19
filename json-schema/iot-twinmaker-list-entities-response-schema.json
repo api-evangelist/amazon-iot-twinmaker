@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-list-entities-response-schema.json",
+  "title": "ListEntitiesResponse",
+  "description": "ListEntitiesResponse schema",
+  "type": "object",
+  "properties": {
+    "entitySummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntitySummaries"
+        },
+        {
+          "description": "A list of objects that contain information about the entities."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    }
+  }
+}

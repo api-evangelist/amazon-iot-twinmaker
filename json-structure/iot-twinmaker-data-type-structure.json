@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-data-type-structure.json",
+  "name": "DataType",
+  "description": "An object that specifies the data type of a property.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Type"
+        },
+        {
+          "description": "The underlying type of the data type."
+        }
+      ]
+    },
+    "nestedType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataType"
+        },
+        {
+          "description": "The nested type in the data type."
+        }
+      ]
+    },
+    "allowedValues": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValueList"
+        },
+        {
+          "description": "The allowed values for this data type."
+        }
+      ]
+    },
+    "unitOfMeasure": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The unit of measure used in this data type."
+        }
+      ]
+    },
+    "relationship": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Relationship"
+        },
+        {
+          "description": "A relationship that associates a component with another component."
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

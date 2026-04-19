@@ -1,0 +1,9 @@
+{
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "componentTypeId": "id-abc123",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z",
+  "description": "example-value",
+  "status": "ACTIVE",
+  "componentTypeName": "example-resource"
+}

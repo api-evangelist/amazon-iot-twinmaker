@@ -1,0 +1,5 @@
+{
+  "extendsFrom": "example-value",
+  "namespace": "example-resource",
+  "isAbstract": "example-value"
+}

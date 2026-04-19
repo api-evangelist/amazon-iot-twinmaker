@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-property-value-list-schema.json",
+  "title": "PropertyValueList",
+  "description": "PropertyValueList schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "entityPropertyReference"
+    ],
+    "properties": {
+      "entityPropertyReference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntityPropertyReference"
+          },
+          {
+            "description": "An object that uniquely identifies an entity property."
+          }
+        ]
+      },
+      "values": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Values"
+          },
+          {
+            "description": "A list of objects that contain information about the values in the history of a time series property."
+          }
+        ]
+      }
+    },
+    "description": "The history of values for a time series property."
+  }
+}

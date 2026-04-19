@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-scene-request-structure.json",
+  "name": "UpdateSceneRequest",
+  "description": "UpdateSceneRequest schema",
+  "type": "object",
+  "properties": {
+    "contentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Url"
+        },
+        {
+          "description": "The relative path that specifies the location of the content definition file."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of this scene."
+        }
+      ]
+    },
+    "capabilities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneCapabilities"
+        },
+        {
+          "description": "A list of capabilities that the scene uses to render."
+        }
+      ]
+    },
+    "sceneMetadata": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneMetadataMap"
+        },
+        {
+          "description": "The scene metadata."
+        }
+      ]
+    }
+  }
+}

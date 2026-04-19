@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-sync-resource-filter-schema.json",
+  "title": "SyncResourceFilter",
+  "description": "The sync resource filter.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncResourceState"
+        },
+        {
+          "description": "The sync resource filter's state."
+        }
+      ]
+    },
+    "resourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncResourceType"
+        },
+        {
+          "description": "The sync resource filter resource type"
+        }
+      ]
+    },
+    "resourceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The sync resource filter resource ID."
+        }
+      ]
+    },
+    "externalId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The external ID."
+        }
+      ]
+    }
+  }
+}

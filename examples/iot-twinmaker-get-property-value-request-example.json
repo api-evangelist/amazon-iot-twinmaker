@@ -1,0 +1,10 @@
+{
+  "componentName": "example-resource",
+  "componentTypeId": "id-abc123",
+  "entityId": "id-abc123",
+  "selectedProperties": "example-value",
+  "maxResults": "example-value",
+  "nextToken": "example-value",
+  "propertyGroupName": "example-resource",
+  "tabularConditions": "example-value"
+}

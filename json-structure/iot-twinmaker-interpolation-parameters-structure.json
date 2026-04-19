@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-interpolation-parameters-structure.json",
+  "name": "InterpolationParameters",
+  "description": "An object that specifies how to interpolate data in a list.",
+  "type": "object",
+  "properties": {
+    "interpolationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InterpolationType"
+        },
+        {
+          "description": "The interpolation type."
+        }
+      ]
+    },
+    "intervalInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IntervalInSeconds"
+        },
+        {
+          "description": "The interpolation time interval in seconds."
+        }
+      ]
+    }
+  }
+}

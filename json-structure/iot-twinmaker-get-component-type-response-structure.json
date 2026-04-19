@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-component-type-response-structure.json",
+  "name": "GetComponentTypeResponse",
+  "description": "GetComponentTypeResponse schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace that contains the component type."
+        }
+      ]
+    },
+    "isSingleton": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether an entity can have more than one component of this type."
+        }
+      ]
+    },
+    "componentTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeId"
+        },
+        {
+          "description": "The ID of the component type."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the component type."
+        }
+      ]
+    },
+    "propertyDefinitions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDefinitionsResponse"
+        },
+        {
+          "description": "An object that maps strings to the property definitions in the component type. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "extendsFrom": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExtendsFrom"
+        },
+        {
+          "description": "The name of the parent component type that this component type extends."
+        }
+      ]
+    },
+    "functions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FunctionsResponse"
+        },
+        {
+          "description": "An object that maps strings to the functions in the component type. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the component type was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the component was last updated."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the component type."
+        }
+      ]
+    },
+    "isAbstract": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the component type is abstract."
+        }
+      ]
+    },
+    "isSchemaInitialized": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the component type has a schema initializer and that the schema initializer has run."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The current status of the component type."
+        }
+      ]
+    },
+    "propertyGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyGroupsResponse"
+        },
+        {
+          "description": "<p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>"
+        }
+      ]
+    },
+    "syncSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncSource"
+        },
+        {
+          "description": "The syncSource of the SyncJob, if this entity was created by a SyncJob."
+        }
+      ]
+    },
+    "componentTypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeName"
+        },
+        {
+          "description": "The component type name."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "componentTypeId",
+    "creationDateTime",
+    "updateDateTime",
+    "arn"
+  ]
+}

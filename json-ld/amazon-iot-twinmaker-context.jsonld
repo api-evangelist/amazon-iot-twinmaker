@@ -1,0 +1,659 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amzn": "https://amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "BatchPutPropertyError": "amzn:BatchPutPropertyError",
+    "BatchPutPropertyErrorEntry": "amzn:BatchPutPropertyErrorEntry",
+    "BatchPutPropertyValuesRequest": "amzn:BatchPutPropertyValuesRequest",
+    "BatchPutPropertyValuesResponse": "amzn:BatchPutPropertyValuesResponse",
+    "BundleInformation": "amzn:BundleInformation",
+    "ColumnDescription": "amzn:ColumnDescription",
+    "ComponentPropertyGroupRequest": "amzn:ComponentPropertyGroupRequest",
+    "ComponentPropertyGroupRequests": "amzn:ComponentPropertyGroupRequests",
+    "ComponentPropertyGroupResponse": "amzn:ComponentPropertyGroupResponse",
+    "ComponentPropertyGroupResponses": "amzn:ComponentPropertyGroupResponses",
+    "ComponentRequest": "amzn:ComponentRequest",
+    "ComponentResponse": "amzn:ComponentResponse",
+    "ComponentTypeSummary": "amzn:ComponentTypeSummary",
+    "ComponentUpdateRequest": "amzn:ComponentUpdateRequest",
+    "ComponentUpdatesMapRequest": "amzn:ComponentUpdatesMapRequest",
+    "ComponentsMap": "amzn:ComponentsMap",
+    "ComponentsMapRequest": "amzn:ComponentsMapRequest",
+    "Configuration": "amzn:Configuration",
+    "CreateComponentTypeRequest": "amzn:CreateComponentTypeRequest",
+    "CreateComponentTypeResponse": "amzn:CreateComponentTypeResponse",
+    "CreateEntityRequest": "amzn:CreateEntityRequest",
+    "CreateEntityResponse": "amzn:CreateEntityResponse",
+    "CreateSceneRequest": "amzn:CreateSceneRequest",
+    "CreateSceneResponse": "amzn:CreateSceneResponse",
+    "CreateSyncJobRequest": "amzn:CreateSyncJobRequest",
+    "CreateSyncJobResponse": "amzn:CreateSyncJobResponse",
+    "CreateWorkspaceRequest": "amzn:CreateWorkspaceRequest",
+    "CreateWorkspaceResponse": "amzn:CreateWorkspaceResponse",
+    "DataConnector": "amzn:DataConnector",
+    "DataType": "amzn:DataType",
+    "DataValue": "amzn:DataValue",
+    "DataValueMap": "amzn:DataValueMap",
+    "DeleteComponentTypeRequest": "amzn:DeleteComponentTypeRequest",
+    "DeleteComponentTypeResponse": "amzn:DeleteComponentTypeResponse",
+    "DeleteEntityRequest": "amzn:DeleteEntityRequest",
+    "DeleteEntityResponse": "amzn:DeleteEntityResponse",
+    "DeleteSceneRequest": "amzn:DeleteSceneRequest",
+    "DeleteSceneResponse": "amzn:DeleteSceneResponse",
+    "DeleteSyncJobRequest": "amzn:DeleteSyncJobRequest",
+    "DeleteSyncJobResponse": "amzn:DeleteSyncJobResponse",
+    "DeleteWorkspaceRequest": "amzn:DeleteWorkspaceRequest",
+    "DeleteWorkspaceResponse": "amzn:DeleteWorkspaceResponse",
+    "EntityPropertyReference": "amzn:EntityPropertyReference",
+    "EntitySummary": "amzn:EntitySummary",
+    "ErrorDetails": "amzn:ErrorDetails",
+    "ExecuteQueryRequest": "amzn:ExecuteQueryRequest",
+    "ExecuteQueryResponse": "amzn:ExecuteQueryResponse",
+    "ExternalIdProperty": "amzn:ExternalIdProperty",
+    "FunctionRequest": "amzn:FunctionRequest",
+    "FunctionResponse": "amzn:FunctionResponse",
+    "FunctionsRequest": "amzn:FunctionsRequest",
+    "FunctionsResponse": "amzn:FunctionsResponse",
+    "GeneratedSceneMetadataMap": "amzn:GeneratedSceneMetadataMap",
+    "GetComponentTypeRequest": "amzn:GetComponentTypeRequest",
+    "GetComponentTypeResponse": "amzn:GetComponentTypeResponse",
+    "GetEntityRequest": "amzn:GetEntityRequest",
+    "GetEntityResponse": "amzn:GetEntityResponse",
+    "GetPricingPlanRequest": "amzn:GetPricingPlanRequest",
+    "GetPricingPlanResponse": "amzn:GetPricingPlanResponse",
+    "GetPropertyValueHistoryRequest": "amzn:GetPropertyValueHistoryRequest",
+    "GetPropertyValueHistoryResponse": "amzn:GetPropertyValueHistoryResponse",
+    "GetPropertyValueRequest": "amzn:GetPropertyValueRequest",
+    "GetPropertyValueResponse": "amzn:GetPropertyValueResponse",
+    "GetSceneRequest": "amzn:GetSceneRequest",
+    "GetSceneResponse": "amzn:GetSceneResponse",
+    "GetSyncJobRequest": "amzn:GetSyncJobRequest",
+    "GetSyncJobResponse": "amzn:GetSyncJobResponse",
+    "GetWorkspaceRequest": "amzn:GetWorkspaceRequest",
+    "GetWorkspaceResponse": "amzn:GetWorkspaceResponse",
+    "InterpolationParameters": "amzn:InterpolationParameters",
+    "LambdaFunction": "amzn:LambdaFunction",
+    "ListComponentTypesFilter": "amzn:ListComponentTypesFilter",
+    "ListComponentTypesRequest": "amzn:ListComponentTypesRequest",
+    "ListComponentTypesResponse": "amzn:ListComponentTypesResponse",
+    "ListEntitiesFilter": "amzn:ListEntitiesFilter",
+    "ListEntitiesRequest": "amzn:ListEntitiesRequest",
+    "ListEntitiesResponse": "amzn:ListEntitiesResponse",
+    "ListScenesRequest": "amzn:ListScenesRequest",
+    "ListScenesResponse": "amzn:ListScenesResponse",
+    "ListSyncJobsRequest": "amzn:ListSyncJobsRequest",
+    "ListSyncJobsResponse": "amzn:ListSyncJobsResponse",
+    "ListSyncResourcesRequest": "amzn:ListSyncResourcesRequest",
+    "ListSyncResourcesResponse": "amzn:ListSyncResourcesResponse",
+    "ListTagsForResourceRequest": "amzn:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "amzn:ListTagsForResourceResponse",
+    "ListWorkspacesRequest": "amzn:ListWorkspacesRequest",
+    "ListWorkspacesResponse": "amzn:ListWorkspacesResponse",
+    "OrderBy": "amzn:OrderBy",
+    "ParentEntityUpdateRequest": "amzn:ParentEntityUpdateRequest",
+    "PricingPlan": "amzn:PricingPlan",
+    "PropertyDefinitionRequest": "amzn:PropertyDefinitionRequest",
+    "PropertyDefinitionResponse": "amzn:PropertyDefinitionResponse",
+    "PropertyDefinitionsRequest": "amzn:PropertyDefinitionsRequest",
+    "PropertyDefinitionsResponse": "amzn:PropertyDefinitionsResponse",
+    "PropertyFilter": "amzn:PropertyFilter",
+    "PropertyGroupRequest": "amzn:PropertyGroupRequest",
+    "PropertyGroupResponse": "amzn:PropertyGroupResponse",
+    "PropertyGroupsRequest": "amzn:PropertyGroupsRequest",
+    "PropertyGroupsResponse": "amzn:PropertyGroupsResponse",
+    "PropertyLatestValue": "amzn:PropertyLatestValue",
+    "allowedValues": {
+      "@id": "amzn:allowedValues",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "amzn:arn",
+      "@type": "xsd:string"
+    },
+    "billableEntityCount": {
+      "@id": "amzn:billableEntityCount",
+      "@type": "xsd:string"
+    },
+    "booleanValue": {
+      "@id": "amzn:booleanValue",
+      "@type": "xsd:string"
+    },
+    "bundleInformation": {
+      "@id": "amzn:bundleInformation",
+      "@type": "xsd:string"
+    },
+    "bundleNames": {
+      "@id": "amzn:bundleNames",
+      "@type": "xsd:string"
+    },
+    "capabilities": {
+      "@id": "amzn:capabilities",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "amzn:code",
+      "@type": "xsd:string"
+    },
+    "columnDescriptions": {
+      "@id": "amzn:columnDescriptions",
+      "@type": "xsd:string"
+    },
+    "componentName": {
+      "@id": "amzn:componentName",
+      "@type": "xsd:string"
+    },
+    "componentTypeId": {
+      "@id": "amzn:componentTypeId",
+      "@type": "xsd:string"
+    },
+    "componentTypeName": {
+      "@id": "amzn:componentTypeName",
+      "@type": "xsd:string"
+    },
+    "componentTypeSummaries": {
+      "@id": "amzn:componentTypeSummaries",
+      "@type": "xsd:string"
+    },
+    "componentUpdates": {
+      "@id": "amzn:componentUpdates",
+      "@type": "xsd:string"
+    },
+    "components": {
+      "@id": "amzn:components",
+      "@type": "xsd:string"
+    },
+    "configuration": {
+      "@id": "amzn:configuration",
+      "@type": "xsd:string"
+    },
+    "contentLocation": {
+      "@id": "amzn:contentLocation",
+      "@type": "xsd:string"
+    },
+    "creationDateTime": {
+      "@id": "amzn:creationDateTime",
+      "@type": "xsd:string"
+    },
+    "currentPricingPlan": {
+      "@id": "amzn:currentPricingPlan",
+      "@type": "xsd:string"
+    },
+    "dataType": {
+      "@id": "amzn:dataType",
+      "@type": "xsd:string"
+    },
+    "defaultValue": {
+      "@id": "amzn:defaultValue",
+      "@type": "xsd:string"
+    },
+    "definedIn": {
+      "@id": "amzn:definedIn",
+      "@type": "xsd:string"
+    },
+    "definition": {
+      "@id": "amzn:definition",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "displayName": {
+      "@id": "amzn:displayName",
+      "@type": "xsd:string"
+    },
+    "doubleValue": {
+      "@id": "amzn:doubleValue",
+      "@type": "xsd:string"
+    },
+    "effectiveDateTime": {
+      "@id": "amzn:effectiveDateTime",
+      "@type": "xsd:string"
+    },
+    "endDateTime": {
+      "@id": "amzn:endDateTime",
+      "@type": "xsd:string"
+    },
+    "endTime": {
+      "@id": "amzn:endTime",
+      "@type": "xsd:string"
+    },
+    "entityId": {
+      "@id": "amzn:entityId",
+      "@type": "xsd:string"
+    },
+    "entityName": {
+      "@id": "amzn:entityName",
+      "@type": "xsd:string"
+    },
+    "entityPropertyReference": {
+      "@id": "amzn:entityPropertyReference",
+      "@type": "xsd:string"
+    },
+    "entitySummaries": {
+      "@id": "amzn:entitySummaries",
+      "@type": "xsd:string"
+    },
+    "entries": {
+      "@id": "amzn:entries",
+      "@type": "xsd:string"
+    },
+    "entry": {
+      "@id": "amzn:entry",
+      "@type": "xsd:string"
+    },
+    "error": {
+      "@id": "amzn:error",
+      "@type": "xsd:string"
+    },
+    "errorCode": {
+      "@id": "amzn:errorCode",
+      "@type": "xsd:string"
+    },
+    "errorEntries": {
+      "@id": "amzn:errorEntries",
+      "@type": "xsd:string"
+    },
+    "errorMessage": {
+      "@id": "amzn:errorMessage",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "amzn:errors",
+      "@type": "xsd:string"
+    },
+    "expression": {
+      "@id": "amzn:expression",
+      "@type": "xsd:string"
+    },
+    "extendsFrom": {
+      "@id": "amzn:extendsFrom",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "amzn:externalId",
+      "@type": "xsd:string"
+    },
+    "externalIdProperty": {
+      "@id": "amzn:externalIdProperty",
+      "@type": "xsd:string"
+    },
+    "filters": {
+      "@id": "amzn:filters",
+      "@type": "xsd:string"
+    },
+    "functions": {
+      "@id": "amzn:functions",
+      "@type": "xsd:string"
+    },
+    "generatedSceneMetadata": {
+      "@id": "amzn:generatedSceneMetadata",
+      "@type": "xsd:string"
+    },
+    "groupType": {
+      "@id": "amzn:groupType",
+      "@type": "xsd:string"
+    },
+    "hasChildEntities": {
+      "@id": "amzn:hasChildEntities",
+      "@type": "xsd:string"
+    },
+    "implementedBy": {
+      "@id": "amzn:implementedBy",
+      "@type": "xsd:string"
+    },
+    "integerValue": {
+      "@id": "amzn:integerValue",
+      "@type": "xsd:string"
+    },
+    "interpolation": {
+      "@id": "amzn:interpolation",
+      "@type": "xsd:string"
+    },
+    "interpolationType": {
+      "@id": "amzn:interpolationType",
+      "@type": "xsd:string"
+    },
+    "intervalInSeconds": {
+      "@id": "amzn:intervalInSeconds",
+      "@type": "xsd:string"
+    },
+    "isAbstract": {
+      "@id": "amzn:isAbstract",
+      "@type": "xsd:string"
+    },
+    "isExternalId": {
+      "@id": "amzn:isExternalId",
+      "@type": "xsd:string"
+    },
+    "isFinal": {
+      "@id": "amzn:isFinal",
+      "@type": "xsd:string"
+    },
+    "isImported": {
+      "@id": "amzn:isImported",
+      "@type": "xsd:string"
+    },
+    "isInherited": {
+      "@id": "amzn:isInherited",
+      "@type": "xsd:string"
+    },
+    "isNative": {
+      "@id": "amzn:isNative",
+      "@type": "xsd:string"
+    },
+    "isRequiredInEntity": {
+      "@id": "amzn:isRequiredInEntity",
+      "@type": "xsd:string"
+    },
+    "isSchemaInitialized": {
+      "@id": "amzn:isSchemaInitialized",
+      "@type": "xsd:string"
+    },
+    "isSingleton": {
+      "@id": "amzn:isSingleton",
+      "@type": "xsd:string"
+    },
+    "isStoredExternally": {
+      "@id": "amzn:isStoredExternally",
+      "@type": "xsd:string"
+    },
+    "isTimeSeries": {
+      "@id": "amzn:isTimeSeries",
+      "@type": "xsd:string"
+    },
+    "lambda": {
+      "@id": "amzn:lambda",
+      "@type": "xsd:string"
+    },
+    "listValue": {
+      "@id": "amzn:listValue",
+      "@type": "xsd:string"
+    },
+    "longValue": {
+      "@id": "amzn:longValue",
+      "@type": "xsd:string"
+    },
+    "mapValue": {
+      "@id": "amzn:mapValue",
+      "@type": "xsd:string"
+    },
+    "maxResults": {
+      "@id": "amzn:maxResults",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "amzn:message",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "namespace": {
+      "@id": "amzn:namespace",
+      "@type": "xsd:string"
+    },
+    "nestedType": {
+      "@id": "amzn:nestedType",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "amzn:nextToken",
+      "@type": "xsd:string"
+    },
+    "operator": {
+      "@id": "amzn:operator",
+      "@type": "xsd:string"
+    },
+    "order": {
+      "@id": "amzn:order",
+      "@type": "xsd:string"
+    },
+    "orderBy": {
+      "@id": "amzn:orderBy",
+      "@type": "xsd:string"
+    },
+    "orderByTime": {
+      "@id": "amzn:orderByTime",
+      "@type": "xsd:string"
+    },
+    "parentEntityId": {
+      "@id": "amzn:parentEntityId",
+      "@type": "xsd:string"
+    },
+    "parentEntityUpdate": {
+      "@id": "amzn:parentEntityUpdate",
+      "@type": "xsd:string"
+    },
+    "pendingPricingPlan": {
+      "@id": "amzn:pendingPricingPlan",
+      "@type": "xsd:string"
+    },
+    "pricingMode": {
+      "@id": "amzn:pricingMode",
+      "@type": "xsd:string"
+    },
+    "pricingTier": {
+      "@id": "amzn:pricingTier",
+      "@type": "xsd:string"
+    },
+    "properties": {
+      "@id": "amzn:properties",
+      "@type": "xsd:string"
+    },
+    "propertyDefinitions": {
+      "@id": "amzn:propertyDefinitions",
+      "@type": "xsd:string"
+    },
+    "propertyFilters": {
+      "@id": "amzn:propertyFilters",
+      "@type": "xsd:string"
+    },
+    "propertyGroupName": {
+      "@id": "amzn:propertyGroupName",
+      "@type": "xsd:string"
+    },
+    "propertyGroupUpdates": {
+      "@id": "amzn:propertyGroupUpdates",
+      "@type": "xsd:string"
+    },
+    "propertyGroups": {
+      "@id": "amzn:propertyGroups",
+      "@type": "xsd:string"
+    },
+    "propertyName": {
+      "@id": "amzn:propertyName",
+      "@type": "xsd:string"
+    },
+    "propertyNames": {
+      "@id": "amzn:propertyNames",
+      "@type": "xsd:string"
+    },
+    "propertyReference": {
+      "@id": "amzn:propertyReference",
+      "@type": "xsd:string"
+    },
+    "propertyUpdates": {
+      "@id": "amzn:propertyUpdates",
+      "@type": "xsd:string"
+    },
+    "propertyValue": {
+      "@id": "amzn:propertyValue",
+      "@type": "xsd:string"
+    },
+    "propertyValues": {
+      "@id": "amzn:propertyValues",
+      "@type": "xsd:string"
+    },
+    "queryStatement": {
+      "@id": "amzn:queryStatement",
+      "@type": "xsd:string"
+    },
+    "relationship": {
+      "@id": "amzn:relationship",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "amzn:relationshipType",
+      "@type": "xsd:string"
+    },
+    "relationshipValue": {
+      "@id": "amzn:relationshipValue",
+      "@type": "xsd:string"
+    },
+    "requiredProperties": {
+      "@id": "amzn:requiredProperties",
+      "@type": "xsd:string"
+    },
+    "resourceARN": {
+      "@id": "amzn:resourceARN",
+      "@type": "xsd:string"
+    },
+    "resourceId": {
+      "@id": "amzn:resourceId",
+      "@type": "xsd:string"
+    },
+    "resourceType": {
+      "@id": "amzn:resourceType",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "amzn:role",
+      "@type": "xsd:string"
+    },
+    "rowData": {
+      "@id": "amzn:rowData",
+      "@type": "xsd:string"
+    },
+    "rows": {
+      "@id": "amzn:rows",
+      "@type": "xsd:string"
+    },
+    "s3Location": {
+      "@id": "amzn:s3Location",
+      "@type": "xsd:string"
+    },
+    "sceneId": {
+      "@id": "amzn:sceneId",
+      "@type": "xsd:string"
+    },
+    "sceneMetadata": {
+      "@id": "amzn:sceneMetadata",
+      "@type": "xsd:string"
+    },
+    "sceneSummaries": {
+      "@id": "amzn:sceneSummaries",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "amzn:scope",
+      "@type": "xsd:string"
+    },
+    "selectedProperties": {
+      "@id": "amzn:selectedProperties",
+      "@type": "xsd:string"
+    },
+    "startDateTime": {
+      "@id": "amzn:startDateTime",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "amzn:startTime",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "amzn:state",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "amzn:status",
+      "@type": "xsd:string"
+    },
+    "stringValue": {
+      "@id": "amzn:stringValue",
+      "@type": "xsd:string"
+    },
+    "syncJobSummaries": {
+      "@id": "amzn:syncJobSummaries",
+      "@type": "xsd:string"
+    },
+    "syncResources": {
+      "@id": "amzn:syncResources",
+      "@type": "xsd:string"
+    },
+    "syncRole": {
+      "@id": "amzn:syncRole",
+      "@type": "xsd:string"
+    },
+    "syncSource": {
+      "@id": "amzn:syncSource",
+      "@type": "xsd:string"
+    },
+    "tabularConditions": {
+      "@id": "amzn:tabularConditions",
+      "@type": "xsd:string"
+    },
+    "tabularPropertyValues": {
+      "@id": "amzn:tabularPropertyValues",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "amzn:tags",
+      "@type": "xsd:string"
+    },
+    "targetComponentName": {
+      "@id": "amzn:targetComponentName",
+      "@type": "xsd:string"
+    },
+    "targetComponentTypeId": {
+      "@id": "amzn:targetComponentTypeId",
+      "@type": "xsd:string"
+    },
+    "targetEntityId": {
+      "@id": "amzn:targetEntityId",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "amzn:time",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id": "amzn:timestamp",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "amzn:type",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "amzn:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "updateDateTime": {
+      "@id": "amzn:updateDateTime",
+      "@type": "xsd:string"
+    },
+    "updateReason": {
+      "@id": "amzn:updateReason",
+      "@type": "xsd:string"
+    },
+    "updateType": {
+      "@id": "amzn:updateType",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "amzn:value",
+      "@type": "xsd:string"
+    },
+    "values": {
+      "@id": "amzn:values",
+      "@type": "xsd:string"
+    },
+    "workspaceId": {
+      "@id": "amzn:workspaceId",
+      "@type": "xsd:string"
+    },
+    "workspaceSummaries": {
+      "@id": "amzn:workspaceSummaries",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-list-component-types-response-structure.json",
+  "name": "ListComponentTypesResponse",
+  "description": "ListComponentTypesResponse schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace."
+        }
+      ]
+    },
+    "componentTypeSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeSummaries"
+        },
+        {
+          "description": "A list of objects that contain information about the component types."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "Specifies the maximum number of results to display."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "componentTypeSummaries"
+  ]
+}

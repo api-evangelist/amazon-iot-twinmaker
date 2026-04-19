@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-pricing-plan-response-structure.json",
+  "name": "UpdatePricingPlanResponse",
+  "description": "UpdatePricingPlanResponse schema",
+  "type": "object",
+  "properties": {
+    "currentPricingPlan": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingPlan"
+        },
+        {
+          "description": "Update the current pricing plan."
+        }
+      ]
+    },
+    "pendingPricingPlan": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingPlan"
+        },
+        {
+          "description": "Update the pending pricing plan."
+        }
+      ]
+    }
+  },
+  "required": [
+    "currentPricingPlan"
+  ]
+}

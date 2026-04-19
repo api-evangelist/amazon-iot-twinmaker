@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-state-structure.json",
+  "name": "State",
+  "description": "State schema",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "UPDATING",
+    "DELETING",
+    "ACTIVE",
+    "ERROR"
+  ]
+}

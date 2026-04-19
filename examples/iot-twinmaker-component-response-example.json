@@ -1,0 +1,10 @@
+{
+  "componentName": "example-resource",
+  "description": "example-value",
+  "componentTypeId": "id-abc123",
+  "status": "ACTIVE",
+  "definedIn": "example-value",
+  "properties": "example-value",
+  "propertyGroups": "example-value",
+  "syncSource": "example-value"
+}

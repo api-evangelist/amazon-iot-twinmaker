@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-tag-key-list-schema.json",
+  "title": "TagKeyList",
+  "description": "TagKeyList schema",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "pattern": "([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)",
+    "minLength": 1,
+    "maxLength": 128
+  }
+}

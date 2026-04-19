@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-rows-structure.json",
+  "name": "Rows",
+  "description": "Rows schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "rowData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RowData"
+          },
+          {
+            "description": "The data in a row of query results."
+          }
+        ]
+      }
+    },
+    "description": "Represents a single row in the query results."
+  }
+}

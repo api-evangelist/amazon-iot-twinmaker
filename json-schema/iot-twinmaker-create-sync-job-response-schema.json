@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-create-sync-job-response-schema.json",
+  "title": "CreateSyncJobResponse",
+  "description": "CreateSyncJobResponse schema",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The SyncJob ARN."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time for the SyncJob creation."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncJobState"
+        },
+        {
+          "description": "The SyncJob response state."
+        }
+      ]
+    }
+  },
+  "required": [
+    "arn",
+    "creationDateTime",
+    "state"
+  ]
+}

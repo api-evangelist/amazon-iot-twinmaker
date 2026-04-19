@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-list-scenes-request-structure.json",
+  "name": "ListScenesRequest",
+  "description": "ListScenesRequest schema",
+  "type": "object",
+  "properties": {
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "Specifies the maximum number of results to display."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    }
+  }
+}

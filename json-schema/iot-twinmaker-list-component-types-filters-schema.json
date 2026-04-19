@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-list-component-types-filters-schema.json",
+  "title": "ListComponentTypesFilters",
+  "description": "ListComponentTypesFilters schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "extendsFrom": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentTypeId"
+          },
+          {
+            "description": "The component type that the component types in the list extend."
+          }
+        ]
+      },
+      "namespace": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/String"
+          },
+          {
+            "description": "The namespace to which the component types in the list belong."
+          }
+        ]
+      },
+      "isAbstract": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          {
+            "description": "A Boolean value that specifies whether the component types in the list are abstract."
+          }
+        ]
+      }
+    },
+    "description": "<p>An object that filters items in a list of component types.</p> <note> <p>Only one object is accepted as a valid input.</p> </note>"
+  }
+}

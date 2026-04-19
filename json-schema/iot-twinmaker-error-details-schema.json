@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-error-details-schema.json",
+  "title": "ErrorDetails",
+  "description": "The error details.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorCode"
+        },
+        {
+          "description": "The error code."
+        }
+      ]
+    },
+    "message": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorMessage"
+        },
+        {
+          "description": "The error message."
+        }
+      ]
+    }
+  }
+}

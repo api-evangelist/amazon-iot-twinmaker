@@ -1,0 +1,104 @@
+rules:
+  info-title-required:
+    description: Info title must be present.
+    severity: error
+    given: "$.info"
+    then:
+      field: title
+      function: truthy
+  info-version-required:
+    description: API version must be specified.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+  openapi-version-3:
+    description: Must use OpenAPI 3.x.
+    severity: error
+    given: "$"
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\."
+  servers-defined:
+    description: At least one server must be defined.
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy
+  servers-https-only:
+    description: All server URLs must use HTTPS.
+    severity: error
+    given: "$.servers[*]"
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: "^https://"
+  operation-summary-required:
+    description: Every operation must have a summary.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: truthy
+  operation-summary-prefix:
+    description: Operation summaries must start with 'Amazon IoT TwinMaker'.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        match: "^Amazon IoT TwinMaker"
+  operation-id-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+  operation-tags-required:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+  response-description-required:
+    description: Every response must have a description.
+    severity: warn
+    given: "$.paths[*][get,post,put,delete,patch].responses[*]"
+    then:
+      field: description
+      function: truthy
+  schema-type-defined:
+    description: Schemas should define an explicit type.
+    severity: info
+    given: "$.components.schemas[*]"
+    then:
+      field: type
+      function: truthy
+  get-no-request-body:
+    description: GET operations must not have a request body.
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: requestBody
+      function: falsy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: "$..description"
+    then:
+      function: truthy
+  security-schemes-defined:
+    description: Security schemes should be defined in components.
+    severity: warn
+    given: "$.components"
+    then:
+      field: securitySchemes
+      function: truthy

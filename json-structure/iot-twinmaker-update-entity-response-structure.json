@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-entity-response-structure.json",
+  "name": "UpdateEntityResponse",
+  "description": "UpdateEntityResponse schema",
+  "type": "object",
+  "properties": {
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the entity was last updated."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the entity update."
+        }
+      ]
+    }
+  },
+  "required": [
+    "updateDateTime",
+    "state"
+  ]
+}

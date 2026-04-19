@@ -1,0 +1,8 @@
+{
+  "sceneId": "id-abc123",
+  "contentLocation": "example-value",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z",
+  "description": "example-value"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-parent-entity-update-type-schema.json",
+  "title": "ParentEntityUpdateType",
+  "description": "ParentEntityUpdateType schema",
+  "type": "string",
+  "enum": [
+    "UPDATE",
+    "DELETE"
+  ]
+}

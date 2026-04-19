@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-sync-resource-type-schema.json",
+  "title": "SyncResourceType",
+  "description": "SyncResourceType schema",
+  "type": "string",
+  "enum": [
+    "ENTITY",
+    "COMPONENT_TYPE"
+  ]
+}

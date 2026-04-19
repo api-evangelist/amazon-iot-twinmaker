@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-update-entity-request-schema.json",
+  "title": "UpdateEntityRequest",
+  "description": "UpdateEntityRequest schema",
+  "type": "object",
+  "properties": {
+    "entityName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the entity."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the entity."
+        }
+      ]
+    },
+    "componentUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentUpdatesMapRequest"
+        },
+        {
+          "description": "An object that maps strings to the component updates in the request. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "parentEntityUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParentEntityUpdateRequest"
+        },
+        {
+          "description": "An object that describes the update request for a parent entity."
+        }
+      ]
+    }
+  }
+}

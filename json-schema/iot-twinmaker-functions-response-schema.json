@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-functions-response-schema.json",
+  "title": "FunctionsResponse",
+  "description": "FunctionsResponse schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "requiredProperties": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RequiredProperties"
+          },
+          {
+            "description": "The required properties of the function."
+          }
+        ]
+      },
+      "scope": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Scope"
+          },
+          {
+            "description": "The scope of the function."
+          }
+        ]
+      },
+      "implementedBy": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DataConnector"
+          },
+          {
+            "description": "The data connector."
+          }
+        ]
+      },
+      "isInherited": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Boolean"
+          },
+          {
+            "description": "Indicates whether this function is inherited."
+          }
+        ]
+      }
+    },
+    "description": "The function response."
+  }
+}

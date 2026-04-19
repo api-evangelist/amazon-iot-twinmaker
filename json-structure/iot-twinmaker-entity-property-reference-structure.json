@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-entity-property-reference-structure.json",
+  "name": "EntityPropertyReference",
+  "description": "An object that uniquely identifies an entity property.",
+  "type": "object",
+  "properties": {
+    "componentName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the component."
+        }
+      ]
+    },
+    "externalIdProperty": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExternalIdProperty"
+        },
+        {
+          "description": "A mapping of external IDs to property names. External IDs uniquely identify properties from external data stores."
+        }
+      ]
+    },
+    "entityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the entity."
+        }
+      ]
+    },
+    "propertyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Name"
+        },
+        {
+          "description": "The name of the property."
+        }
+      ]
+    }
+  },
+  "required": [
+    "propertyName"
+  ]
+}

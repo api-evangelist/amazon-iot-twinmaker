@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-column-type-schema.json",
+  "title": "ColumnType",
+  "description": "ColumnType schema",
+  "type": "string",
+  "enum": [
+    "NODE",
+    "EDGE",
+    "VALUE"
+  ]
+}

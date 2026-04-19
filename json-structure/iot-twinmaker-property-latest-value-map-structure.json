@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-latest-value-map-structure.json",
+  "name": "PropertyLatestValueMap",
+  "description": "PropertyLatestValueMap schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "propertyReference"
+    ],
+    "properties": {
+      "propertyReference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntityPropertyReference"
+          },
+          {
+            "description": "An object that specifies information about a property."
+          }
+        ]
+      },
+      "propertyValue": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DataValue"
+          },
+          {
+            "description": "The value of the property."
+          }
+        ]
+      }
+    },
+    "description": "The latest value of the property."
+  }
+}

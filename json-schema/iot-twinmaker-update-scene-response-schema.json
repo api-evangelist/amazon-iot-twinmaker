@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-update-scene-response-schema.json",
+  "title": "UpdateSceneResponse",
+  "description": "UpdateSceneResponse schema",
+  "type": "object",
+  "properties": {
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the scene was last updated."
+        }
+      ]
+    }
+  },
+  "required": [
+    "updateDateTime"
+  ]
+}

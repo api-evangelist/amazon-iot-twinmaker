@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-component-property-group-response-structure.json",
+  "name": "ComponentPropertyGroupResponse",
+  "description": "The component property group response.",
+  "type": "object",
+  "properties": {
+    "groupType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GroupType"
+        },
+        {
+          "description": "The group type."
+        }
+      ]
+    },
+    "propertyNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyNames"
+        },
+        {
+          "description": "The names of properties"
+        }
+      ]
+    },
+    "isInherited": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property group is inherited from a parent entity"
+        }
+      ]
+    }
+  },
+  "required": [
+    "groupType",
+    "propertyNames",
+    "isInherited"
+  ]
+}

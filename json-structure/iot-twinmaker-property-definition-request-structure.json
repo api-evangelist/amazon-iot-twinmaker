@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-definition-request-structure.json",
+  "name": "PropertyDefinitionRequest",
+  "description": "An object that sets information about a property.",
+  "type": "object",
+  "properties": {
+    "dataType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataType"
+        },
+        {
+          "description": "An object that contains information about the data type."
+        }
+      ]
+    },
+    "isRequiredInEntity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property is required."
+        }
+      ]
+    },
+    "isExternalId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property ID comes from an external data store."
+        }
+      ]
+    },
+    "isStoredExternally": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property is stored externally."
+        }
+      ]
+    },
+    "isTimeSeries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property consists of time series data."
+        }
+      ]
+    },
+    "defaultValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "An object that contains the default value."
+        }
+      ]
+    },
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Configuration"
+        },
+        {
+          "description": "A mapping that specifies configuration information about the property. Use this field to specify information that you read from and write to an external source."
+        }
+      ]
+    },
+    "displayName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDisplayName"
+        },
+        {
+          "description": "A friendly name for the property."
+        }
+      ]
+    }
+  }
+}

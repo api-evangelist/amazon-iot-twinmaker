@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-list-scenes-response-structure.json",
+  "name": "ListScenesResponse",
+  "description": "ListScenesResponse schema",
+  "type": "object",
+  "properties": {
+    "sceneSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SceneSummaries"
+        },
+        {
+          "description": "A list of objects that contain information about the scenes."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    }
+  }
+}

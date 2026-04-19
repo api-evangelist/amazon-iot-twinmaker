@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-tabular-property-values-schema.json",
+  "title": "TabularPropertyValues",
+  "description": "TabularPropertyValues schema",
+  "type": "array",
+  "items": {
+    "type": "array",
+    "items": {
+      "$ref": "#/components/schemas/PropertyTableValue"
+    }
+  }
+}

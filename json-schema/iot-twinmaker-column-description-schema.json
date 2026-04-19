@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-column-description-schema.json",
+  "title": "ColumnDescription",
+  "description": "A description of the column in the query results.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ColumnName"
+        },
+        {
+          "description": "The name of the column description."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ColumnType"
+        },
+        {
+          "description": "The type of the column description."
+        }
+      ]
+    }
+  }
+}

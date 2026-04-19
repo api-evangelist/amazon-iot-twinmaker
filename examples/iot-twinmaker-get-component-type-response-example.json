@@ -1,0 +1,18 @@
+{
+  "workspaceId": "id-abc123",
+  "isSingleton": "example-value",
+  "componentTypeId": "id-abc123",
+  "description": "example-value",
+  "propertyDefinitions": "example-value",
+  "extendsFrom": "example-value",
+  "functions": "example-value",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "isAbstract": "example-value",
+  "isSchemaInitialized": "example-value",
+  "status": "ACTIVE",
+  "propertyGroups": "example-value",
+  "syncSource": "example-value",
+  "componentTypeName": "example-resource"
+}

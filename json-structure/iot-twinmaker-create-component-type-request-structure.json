@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-create-component-type-request-structure.json",
+  "name": "CreateComponentTypeRequest",
+  "description": "CreateComponentTypeRequest schema",
+  "type": "object",
+  "properties": {
+    "isSingleton": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether an entity can have more than one component of this type."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the component type."
+        }
+      ]
+    },
+    "propertyDefinitions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDefinitionsRequest"
+        },
+        {
+          "description": "An object that maps strings to the property definitions in the component type. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "extendsFrom": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExtendsFrom"
+        },
+        {
+          "description": "Specifies the parent component type to extend."
+        }
+      ]
+    },
+    "functions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FunctionsRequest"
+        },
+        {
+          "description": "An object that maps strings to the functions in the component type. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Metadata that you can use to manage the component type."
+        }
+      ]
+    },
+    "propertyGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyGroupsRequest"
+        },
+        {
+          "description": "<p/>"
+        }
+      ]
+    },
+    "componentTypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeName"
+        },
+        {
+          "description": "A friendly name for the component type."
+        }
+      ]
+    }
+  }
+}

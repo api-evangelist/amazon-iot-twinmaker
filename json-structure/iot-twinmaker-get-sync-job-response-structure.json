@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-sync-job-response-structure.json",
+  "name": "GetSyncJobResponse",
+  "description": "GetSyncJobResponse schema",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The sync job ARN."
+        }
+      ]
+    },
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace that contains the sync job."
+        }
+      ]
+    },
+    "syncSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncSource"
+        },
+        {
+          "description": "<p>The sync soucre.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p> </note>"
+        }
+      ]
+    },
+    "syncRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The sync IAM role."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncJobStatus"
+        },
+        {
+          "description": "The SyncJob response status."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The creation date and time."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The update date and time."
+        }
+      ]
+    }
+  },
+  "required": [
+    "arn",
+    "workspaceId",
+    "syncSource",
+    "syncRole",
+    "status",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

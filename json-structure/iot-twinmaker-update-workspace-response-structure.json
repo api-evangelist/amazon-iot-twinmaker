@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-workspace-response-structure.json",
+  "name": "UpdateWorkspaceResponse",
+  "description": "UpdateWorkspaceResponse schema",
+  "type": "object",
+  "properties": {
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time of the current update."
+        }
+      ]
+    }
+  },
+  "required": [
+    "updateDateTime"
+  ]
+}

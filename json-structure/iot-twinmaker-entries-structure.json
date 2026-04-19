@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-entries-structure.json",
+  "name": "Entries",
+  "description": "Entries schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "entityPropertyReference"
+    ],
+    "properties": {
+      "entityPropertyReference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EntityPropertyReference"
+          },
+          {
+            "description": "An object that contains information about the entity that has the property."
+          }
+        ]
+      },
+      "propertyValues": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PropertyValues"
+          },
+          {
+            "description": "A list of objects that specify time series property values."
+          }
+        ]
+      }
+    },
+    "description": "An object that specifies information about time series property values. This object is used and consumed by the <a href=\"https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html\">BatchPutPropertyValues</a> action."
+  }
+}

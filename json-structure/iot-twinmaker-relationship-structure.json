@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-relationship-structure.json",
+  "name": "Relationship",
+  "description": "An object that specifies a relationship with another component type.",
+  "type": "object",
+  "properties": {
+    "targetComponentTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeId"
+        },
+        {
+          "description": "The ID of the target component type associated with this relationship."
+        }
+      ]
+    },
+    "relationshipType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The type of the relationship."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-component-type-summary-structure.json",
+  "name": "ComponentTypeSummary",
+  "description": "An object that contains information about a component type.",
+  "type": "object",
+  "properties": {
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the component type."
+        }
+      ]
+    },
+    "componentTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeId"
+        },
+        {
+          "description": "The ID of the component type."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the component type was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the component type was last updated."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the component type."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The current status of the component type."
+        }
+      ]
+    },
+    "componentTypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeName"
+        },
+        {
+          "description": "The component type name."
+        }
+      ]
+    }
+  },
+  "required": [
+    "arn",
+    "componentTypeId",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

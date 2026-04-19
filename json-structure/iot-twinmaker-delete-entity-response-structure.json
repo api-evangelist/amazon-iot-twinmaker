@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-delete-entity-response-structure.json",
+  "name": "DeleteEntityResponse",
+  "description": "DeleteEntityResponse schema",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the deleted entity."
+        }
+      ]
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-list-entities-filter-structure.json",
+  "name": "ListEntitiesFilter",
+  "description": "An object that filters items in a list of entities.",
+  "type": "object",
+  "properties": {
+    "parentEntityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParentEntityId"
+        },
+        {
+          "description": "The parent of the entities in the list."
+        }
+      ]
+    },
+    "componentTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeId"
+        },
+        {
+          "description": "The ID of the component type in the entities in the list."
+        }
+      ]
+    },
+    "externalId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The external-Id property of a component. The external-Id property is the primary key of an external storage system."
+        }
+      ]
+    }
+  }
+}

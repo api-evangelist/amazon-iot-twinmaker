@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-property-group-response-schema.json",
+  "title": "PropertyGroupResponse",
+  "description": "The property group response",
+  "type": "object",
+  "properties": {
+    "groupType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GroupType"
+        },
+        {
+          "description": "The group types."
+        }
+      ]
+    },
+    "propertyNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyNames"
+        },
+        {
+          "description": "The names of properties."
+        }
+      ]
+    },
+    "isInherited": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property group is inherited from a parent entity"
+        }
+      ]
+    }
+  },
+  "required": [
+    "groupType",
+    "propertyNames",
+    "isInherited"
+  ]
+}

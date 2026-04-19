@@ -1,0 +1,6 @@
+{
+  "entityId": "id-abc123",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "state": "example-value"
+}

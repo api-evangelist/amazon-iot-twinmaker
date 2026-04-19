@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-selected-property-list-schema.json",
+  "title": "SelectedPropertyList",
+  "description": "SelectedPropertyList schema",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "pattern": ".*",
+    "minLength": 1,
+    "maxLength": 256
+  }
+}

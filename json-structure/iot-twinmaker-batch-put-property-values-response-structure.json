@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-batch-put-property-values-response-structure.json",
+  "name": "BatchPutPropertyValuesResponse",
+  "description": "BatchPutPropertyValuesResponse schema",
+  "type": "object",
+  "properties": {
+    "errorEntries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorEntries"
+        },
+        {
+          "description": "Entries that caused errors in the batch put operation."
+        }
+      ]
+    }
+  },
+  "required": [
+    "errorEntries"
+  ]
+}

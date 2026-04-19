@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-update-component-type-response-schema.json",
+  "title": "UpdateComponentTypeResponse",
+  "description": "UpdateComponentTypeResponse schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace that contains the component type."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the component type."
+        }
+      ]
+    },
+    "componentTypeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentTypeId"
+        },
+        {
+          "description": "The ID of the component type."
+        }
+      ]
+    },
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the component type."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "arn",
+    "componentTypeId",
+    "state"
+  ]
+}

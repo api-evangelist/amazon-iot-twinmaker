@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-response-structure.json",
+  "name": "PropertyResponse",
+  "description": "An object that contains information about a property response.",
+  "type": "object",
+  "properties": {
+    "definition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDefinitionResponse"
+        },
+        {
+          "description": "An object that specifies information about a property."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "The value of the property."
+        }
+      ]
+    }
+  }
+}

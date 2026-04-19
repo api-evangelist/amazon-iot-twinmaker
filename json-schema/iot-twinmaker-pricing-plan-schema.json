@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-pricing-plan-schema.json",
+  "title": "PricingPlan",
+  "description": "The pricing plan.",
+  "type": "object",
+  "properties": {
+    "billableEntityCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Long"
+        },
+        {
+          "description": "The billable entity count."
+        }
+      ]
+    },
+    "bundleInformation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BundleInformation"
+        },
+        {
+          "description": "The pricing plan's bundle information."
+        }
+      ]
+    },
+    "effectiveDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The effective date and time of the pricing plan."
+        }
+      ]
+    },
+    "pricingMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingMode"
+        },
+        {
+          "description": "The pricing mode."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The set date and time for updating a pricing plan."
+        }
+      ]
+    },
+    "updateReason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateReason"
+        },
+        {
+          "description": "The update reason for changing a pricing plan."
+        }
+      ]
+    }
+  },
+  "required": [
+    "effectiveDateTime",
+    "pricingMode",
+    "updateDateTime",
+    "updateReason"
+  ]
+}

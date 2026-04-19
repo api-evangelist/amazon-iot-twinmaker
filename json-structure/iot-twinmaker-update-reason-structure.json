@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-reason-structure.json",
+  "name": "UpdateReason",
+  "description": "UpdateReason schema",
+  "type": "string",
+  "enum": [
+    "DEFAULT",
+    "PRICING_TIER_UPDATE",
+    "ENTITY_COUNT_UPDATE",
+    "PRICING_MODE_UPDATE",
+    "OVERWRITTEN"
+  ]
+}

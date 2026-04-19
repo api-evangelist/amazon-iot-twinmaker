@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-definition-response-structure.json",
+  "name": "PropertyDefinitionResponse",
+  "description": "An object that contains response data from a property definition request.",
+  "type": "object",
+  "properties": {
+    "dataType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataType"
+        },
+        {
+          "description": "An object that contains information about the data type."
+        }
+      ]
+    },
+    "isTimeSeries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property consists of time series data."
+        }
+      ]
+    },
+    "isRequiredInEntity": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property is required in an entity."
+        }
+      ]
+    },
+    "isExternalId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property ID comes from an external data store."
+        }
+      ]
+    },
+    "isStoredExternally": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property is stored externally."
+        }
+      ]
+    },
+    "isImported": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property definition is imported from an external data store."
+        }
+      ]
+    },
+    "isFinal": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property definition can be updated."
+        }
+      ]
+    },
+    "isInherited": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the property definition is inherited from a parent entity."
+        }
+      ]
+    },
+    "defaultValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "An object that contains the default value."
+        }
+      ]
+    },
+    "configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Configuration"
+        },
+        {
+          "description": "A mapping that specifies configuration information about the property."
+        }
+      ]
+    },
+    "displayName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDisplayName"
+        },
+        {
+          "description": "A friendly name for the property."
+        }
+      ]
+    }
+  },
+  "required": [
+    "dataType",
+    "isTimeSeries",
+    "isRequiredInEntity",
+    "isExternalId",
+    "isStoredExternally",
+    "isImported",
+    "isFinal",
+    "isInherited"
+  ]
+}

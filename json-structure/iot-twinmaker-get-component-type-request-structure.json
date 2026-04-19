@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-component-type-request-structure.json",
+  "name": "GetComponentTypeRequest",
+  "description": "GetComponentTypeRequest schema",
+  "type": "object",
+  "properties": {}
+}

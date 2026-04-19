@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-error-entries-structure.json",
+  "name": "ErrorEntries",
+  "description": "ErrorEntries schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "errors"
+    ],
+    "properties": {
+      "errors": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Errors"
+          },
+          {
+            "description": "A list of objects that contain information about errors returned by the <code>BatchPutProperty</code> action."
+          }
+        ]
+      }
+    },
+    "description": "An object that contains information about errors returned by the <code>BatchPutProperty</code> action."
+  }
+}

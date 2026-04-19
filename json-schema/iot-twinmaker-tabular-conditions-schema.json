@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-tabular-conditions-schema.json",
+  "title": "TabularConditions",
+  "description": "The tabular conditions.",
+  "type": "object",
+  "properties": {
+    "orderBy": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OrderByList"
+        },
+        {
+          "description": "Filter criteria that orders the output. It can be sorted in ascending or descending order."
+        }
+      ]
+    },
+    "propertyFilters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyFilters"
+        },
+        {
+          "description": "<p>You can filter the request using various logical operators and a key-value format. For example:</p> <p> <code>{\"key\": \"serverType\", \"value\": \"webServer\"}</code> </p>"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-update-workspace-request-structure.json",
+  "name": "UpdateWorkspaceRequest",
+  "description": "UpdateWorkspaceRequest schema",
+  "type": "object",
+  "properties": {
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the workspace."
+        }
+      ]
+    },
+    "role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the execution role associated with the workspace."
+        }
+      ]
+    }
+  }
+}

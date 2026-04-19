@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-sync-job-status-structure.json",
+  "name": "SyncJobStatus",
+  "description": "The SyncJob status.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncJobState"
+        },
+        {
+          "description": "The SyncJob status state."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorDetails"
+        },
+        {
+          "description": "The SyncJob error."
+        }
+      ]
+    }
+  }
+}

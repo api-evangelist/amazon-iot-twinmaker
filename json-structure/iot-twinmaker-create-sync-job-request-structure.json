@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-create-sync-job-request-structure.json",
+  "name": "CreateSyncJobRequest",
+  "description": "CreateSyncJobRequest schema",
+  "type": "object",
+  "properties": {
+    "syncRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The SyncJob IAM role. This IAM role is used by the SyncJob to read from the syncSource, and create, update, or delete the corresponding resources."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The SyncJob tags."
+        }
+      ]
+    }
+  },
+  "required": [
+    "syncRole"
+  ]
+}

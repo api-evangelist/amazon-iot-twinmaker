@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-component-update-type-structure.json",
+  "name": "ComponentUpdateType",
+  "description": "ComponentUpdateType schema",
+  "type": "string",
+  "enum": [
+    "CREATE",
+    "UPDATE",
+    "DELETE"
+  ]
+}

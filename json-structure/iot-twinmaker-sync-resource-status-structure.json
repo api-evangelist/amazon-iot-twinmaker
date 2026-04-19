@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-sync-resource-status-structure.json",
+  "name": "SyncResourceStatus",
+  "description": "The sync resource status.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncResourceState"
+        },
+        {
+          "description": "The sync resource status state."
+        }
+      ]
+    },
+    "error": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorDetails"
+        },
+        {
+          "description": "The status error."
+        }
+      ]
+    }
+  }
+}

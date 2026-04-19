@@ -1,0 +1,8 @@
+{
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "workspaceId": "id-abc123",
+  "syncSource": "example-value",
+  "status": "ACTIVE",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z"
+}

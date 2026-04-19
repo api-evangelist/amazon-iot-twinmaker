@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-generated-scene-metadata-map-schema.json",
+  "title": "GeneratedSceneMetadataMap",
+  "description": "GeneratedSceneMetadataMap schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "string",
+    "pattern": ".*",
+    "minLength": 0,
+    "maxLength": 2048
+  }
+}

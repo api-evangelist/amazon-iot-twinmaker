@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-property-request-schema.json",
+  "title": "PropertyRequest",
+  "description": "An object that sets information about a property.",
+  "type": "object",
+  "properties": {
+    "definition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyDefinitionRequest"
+        },
+        {
+          "description": "An object that specifies information about a property."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "The value of the property."
+        }
+      ]
+    },
+    "updateType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyUpdateType"
+        },
+        {
+          "description": "The update type of the update property request."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-get-workspace-response-schema.json",
+  "title": "GetWorkspaceResponse",
+  "description": "GetWorkspaceResponse schema",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the workspace."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the workspace."
+        }
+      ]
+    },
+    "s3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Location"
+        },
+        {
+          "description": "The ARN of the S3 bucket where resources associated with the workspace are stored."
+        }
+      ]
+    },
+    "role": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleArn"
+        },
+        {
+          "description": "The ARN of the execution role associated with the workspace."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the workspace was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the workspace was last updated."
+        }
+      ]
+    }
+  },
+  "required": [
+    "workspaceId",
+    "arn",
+    "s3Location",
+    "role",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

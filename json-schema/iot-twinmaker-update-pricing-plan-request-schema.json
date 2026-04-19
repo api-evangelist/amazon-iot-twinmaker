@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-update-pricing-plan-request-schema.json",
+  "title": "UpdatePricingPlanRequest",
+  "description": "UpdatePricingPlanRequest schema",
+  "type": "object",
+  "properties": {
+    "pricingMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingMode"
+        },
+        {
+          "description": "The pricing mode."
+        }
+      ]
+    },
+    "bundleNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingBundles"
+        },
+        {
+          "description": "The bundle names."
+        }
+      ]
+    }
+  },
+  "required": [
+    "pricingMode"
+  ]
+}

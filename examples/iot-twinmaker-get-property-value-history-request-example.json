@@ -1,0 +1,15 @@
+{
+  "entityId": "id-abc123",
+  "componentName": "example-resource",
+  "componentTypeId": "id-abc123",
+  "selectedProperties": "example-value",
+  "propertyFilters": "example-value",
+  "startDateTime": "2025-03-15T14:30:00Z",
+  "endDateTime": "2025-03-15T14:30:00Z",
+  "interpolation": "example-value",
+  "nextToken": "example-value",
+  "maxResults": "example-value",
+  "orderByTime": "2025-03-15T14:30:00Z",
+  "startTime": "2025-03-15T14:30:00Z",
+  "endTime": "2025-03-15T14:30:00Z"
+}

@@ -1,0 +1,141 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Amazon IoT TwinMaker API
+  description: Create digital twins of physical systems and environments.
+  tags:
+    - IoT
+    - AWS
+    - Digital Twin
+    - Industrial IoT
+    - 3D Visualization
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: iot-twinmaker
+      baseUri: https://iottwinmaker.amazonaws.com
+      description: Amazon IoT TwinMaker REST API
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: resources
+          path: /
+          description: Amazon IoT TwinMaker resources
+          operations:
+            - name: list-workspaces
+              method: GET
+              description: List Workspaces
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: iot-twinmaker-rest
+      resources:
+        - path: /v1/resources
+          name: resources
+          description: Amazon IoT TwinMaker resources
+          operations:
+            - method: GET
+              name: list-workspaces
+              description: List Workspaces
+              call: "iot-twinmaker.list-workspaces"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9100
+      namespace: iot-twinmaker-mcp
+      transport: http
+      tools:
+        - name: list-workspaces
+          description: Amazon IoT TwinMaker List Workspaces
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-twinmaker.list-workspaces"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-workspace
+          description: Amazon IoT TwinMaker Create Workspace
+          hints:
+            readOnly: false
+            
+          call: "iot-twinmaker.create-workspace"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-scenes
+          description: Amazon IoT TwinMaker List Scenes
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-twinmaker.list-scenes"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-scene
+          description: Amazon IoT TwinMaker Create Scene
+          hints:
+            readOnly: false
+            
+          call: "iot-twinmaker.create-scene"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-entities
+          description: Amazon IoT TwinMaker List Entities
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-twinmaker.list-entities"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-entity
+          description: Amazon IoT TwinMaker Create Entity
+          hints:
+            readOnly: false
+            
+          call: "iot-twinmaker.create-entity"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-components
+          description: Amazon IoT TwinMaker List Components
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "iot-twinmaker.list-components"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: update-entity
+          description: Amazon IoT TwinMaker Update Entity
+          hints:
+            readOnly: false
+            
+          call: "iot-twinmaker.update-entity"
+          outputParameters:
+            - type: object
+              mapping: "$."

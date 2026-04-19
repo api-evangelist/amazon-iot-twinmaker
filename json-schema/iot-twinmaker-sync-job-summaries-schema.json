@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-sync-job-summaries-schema.json",
+  "title": "SyncJobSummaries",
+  "description": "SyncJobSummaries schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "arn": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TwinMakerArn"
+          },
+          {
+            "description": "The SyncJob summary ARN."
+          }
+        ]
+      },
+      "workspaceId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Id"
+          },
+          {
+            "description": "The ID of the workspace that contains the sync job."
+          }
+        ]
+      },
+      "syncSource": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SyncSource"
+          },
+          {
+            "description": "The sync source."
+          }
+        ]
+      },
+      "status": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SyncJobStatus"
+          },
+          {
+            "description": "The SyncJob summaries status."
+          }
+        ]
+      },
+      "creationDateTime": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "The creation date and time."
+          }
+        ]
+      },
+      "updateDateTime": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Timestamp"
+          },
+          {
+            "description": "The update date and time."
+          }
+        ]
+      }
+    },
+    "description": "The SyncJob summary."
+  }
+}

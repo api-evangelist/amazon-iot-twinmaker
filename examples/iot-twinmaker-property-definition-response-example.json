@@ -1,0 +1,13 @@
+{
+  "dataType": "example-value",
+  "isTimeSeries": "2025-03-15T14:30:00Z",
+  "isRequiredInEntity": "example-value",
+  "isExternalId": "id-abc123",
+  "isStoredExternally": "example-value",
+  "isImported": "example-value",
+  "isFinal": "example-value",
+  "isInherited": "example-value",
+  "defaultValue": "example-value",
+  "configuration": "example-value",
+  "displayName": "example-resource"
+}

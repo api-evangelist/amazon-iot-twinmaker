@@ -1,0 +1,7 @@
+{
+  "workspaceId": "id-abc123",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "description": "example-value",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z"
+}

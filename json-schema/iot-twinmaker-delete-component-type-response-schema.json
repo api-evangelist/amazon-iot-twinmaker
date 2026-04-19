@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-delete-component-type-response-schema.json",
+  "title": "DeleteComponentTypeResponse",
+  "description": "DeleteComponentTypeResponse schema",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The current state of the component type to be deleted."
+        }
+      ]
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

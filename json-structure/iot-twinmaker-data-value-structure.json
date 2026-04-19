@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-data-value-structure.json",
+  "name": "DataValue",
+  "description": "An object that specifies a value for a property.",
+  "type": "object",
+  "properties": {
+    "booleanValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value."
+        }
+      ]
+    },
+    "doubleValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Double"
+        },
+        {
+          "description": "A double value."
+        }
+      ]
+    },
+    "integerValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Integer"
+        },
+        {
+          "description": "An integer value."
+        }
+      ]
+    },
+    "longValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Long"
+        },
+        {
+          "description": "A long value."
+        }
+      ]
+    },
+    "stringValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "A string value."
+        }
+      ]
+    },
+    "listValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValueList"
+        },
+        {
+          "description": "A list of multiple values."
+        }
+      ]
+    },
+    "mapValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValueMap"
+        },
+        {
+          "description": "An object that maps strings to multiple <code>DataValue</code> objects."
+        }
+      ]
+    },
+    "relationshipValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RelationshipValue"
+        },
+        {
+          "description": "A value that relates a component to another component."
+        }
+      ]
+    },
+    "expression": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Expression"
+        },
+        {
+          "description": "An expression that produces the value."
+        }
+      ]
+    }
+  }
+}

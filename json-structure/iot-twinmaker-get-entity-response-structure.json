@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-get-entity-response-structure.json",
+  "name": "GetEntityResponse",
+  "description": "GetEntityResponse schema",
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityId"
+        },
+        {
+          "description": "The ID of the entity."
+        }
+      ]
+    },
+    "entityName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityName"
+        },
+        {
+          "description": "The name of the entity."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the entity."
+        }
+      ]
+    },
+    "status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The current status of the entity."
+        }
+      ]
+    },
+    "workspaceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the workspace."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The description of the entity."
+        }
+      ]
+    },
+    "components": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComponentsMap"
+        },
+        {
+          "description": "An object that maps strings to the components in the entity. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "parentEntityId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParentEntityId"
+        },
+        {
+          "description": "The ID of the parent entity for this entity."
+        }
+      ]
+    },
+    "hasChildEntities": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "A Boolean value that specifies whether the entity has associated child entities."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the entity was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the entity was last updated."
+        }
+      ]
+    },
+    "syncSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncSource"
+        },
+        {
+          "description": "The syncSource of the sync job, if this entity was created by a sync job."
+        }
+      ]
+    }
+  },
+  "required": [
+    "entityId",
+    "entityName",
+    "arn",
+    "status",
+    "workspaceId",
+    "parentEntityId",
+    "hasChildEntities",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

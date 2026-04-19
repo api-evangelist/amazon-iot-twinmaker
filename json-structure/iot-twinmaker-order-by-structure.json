@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-order-by-structure.json",
+  "name": "OrderBy",
+  "description": "Filter criteria that orders the return output. It can be sorted in ascending or descending order.",
+  "type": "object",
+  "properties": {
+    "order": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Order"
+        },
+        {
+          "description": "The set order that filters results."
+        }
+      ]
+    },
+    "propertyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The property name."
+        }
+      ]
+    }
+  },
+  "required": [
+    "propertyName"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-get-property-value-response-schema.json",
+  "title": "GetPropertyValueResponse",
+  "description": "GetPropertyValueResponse schema",
+  "type": "object",
+  "properties": {
+    "propertyValues": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyLatestValueMap"
+        },
+        {
+          "description": "An object that maps strings to the properties and latest property values in the response. Each string in the mapping must be unique to this object."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    },
+    "tabularPropertyValues": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TabularPropertyValues"
+        },
+        {
+          "description": "A table of property values."
+        }
+      ]
+    }
+  }
+}

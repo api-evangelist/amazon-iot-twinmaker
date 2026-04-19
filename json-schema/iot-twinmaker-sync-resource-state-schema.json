@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-sync-resource-state-schema.json",
+  "title": "SyncResourceState",
+  "description": "SyncResourceState schema",
+  "type": "string",
+  "enum": [
+    "INITIALIZING",
+    "PROCESSING",
+    "DELETED",
+    "IN_SYNC",
+    "ERROR"
+  ]
+}

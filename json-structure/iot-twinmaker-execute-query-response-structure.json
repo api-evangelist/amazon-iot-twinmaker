@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-execute-query-response-structure.json",
+  "name": "ExecuteQueryResponse",
+  "description": "ExecuteQueryResponse schema",
+  "type": "object",
+  "properties": {
+    "columnDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ColumnDescriptions"
+        },
+        {
+          "description": "A list of ColumnDescription objects."
+        }
+      ]
+    },
+    "rows": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Rows"
+        },
+        {
+          "description": "Represents a single row in the query results."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    }
+  }
+}

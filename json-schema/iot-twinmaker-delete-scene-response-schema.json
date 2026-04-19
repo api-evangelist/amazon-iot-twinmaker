@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-delete-scene-response-schema.json",
+  "title": "DeleteSceneResponse",
+  "description": "DeleteSceneResponse schema",
+  "type": "object",
+  "properties": {}
+}

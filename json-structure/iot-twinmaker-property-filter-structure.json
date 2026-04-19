@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-property-filter-structure.json",
+  "name": "PropertyFilter",
+  "description": "An object that filters items returned by a property request.",
+  "type": "object",
+  "properties": {
+    "propertyName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The property name associated with this property filter."
+        }
+      ]
+    },
+    "operator": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/String"
+        },
+        {
+          "description": "The operator associated with this property filter."
+        }
+      ]
+    },
+    "value": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "The value associated with this property filter."
+        }
+      ]
+    }
+  }
+}

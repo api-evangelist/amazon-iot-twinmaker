@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-components-map-request-schema.json",
+  "title": "ComponentsMapRequest",
+  "description": "ComponentsMapRequest schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "description": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Description"
+          },
+          {
+            "description": "The description of the component request."
+          }
+        ]
+      },
+      "componentTypeId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentTypeId"
+          },
+          {
+            "description": "The ID of the component type."
+          }
+        ]
+      },
+      "properties": {
+        "description": "An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object."
+      },
+      "propertyGroups": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentPropertyGroupRequests"
+          },
+          {
+            "description": "The property groups."
+          }
+        ]
+      }
+    },
+    "description": "An object that sets information about a component type create or update request."
+  }
+}

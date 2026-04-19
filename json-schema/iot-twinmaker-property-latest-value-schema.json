@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-property-latest-value-schema.json",
+  "title": "PropertyLatestValue",
+  "description": "The latest value of the property.",
+  "type": "object",
+  "properties": {
+    "propertyReference": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EntityPropertyReference"
+        },
+        {
+          "description": "An object that specifies information about a property."
+        }
+      ]
+    },
+    "propertyValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataValue"
+        },
+        {
+          "description": "The value of the property."
+        }
+      ]
+    }
+  },
+  "required": [
+    "propertyReference"
+  ]
+}

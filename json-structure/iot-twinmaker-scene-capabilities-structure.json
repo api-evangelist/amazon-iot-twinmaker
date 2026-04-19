@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-scene-capabilities-structure.json",
+  "name": "SceneCapabilities",
+  "description": "SceneCapabilities schema",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "pattern": ".*",
+    "minLength": 0,
+    "maxLength": 256
+  }
+}

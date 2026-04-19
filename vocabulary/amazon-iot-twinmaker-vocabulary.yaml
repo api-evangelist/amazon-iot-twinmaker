@@ -1,0 +1,67 @@
+vocabulary: "1.0.0"
+info:
+  provider: Amazon IoT TwinMaker
+  description: Vocabulary for Amazon IoT TwinMaker covering all API resources and operations.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+operational:
+  apis:
+    - namespace: iot-twinmaker
+      version: "2024-01-01"
+      baseUrl: https://iottwinmaker.amazonaws.com
+      status: active
+  resources:
+    - name: resources
+      api: iot-twinmaker
+      actions: [list, create, delete, get, update]
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+    - name: create
+      methods: [POST]
+      pattern: write
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: update
+      methods: [PUT, PATCH]
+      pattern: write
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        placement: header
+capability:
+  workflows:
+    - name: Digital Twin Management
+      file: capabilities/digital-twin-management.yaml
+      apis: [iot-twinmaker]
+      toolCount: 8
+      personas: [Solutions Architect, Industrial Engineer]
+  personas:
+    - id: primary-persona
+      name: Solutions Architect
+      description: Manages Amazon IoT TwinMaker resources and operations
+  domains:
+    - name: IoT
+      description: Create digital twins of physical systems and environments.
+  namespaces:
+    - name: iot-twinmaker
+      type: consumed
+    - name: digital-twin-management-api
+      type: rest
+      port: 8080
+    - name: digital-twin-management-mcp
+      type: mcp
+      port: 9090
+  binds:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+crossReference:
+  - resource: resources
+    operations: [listworkspaces, createworkspace, listscenes, createscene]
+    workflows: [Digital Twin Management]
+    personas: [Solutions Architect, Industrial Engineer]

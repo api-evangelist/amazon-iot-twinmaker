@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-scene-summary-schema.json",
+  "title": "SceneSummary",
+  "description": "An object that contains information about a scene.",
+  "type": "object",
+  "properties": {
+    "sceneId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the scene."
+        }
+      ]
+    },
+    "contentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Url"
+        },
+        {
+          "description": "The relative path that specifies the location of the content definition file."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TwinMakerArn"
+        },
+        {
+          "description": "The ARN of the scene."
+        }
+      ]
+    },
+    "creationDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the scene was created."
+        }
+      ]
+    },
+    "updateDateTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the scene was last updated."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The scene description."
+        }
+      ]
+    }
+  },
+  "required": [
+    "sceneId",
+    "contentLocation",
+    "arn",
+    "creationDateTime",
+    "updateDateTime"
+  ]
+}

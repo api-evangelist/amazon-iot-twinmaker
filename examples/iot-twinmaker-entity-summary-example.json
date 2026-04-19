@@ -1,0 +1,11 @@
+{
+  "entityId": "id-abc123",
+  "entityName": "example-resource",
+  "arn": "arn:aws:iot:us-east-1:123456789012:thing/example",
+  "parentEntityId": "id-abc123",
+  "status": "ACTIVE",
+  "description": "example-value",
+  "hasChildEntities": "example-value",
+  "creationDateTime": "2025-03-15T14:30:00Z",
+  "updateDateTime": "2025-03-15T14:30:00Z"
+}

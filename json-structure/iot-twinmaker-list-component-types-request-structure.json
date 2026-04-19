@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-list-component-types-request-structure.json",
+  "name": "ListComponentTypesRequest",
+  "description": "ListComponentTypesRequest schema",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListComponentTypesFilters"
+        },
+        {
+          "description": "A list of objects that filter the request."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The string that specifies the next page of results."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "<p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>"
+        }
+      ]
+    }
+  }
+}

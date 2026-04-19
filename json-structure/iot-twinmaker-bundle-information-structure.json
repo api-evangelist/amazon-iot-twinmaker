@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-bundle-information-structure.json",
+  "name": "BundleInformation",
+  "description": "Information about the pricing bundle.",
+  "type": "object",
+  "properties": {
+    "bundleNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingBundles"
+        },
+        {
+          "description": "The bundle names."
+        }
+      ]
+    },
+    "pricingTier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PricingTier"
+        },
+        {
+          "description": "The pricing tier."
+        }
+      ]
+    }
+  },
+  "required": [
+    "bundleNames"
+  ]
+}

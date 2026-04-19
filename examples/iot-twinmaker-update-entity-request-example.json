@@ -1,0 +1,6 @@
+{
+  "entityName": "example-resource",
+  "description": "example-value",
+  "componentUpdates": "example-value",
+  "parentEntityUpdate": "example-value"
+}

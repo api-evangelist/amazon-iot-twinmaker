@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-schema/iot-twinmaker-component-property-group-requests-schema.json",
+  "title": "ComponentPropertyGroupRequests",
+  "description": "ComponentPropertyGroupRequests schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "groupType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/GroupType"
+          },
+          {
+            "description": "The group type."
+          }
+        ]
+      },
+      "propertyNames": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PropertyNames"
+          },
+          {
+            "description": "The property names."
+          }
+        ]
+      },
+      "updateType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PropertyGroupUpdateType"
+          },
+          {
+            "description": "The update type."
+          }
+        ]
+      }
+    },
+    "description": "The component property group request."
+  }
+}

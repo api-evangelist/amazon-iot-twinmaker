@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-external-id-property-structure.json",
+  "name": "ExternalIdProperty",
+  "description": "ExternalIdProperty schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "string",
+    "pattern": ".*",
+    "minLength": 1,
+    "maxLength": 256
+  }
+}

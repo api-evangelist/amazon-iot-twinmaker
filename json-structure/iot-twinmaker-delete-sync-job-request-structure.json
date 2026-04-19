@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/json-structure/iot-twinmaker-delete-sync-job-request-structure.json",
+  "name": "DeleteSyncJobRequest",
+  "description": "DeleteSyncJobRequest schema",
+  "type": "object",
+  "properties": {}
+}
