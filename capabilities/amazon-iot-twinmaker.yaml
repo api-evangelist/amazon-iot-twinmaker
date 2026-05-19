@@ -1,0 +1,1716 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS IoT TwinMaker
+  description: 'AWS IoT TwinMaker. 34 operations. Lead operation: Amazon IoT TwinMaker Get Pricing Plan. Self-contained Naftiko
+    capability covering one Amazon Iot Twinmaker business surface.'
+  tags:
+  - Amazon Iot Twinmaker
+  - AWS IoT TwinMaker
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_IOT_TWINMAKER_API_KEY: AMAZON_IOT_TWINMAKER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-iot-twinmaker
+    baseUri: http://iottwinmaker.{region}.amazonaws.com
+    description: AWS IoT TwinMaker business capability. Self-contained, no shared references.
+    resources:
+    - name: pricingplan
+      path: /pricingplan
+      operations:
+      - name: getpricingplan
+        method: GET
+        description: Amazon IoT TwinMaker Get Pricing Plan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatepricingplan
+        method: POST
+        description: Amazon IoT TwinMaker Update Pricing Plan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: queries-execution
+      path: /queries/execution
+      operations:
+      - name: executequery
+        method: POST
+        description: Amazon IoT TwinMaker Execute Query
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sync-jobs-syncSource
+      path: /sync-jobs/{syncSource}
+      operations:
+      - name: getsyncjob
+        method: GET
+        description: Amazon IoT TwinMaker Get Sync Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: syncSource
+          in: path
+          type: string
+          description: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
+            </note>
+          required: true
+        - name: workspace
+          in: query
+          type: string
+          description: The workspace ID.
+    - name: tags
+      path: /tags
+      operations:
+      - name: tagresource
+        method: POST
+        description: Amazon IoT TwinMaker Tag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags#resourceARN&tagKeys
+      path: /tags#resourceARN&tagKeys
+      operations:
+      - name: untagresource
+        method: DELETE
+        description: Amazon IoT TwinMaker Untag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resourceARN
+          in: query
+          type: string
+          description: The ARN of the resource.
+          required: true
+        - name: tagKeys
+          in: query
+          type: array
+          description: A list of tag key names to remove from the resource. You don't specify the value. Both the key and
+            its associated value are removed.
+          required: true
+    - name: tags-list
+      path: /tags-list
+      operations:
+      - name: listtagsforresource
+        method: POST
+        description: Amazon IoT TwinMaker List Tags for Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-list
+      path: /workspaces-list
+      operations:
+      - name: listworkspaces
+        method: POST
+        description: Amazon IoT TwinMaker List Workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId
+      path: /workspaces/{workspaceId}
+      operations:
+      - name: createworkspace
+        method: POST
+        description: Amazon IoT TwinMaker Create Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteworkspace
+        method: DELETE
+        description: Amazon IoT TwinMaker Delete Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace to delete.
+          required: true
+      - name: getworkspace
+        method: GET
+        description: Amazon IoT TwinMaker Get Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+      - name: updateworkspace
+        method: PUT
+        description: Amazon IoT TwinMaker Update Workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-component-types-list
+      path: /workspaces/{workspaceId}/component-types-list
+      operations:
+      - name: listcomponenttypes
+        method: POST
+        description: Amazon IoT TwinMaker List Component Types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-component-types-componentTypeId
+      path: /workspaces/{workspaceId}/component-types/{componentTypeId}
+      operations:
+      - name: createcomponenttype
+        method: POST
+        description: Amazon IoT TwinMaker Create Component Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the component type.
+          required: true
+        - name: componentTypeId
+          in: path
+          type: string
+          description: The ID of the component type.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecomponenttype
+        method: DELETE
+        description: Amazon IoT TwinMaker Delete Component Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the component type.
+          required: true
+        - name: componentTypeId
+          in: path
+          type: string
+          description: The ID of the component type to delete.
+          required: true
+      - name: getcomponenttype
+        method: GET
+        description: Amazon IoT TwinMaker Get Component Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the component type.
+          required: true
+        - name: componentTypeId
+          in: path
+          type: string
+          description: The ID of the component type.
+          required: true
+      - name: updatecomponenttype
+        method: PUT
+        description: Amazon IoT TwinMaker Update Component Type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: componentTypeId
+          in: path
+          type: string
+          description: The ID of the component type.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entities
+      path: /workspaces/{workspaceId}/entities
+      operations:
+      - name: createentity
+        method: POST
+        description: Amazon IoT TwinMaker Create Entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the entity.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entities-list
+      path: /workspaces/{workspaceId}/entities-list
+      operations:
+      - name: listentities
+        method: POST
+        description: Amazon IoT TwinMaker List Entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entities-entityId
+      path: /workspaces/{workspaceId}/entities/{entityId}
+      operations:
+      - name: deleteentity
+        method: DELETE
+        description: Amazon IoT TwinMaker Delete Entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the entity to delete.
+          required: true
+        - name: entityId
+          in: path
+          type: string
+          description: The ID of the entity to delete.
+          required: true
+        - name: isRecursive
+          in: query
+          type: boolean
+          description: A Boolean value that specifies whether the operation deletes child entities.
+      - name: getentity
+        method: GET
+        description: Amazon IoT TwinMaker Get Entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: entityId
+          in: path
+          type: string
+          description: The ID of the entity.
+          required: true
+      - name: updateentity
+        method: PUT
+        description: Amazon IoT TwinMaker Update Entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the entity.
+          required: true
+        - name: entityId
+          in: path
+          type: string
+          description: The ID of the entity.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entity-properties
+      path: /workspaces/{workspaceId}/entity-properties
+      operations:
+      - name: batchputpropertyvalues
+        method: POST
+        description: Amazon IoT TwinMaker Batch Put Property Values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the properties to set.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entity-properties-history
+      path: /workspaces/{workspaceId}/entity-properties/history
+      operations:
+      - name: getpropertyvaluehistory
+        method: POST
+        description: Amazon IoT TwinMaker Get Property Value History
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-entity-properties-value
+      path: /workspaces/{workspaceId}/entity-properties/value
+      operations:
+      - name: getpropertyvalue
+        method: POST
+        description: Amazon IoT TwinMaker Get Property Value
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace whose values the operation returns.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-scenes
+      path: /workspaces/{workspaceId}/scenes
+      operations:
+      - name: createscene
+        method: POST
+        description: Amazon IoT TwinMaker Create Scene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the scene.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-scenes-list
+      path: /workspaces/{workspaceId}/scenes-list
+      operations:
+      - name: listscenes
+        method: POST
+        description: Amazon IoT TwinMaker List Scenes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the scenes.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-scenes-sceneId
+      path: /workspaces/{workspaceId}/scenes/{sceneId}
+      operations:
+      - name: deletescene
+        method: DELETE
+        description: Amazon IoT TwinMaker Delete Scene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace.
+          required: true
+        - name: sceneId
+          in: path
+          type: string
+          description: The ID of the scene to delete.
+          required: true
+      - name: getscene
+        method: GET
+        description: Amazon IoT TwinMaker Get Scene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the scene.
+          required: true
+        - name: sceneId
+          in: path
+          type: string
+          description: The ID of the scene.
+          required: true
+      - name: updatescene
+        method: PUT
+        description: Amazon IoT TwinMaker Update Scene
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the scene.
+          required: true
+        - name: sceneId
+          in: path
+          type: string
+          description: The ID of the scene.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-sync-jobs-list
+      path: /workspaces/{workspaceId}/sync-jobs-list
+      operations:
+      - name: listsyncjobs
+        method: POST
+        description: Amazon IoT TwinMaker List Sync Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the sync job.
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-sync-jobs-syncSource
+      path: /workspaces/{workspaceId}/sync-jobs/{syncSource}
+      operations:
+      - name: createsyncjob
+        method: POST
+        description: Amazon IoT TwinMaker Create Sync Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The workspace ID.
+          required: true
+        - name: syncSource
+          in: path
+          type: string
+          description: <p>The sync source.</p> <note> <p>Currently the only supported syncSoource is <code>SITEWISE </code>.</p>
+            </note>
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletesyncjob
+        method: DELETE
+        description: Amazon IoT TwinMaker Delete Sync Job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The workspace ID.
+          required: true
+        - name: syncSource
+          in: path
+          type: string
+          description: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
+            </note>
+          required: true
+    - name: workspaces-workspaceId-sync-jobs-syncSource-resources-list
+      path: /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list
+      operations:
+      - name: listsyncresources
+        method: POST
+        description: Amazon IoT TwinMaker List Sync Resources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceId
+          in: path
+          type: string
+          description: The ID of the workspace that contains the sync job.
+          required: true
+        - name: syncSource
+          in: path
+          type: string
+          description: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
+            </note>
+          required: true
+        - name: maxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_IOT_TWINMAKER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-iot-twinmaker-rest
+    port: 8080
+    description: REST adapter for AWS IoT TwinMaker. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/pricingplan
+      name: pricingplan
+      description: REST surface for pricingplan.
+      operations:
+      - method: GET
+        name: getpricingplan
+        description: Amazon IoT TwinMaker Get Pricing Plan
+        call: amazon-iot-twinmaker.getpricingplan
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updatepricingplan
+        description: Amazon IoT TwinMaker Update Pricing Plan
+        call: amazon-iot-twinmaker.updatepricingplan
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/queries/execution
+      name: queries-execution
+      description: REST surface for queries-execution.
+      operations:
+      - method: POST
+        name: executequery
+        description: Amazon IoT TwinMaker Execute Query
+        call: amazon-iot-twinmaker.executequery
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sync-jobs/{syncsource}
+      name: sync-jobs-syncsource
+      description: REST surface for sync-jobs-syncSource.
+      operations:
+      - method: GET
+        name: getsyncjob
+        description: Amazon IoT TwinMaker Get Sync Job
+        call: amazon-iot-twinmaker.getsyncjob
+        with:
+          syncSource: rest.syncSource
+          workspace: rest.workspace
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags
+      name: tags
+      description: REST surface for tags.
+      operations:
+      - method: POST
+        name: tagresource
+        description: Amazon IoT TwinMaker Tag Resource
+        call: amazon-iot-twinmaker.tagresource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags-resourcearn-tagkeys
+      name: tags-resourcearn-tagkeys
+      description: REST surface for tags#resourceARN&tagKeys.
+      operations:
+      - method: DELETE
+        name: untagresource
+        description: Amazon IoT TwinMaker Untag Resource
+        call: amazon-iot-twinmaker.untagresource
+        with:
+          resourceARN: rest.resourceARN
+          tagKeys: rest.tagKeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags-list
+      name: tags-list
+      description: REST surface for tags-list.
+      operations:
+      - method: POST
+        name: listtagsforresource
+        description: Amazon IoT TwinMaker List Tags for Resource
+        call: amazon-iot-twinmaker.listtagsforresource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces-list
+      name: workspaces-list
+      description: REST surface for workspaces-list.
+      operations:
+      - method: POST
+        name: listworkspaces
+        description: Amazon IoT TwinMaker List Workspaces
+        call: amazon-iot-twinmaker.listworkspaces
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}
+      name: workspaces-workspaceid
+      description: REST surface for workspaces-workspaceId.
+      operations:
+      - method: POST
+        name: createworkspace
+        description: Amazon IoT TwinMaker Create Workspace
+        call: amazon-iot-twinmaker.createworkspace
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteworkspace
+        description: Amazon IoT TwinMaker Delete Workspace
+        call: amazon-iot-twinmaker.deleteworkspace
+        with:
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getworkspace
+        description: Amazon IoT TwinMaker Get Workspace
+        call: amazon-iot-twinmaker.getworkspace
+        with:
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateworkspace
+        description: Amazon IoT TwinMaker Update Workspace
+        call: amazon-iot-twinmaker.updateworkspace
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/component-types-list
+      name: workspaces-workspaceid-component-types-list
+      description: REST surface for workspaces-workspaceId-component-types-list.
+      operations:
+      - method: POST
+        name: listcomponenttypes
+        description: Amazon IoT TwinMaker List Component Types
+        call: amazon-iot-twinmaker.listcomponenttypes
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/component-types/{componenttypeid}
+      name: workspaces-workspaceid-component-types-componenttypeid
+      description: REST surface for workspaces-workspaceId-component-types-componentTypeId.
+      operations:
+      - method: POST
+        name: createcomponenttype
+        description: Amazon IoT TwinMaker Create Component Type
+        call: amazon-iot-twinmaker.createcomponenttype
+        with:
+          workspaceId: rest.workspaceId
+          componentTypeId: rest.componentTypeId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecomponenttype
+        description: Amazon IoT TwinMaker Delete Component Type
+        call: amazon-iot-twinmaker.deletecomponenttype
+        with:
+          workspaceId: rest.workspaceId
+          componentTypeId: rest.componentTypeId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcomponenttype
+        description: Amazon IoT TwinMaker Get Component Type
+        call: amazon-iot-twinmaker.getcomponenttype
+        with:
+          workspaceId: rest.workspaceId
+          componentTypeId: rest.componentTypeId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecomponenttype
+        description: Amazon IoT TwinMaker Update Component Type
+        call: amazon-iot-twinmaker.updatecomponenttype
+        with:
+          workspaceId: rest.workspaceId
+          componentTypeId: rest.componentTypeId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities
+      name: workspaces-workspaceid-entities
+      description: REST surface for workspaces-workspaceId-entities.
+      operations:
+      - method: POST
+        name: createentity
+        description: Amazon IoT TwinMaker Create Entity
+        call: amazon-iot-twinmaker.createentity
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities-list
+      name: workspaces-workspaceid-entities-list
+      description: REST surface for workspaces-workspaceId-entities-list.
+      operations:
+      - method: POST
+        name: listentities
+        description: Amazon IoT TwinMaker List Entities
+        call: amazon-iot-twinmaker.listentities
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entities/{entityid}
+      name: workspaces-workspaceid-entities-entityid
+      description: REST surface for workspaces-workspaceId-entities-entityId.
+      operations:
+      - method: DELETE
+        name: deleteentity
+        description: Amazon IoT TwinMaker Delete Entity
+        call: amazon-iot-twinmaker.deleteentity
+        with:
+          workspaceId: rest.workspaceId
+          entityId: rest.entityId
+          isRecursive: rest.isRecursive
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getentity
+        description: Amazon IoT TwinMaker Get Entity
+        call: amazon-iot-twinmaker.getentity
+        with:
+          workspaceId: rest.workspaceId
+          entityId: rest.entityId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateentity
+        description: Amazon IoT TwinMaker Update Entity
+        call: amazon-iot-twinmaker.updateentity
+        with:
+          workspaceId: rest.workspaceId
+          entityId: rest.entityId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties
+      name: workspaces-workspaceid-entity-properties
+      description: REST surface for workspaces-workspaceId-entity-properties.
+      operations:
+      - method: POST
+        name: batchputpropertyvalues
+        description: Amazon IoT TwinMaker Batch Put Property Values
+        call: amazon-iot-twinmaker.batchputpropertyvalues
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties/history
+      name: workspaces-workspaceid-entity-properties-history
+      description: REST surface for workspaces-workspaceId-entity-properties-history.
+      operations:
+      - method: POST
+        name: getpropertyvaluehistory
+        description: Amazon IoT TwinMaker Get Property Value History
+        call: amazon-iot-twinmaker.getpropertyvaluehistory
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/entity-properties/value
+      name: workspaces-workspaceid-entity-properties-value
+      description: REST surface for workspaces-workspaceId-entity-properties-value.
+      operations:
+      - method: POST
+        name: getpropertyvalue
+        description: Amazon IoT TwinMaker Get Property Value
+        call: amazon-iot-twinmaker.getpropertyvalue
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes
+      name: workspaces-workspaceid-scenes
+      description: REST surface for workspaces-workspaceId-scenes.
+      operations:
+      - method: POST
+        name: createscene
+        description: Amazon IoT TwinMaker Create Scene
+        call: amazon-iot-twinmaker.createscene
+        with:
+          workspaceId: rest.workspaceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes-list
+      name: workspaces-workspaceid-scenes-list
+      description: REST surface for workspaces-workspaceId-scenes-list.
+      operations:
+      - method: POST
+        name: listscenes
+        description: Amazon IoT TwinMaker List Scenes
+        call: amazon-iot-twinmaker.listscenes
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/scenes/{sceneid}
+      name: workspaces-workspaceid-scenes-sceneid
+      description: REST surface for workspaces-workspaceId-scenes-sceneId.
+      operations:
+      - method: DELETE
+        name: deletescene
+        description: Amazon IoT TwinMaker Delete Scene
+        call: amazon-iot-twinmaker.deletescene
+        with:
+          workspaceId: rest.workspaceId
+          sceneId: rest.sceneId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getscene
+        description: Amazon IoT TwinMaker Get Scene
+        call: amazon-iot-twinmaker.getscene
+        with:
+          workspaceId: rest.workspaceId
+          sceneId: rest.sceneId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatescene
+        description: Amazon IoT TwinMaker Update Scene
+        call: amazon-iot-twinmaker.updatescene
+        with:
+          workspaceId: rest.workspaceId
+          sceneId: rest.sceneId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs-list
+      name: workspaces-workspaceid-sync-jobs-list
+      description: REST surface for workspaces-workspaceId-sync-jobs-list.
+      operations:
+      - method: POST
+        name: listsyncjobs
+        description: Amazon IoT TwinMaker List Sync Jobs
+        call: amazon-iot-twinmaker.listsyncjobs
+        with:
+          workspaceId: rest.workspaceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs/{syncsource}
+      name: workspaces-workspaceid-sync-jobs-syncsource
+      description: REST surface for workspaces-workspaceId-sync-jobs-syncSource.
+      operations:
+      - method: POST
+        name: createsyncjob
+        description: Amazon IoT TwinMaker Create Sync Job
+        call: amazon-iot-twinmaker.createsyncjob
+        with:
+          workspaceId: rest.workspaceId
+          syncSource: rest.syncSource
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesyncjob
+        description: Amazon IoT TwinMaker Delete Sync Job
+        call: amazon-iot-twinmaker.deletesyncjob
+        with:
+          workspaceId: rest.workspaceId
+          syncSource: rest.syncSource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/sync-jobs/{syncsource}/resources-list
+      name: workspaces-workspaceid-sync-jobs-syncsource-resources-list
+      description: REST surface for workspaces-workspaceId-sync-jobs-syncSource-resources-list.
+      operations:
+      - method: POST
+        name: listsyncresources
+        description: Amazon IoT TwinMaker List Sync Resources
+        call: amazon-iot-twinmaker.listsyncresources
+        with:
+          workspaceId: rest.workspaceId
+          syncSource: rest.syncSource
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-iot-twinmaker-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS IoT TwinMaker. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-iot-twinmaker-get-pricing
+      description: Amazon IoT TwinMaker Get Pricing Plan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getpricingplan
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-update-pricing
+      description: Amazon IoT TwinMaker Update Pricing Plan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.updatepricingplan
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-execute-query
+      description: Amazon IoT TwinMaker Execute Query
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.executequery
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-sync
+      description: Amazon IoT TwinMaker Get Sync Job
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getsyncjob
+      with:
+        syncSource: tools.syncSource
+        workspace: tools.workspace
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-tag-resource
+      description: Amazon IoT TwinMaker Tag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.tagresource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-untag-resource
+      description: Amazon IoT TwinMaker Untag Resource
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.untagresource
+      with:
+        resourceARN: tools.resourceARN
+        tagKeys: tools.tagKeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-tags
+      description: Amazon IoT TwinMaker List Tags for Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listtagsforresource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-workspaces
+      description: Amazon IoT TwinMaker List Workspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listworkspaces
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-create-workspace
+      description: Amazon IoT TwinMaker Create Workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.createworkspace
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-delete-workspace
+      description: Amazon IoT TwinMaker Delete Workspace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.deleteworkspace
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-workspace
+      description: Amazon IoT TwinMaker Get Workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getworkspace
+      with:
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-update-workspace
+      description: Amazon IoT TwinMaker Update Workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.updateworkspace
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-component
+      description: Amazon IoT TwinMaker List Component Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listcomponenttypes
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-create-component
+      description: Amazon IoT TwinMaker Create Component Type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.createcomponenttype
+      with:
+        workspaceId: tools.workspaceId
+        componentTypeId: tools.componentTypeId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-delete-component
+      description: Amazon IoT TwinMaker Delete Component Type
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.deletecomponenttype
+      with:
+        workspaceId: tools.workspaceId
+        componentTypeId: tools.componentTypeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-component
+      description: Amazon IoT TwinMaker Get Component Type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getcomponenttype
+      with:
+        workspaceId: tools.workspaceId
+        componentTypeId: tools.componentTypeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-update-component
+      description: Amazon IoT TwinMaker Update Component Type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.updatecomponenttype
+      with:
+        workspaceId: tools.workspaceId
+        componentTypeId: tools.componentTypeId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-create-entity
+      description: Amazon IoT TwinMaker Create Entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.createentity
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-entities
+      description: Amazon IoT TwinMaker List Entities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listentities
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-delete-entity
+      description: Amazon IoT TwinMaker Delete Entity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.deleteentity
+      with:
+        workspaceId: tools.workspaceId
+        entityId: tools.entityId
+        isRecursive: tools.isRecursive
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-entity
+      description: Amazon IoT TwinMaker Get Entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getentity
+      with:
+        workspaceId: tools.workspaceId
+        entityId: tools.entityId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-update-entity
+      description: Amazon IoT TwinMaker Update Entity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.updateentity
+      with:
+        workspaceId: tools.workspaceId
+        entityId: tools.entityId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-batch-put
+      description: Amazon IoT TwinMaker Batch Put Property Values
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.batchputpropertyvalues
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-property
+      description: Amazon IoT TwinMaker Get Property Value History
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.getpropertyvaluehistory
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-property-2
+      description: Amazon IoT TwinMaker Get Property Value
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.getpropertyvalue
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-create-scene
+      description: Amazon IoT TwinMaker Create Scene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.createscene
+      with:
+        workspaceId: tools.workspaceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-scenes
+      description: Amazon IoT TwinMaker List Scenes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listscenes
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-delete-scene
+      description: Amazon IoT TwinMaker Delete Scene
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.deletescene
+      with:
+        workspaceId: tools.workspaceId
+        sceneId: tools.sceneId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-get-scene
+      description: Amazon IoT TwinMaker Get Scene
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.getscene
+      with:
+        workspaceId: tools.workspaceId
+        sceneId: tools.sceneId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-update-scene
+      description: Amazon IoT TwinMaker Update Scene
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-iot-twinmaker.updatescene
+      with:
+        workspaceId: tools.workspaceId
+        sceneId: tools.sceneId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-sync
+      description: Amazon IoT TwinMaker List Sync Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listsyncjobs
+      with:
+        workspaceId: tools.workspaceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-create-sync
+      description: Amazon IoT TwinMaker Create Sync Job
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.createsyncjob
+      with:
+        workspaceId: tools.workspaceId
+        syncSource: tools.syncSource
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-delete-sync
+      description: Amazon IoT TwinMaker Delete Sync Job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-iot-twinmaker.deletesyncjob
+      with:
+        workspaceId: tools.workspaceId
+        syncSource: tools.syncSource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-iot-twinmaker-list-sync-2
+      description: Amazon IoT TwinMaker List Sync Resources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-iot-twinmaker.listsyncresources
+      with:
+        workspaceId: tools.workspaceId
+        syncSource: tools.syncSource
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
