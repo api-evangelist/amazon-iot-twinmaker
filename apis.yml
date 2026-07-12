@@ -40,6 +40,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iot-twinmaker.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-iot-twinmaker-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-iot-twinmaker-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-iot-twinmaker-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-iot-twinmaker-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/iot-twinmaker/
 - type: Website
