@@ -1,104 +1,173 @@
+# amazon-iot-twinmaker — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 50% of servers already https (warn)
+#   - path-params-casing: camel @ 100% (n=40)
+#   - query-params-casing: camel @ 96% (n=22)
+#   - operationid-casing: pascal @ 100% (n=34)
+#   - schema-names-casing: pascal @ 100% (n=237)
+#   - schema-properties-casing: camel @ 70% (n=375)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - error-schema-defined: BatchPutPropertyError
+#   - pagination params observed: ['maxResults', 'nextToken']
+#   - merge: kept 14 existing, added 6 measured, upgraded 0
+#   - added: path-params-casing, query-params-casing, operationid-casing, schema-names-casing, schema-properties-casing, error-schema-defined
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be present.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: title
       function: truthy
   info-version-required:
     description: API version must be specified.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: version
       function: truthy
   openapi-version-3:
     description: Must use OpenAPI 3.x.
     severity: error
-    given: "$"
+    given: $
     then:
       field: openapi
       function: pattern
       functionOptions:
-        match: "^3\\."
+        match: ^3\.
   servers-defined:
     description: At least one server must be defined.
     severity: error
-    given: "$"
+    given: $
     then:
       field: servers
       function: truthy
   servers-https-only:
     description: All server URLs must use HTTPS.
     severity: error
-    given: "$.servers[*]"
+    given: $.servers[*]
     then:
       field: url
       function: pattern
       functionOptions:
-        match: "^https://"
+        match: ^https://
   operation-summary-required:
     description: Every operation must have a summary.
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: summary
       function: truthy
   operation-summary-prefix:
     description: Operation summaries must start with 'Amazon IoT TwinMaker'.
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: summary
       function: pattern
       functionOptions:
-        match: "^Amazon IoT TwinMaker"
+        match: ^Amazon IoT TwinMaker
   operation-id-required:
     description: Every operation must have an operationId.
     severity: error
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: operationId
       function: truthy
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch]"
+    given: $.paths[*][get,post,put,delete,patch]
     then:
       field: tags
       function: truthy
   response-description-required:
     description: Every response must have a description.
     severity: warn
-    given: "$.paths[*][get,post,put,delete,patch].responses[*]"
+    given: $.paths[*][get,post,put,delete,patch].responses[*]
     then:
       field: description
       function: truthy
   schema-type-defined:
     description: Schemas should define an explicit type.
     severity: info
-    given: "$.components.schemas[*]"
+    given: $.components.schemas[*]
     then:
       field: type
       function: truthy
   get-no-request-body:
     description: GET operations must not have a request body.
     severity: error
-    given: "$.paths[*].get"
+    given: $.paths[*].get
     then:
       field: requestBody
       function: falsy
   no-empty-descriptions:
     description: Descriptions must not be empty strings.
     severity: warn
-    given: "$..description"
+    given: $..description
     then:
       function: truthy
   security-schemes-defined:
     description: Security schemes should be defined in components.
     severity: warn
-    given: "$.components"
+    given: $.components
     then:
       field: securitySchemes
+      function: truthy
+  path-params-casing:
+    description: Path parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  query-params-casing:
+    description: Query parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: ^[a-z][A-Za-z0-9]*$
+  operationid-casing:
+    description: Operation IDs should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be camelCase (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[a-z][A-Za-z0-9]*$
+  error-schema-defined:
+    description: A shared error schema (BatchPutPropertyError) should be defined for error payloads.
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: BatchPutPropertyError
       function: truthy
