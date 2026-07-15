@@ -40,6 +40,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iot-twinmaker.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-iot-twinmaker-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-iot-twinmaker-trust-center.yml
 - type: VulnerabilityDisclosure
