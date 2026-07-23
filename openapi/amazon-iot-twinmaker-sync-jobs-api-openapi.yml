@@ -1,0 +1,362 @@
+openapi: 3.0.0
+info:
+  version: '2021-11-29'
+  x-release: v4
+  title: AWS IoT TwinMaker Pricingplan Sync Jobs API
+  description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: iottwinmaker
+  x-aws-signingName: iottwinmaker
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iottwinmaker-2021-11-29.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://iottwinmaker.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT TwinMaker multi-region endpoint
+- url: https://iottwinmaker.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The AWS IoT TwinMaker multi-region endpoint
+- url: http://iottwinmaker.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT TwinMaker endpoint for China (Beijing) and China (Ningxia)
+- url: https://iottwinmaker.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The AWS IoT TwinMaker endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Sync Jobs
+paths:
+  /sync-jobs/{syncSource}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: GetSyncJob
+      description: Gets the SyncJob.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSyncJobResponse'
+        '480':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '484':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '485':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+      parameters:
+      - name: syncSource
+        in: path
+        required: true
+        description: <p>The sync source.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p> </note>
+        schema:
+          type: string
+          pattern: '[a-zA-Z_0-9]+'
+      - name: workspace
+        in: query
+        required: false
+        description: The workspace ID.
+        schema:
+          type: string
+          pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+          minLength: 1
+          maxLength: 128
+      summary: Amazon IoT TwinMaker Get Sync Job
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Sync Jobs
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    SyncSource:
+      type: string
+      pattern: '[a-zA-Z_0-9]+'
+    TwinMakerArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      minLength: 20
+      maxLength: 2048
+    ServiceQuotaExceededException: {}
+    AccessDeniedException: {}
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The error message.
+      description: The error details.
+    GetSyncJobResponse:
+      type: object
+      required:
+      - arn
+      - workspaceId
+      - syncSource
+      - syncRole
+      - status
+      - creationDateTime
+      - updateDateTime
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The sync job ARN.
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The ID of the workspace that contains the sync job.
+        syncSource:
+          allOf:
+          - $ref: '#/components/schemas/SyncSource'
+          - description: <p>The sync soucre.</p> <note> <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p> </note>
+        syncRole:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The sync IAM role.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobStatus'
+          - description: The SyncJob response status.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The creation date and time.
+        updateDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The update date and time.
+    Id:
+      type: string
+      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 128
+    ResourceNotFoundException: {}
+    SyncJobState:
+      type: string
+      enum:
+      - CREATING
+      - INITIALIZING
+      - ACTIVE
+      - DELETING
+      - ERROR
+    RoleArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
+      minLength: 20
+      maxLength: 2048
+    SyncJobStatus:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob status state.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The SyncJob error.
+      description: The SyncJob status.
+    ThrottlingException: {}
+    ValidationException: {}
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    ErrorMessage:
+      type: string
+      minLength: 0
+      maxLength: 2048
+    InternalServerException: {}
+    ErrorCode:
+      type: string
+      enum:
+      - VALIDATION_ERROR
+      - INTERNAL_FAILURE
+      - SYNC_INITIALIZING_ERROR
+      - SYNC_CREATING_ERROR
+      - SYNC_PROCESSING_ERROR
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/iottwinmaker/
+x-hasEquivalentPaths: true
