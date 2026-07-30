@@ -4,7 +4,20 @@ description: AWS IoT TwinMaker makes it easier for developers to create digital 
   factories, and industrial equipment. You can use AWS IoT TwinMaker to build operational digital twin applications to visualize,
   monitor, and diagnose complex operational systems.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-iot-twinmaker.png
 tags:
 - AWS
 - 3D Visualization
@@ -16,21 +29,159 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-iot-twinmaker:aws-iot-twinmaker-api
-  name: AWS IoT TwinMaker API
-  description: The AWS IoT TwinMaker API provides access to workspaces, scenes, entities, components, and sync jobs for building
-    and managing digital twin applications.
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-pricingplan-api
+  name: Amazon IoT TwinMaker Pricingplan API
+  description: The Pricingplan API from Amazon IoT TwinMaker — 1 operation(s) for pricingplan.
   humanURL: https://aws.amazon.com/iot-twinmaker/
   baseURL: https://iottwinmaker.amazonaws.com
   tags:
-  - 3D Visualization
-  - Digital Twin
-  - IoT
+  - Pricingplan
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-pricingplan-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-queries-api
+  name: Amazon IoT TwinMaker Queries API
+  description: The Queries API from Amazon IoT TwinMaker — 1 operation(s) for queries.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Queries
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-iot-twinmaker-openapi-original.yml
+    url: openapi/amazon-iot-twinmaker-queries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-sync-jobs-api
+  name: Amazon IoT TwinMaker Sync Jobs API
+  description: The Sync Jobs API from Amazon IoT TwinMaker — 1 operation(s) for sync jobs.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Sync Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-sync-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-api
+  name: Amazon IoT TwinMaker Tags API
+  description: The Tags API from Amazon IoT TwinMaker — 1 operation(s) for tags.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-list-api
+  name: Amazon IoT TwinMaker Tags List API
+  description: The Tags List API from Amazon IoT TwinMaker — 1 operation(s) for tags list.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Tags List
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-tags-list-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-resourcearn-tagkeys-api
+  name: Amazon IoT TwinMaker Tags#resourceARN&tagKeys API
+  description: >-
+    The Tags#resourceARN&tagKeys API from Amazon IoT TwinMaker — 1 operation(s) for tags#resourcearn&tagkeys.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Tags#resourceARN&tagKeys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-tags-resourcearn-tagkeys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-workspaces-api
+  name: Amazon IoT TwinMaker Workspaces API
+  description: The Workspaces API from Amazon IoT TwinMaker — 15 operation(s) for workspaces.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-iot-twinmaker.yaml
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-workspaces-list-api
+  name: Amazon IoT TwinMaker Workspaces List API
+  description: The Workspaces List API from Amazon IoT TwinMaker — 1 operation(s) for workspaces list.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Workspaces List
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-workspaces-list-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
   - type: GettingStarted
     url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
   - type: Pricing
@@ -40,6 +191,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-iot-twinmaker.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-iot-twinmaker/overview
 - type: AgenticAccess
   url: agentic-access/amazon-iot-twinmaker-agentic-access.yml
 - type: TrustCenter
