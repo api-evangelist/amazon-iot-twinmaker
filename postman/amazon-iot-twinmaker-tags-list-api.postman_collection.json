@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "93977629-a277-4bac-9b07-61a1c567f8e9",
+    "name": "AWS IoT TwinMaker Pricingplan Tags List API",
+    "description": "IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:35:00.000Z",
+    "updatedAt": "2026-07-28T10:35:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-93977629-a277-4bac-9b07-61a1c567f8e9"
+  },
+  "item": [
+    {
+      "name": "tags-list",
+      "item": [
+        {
+          "name": "Amazon IoT TwinMaker List Tags for Resource",
+          "id": "37894a48-aa0e-45b7-8054-c3e3cb740f67",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceARN\": \"arn:aws-cn:iottwinmaker:-vo:445698167042:jA5P\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"D*^aS+VOP\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tags-list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags-list"
+              ]
+            },
+            "description": "Lists all tags associated with a resource."
+          },
+          "response": [
+            {
+              "id": "81eab2ab-3d84-4ddd-a196-1160b84fd159",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceARN\": \"arn:aws-cn:iottwinmaker:-vo:445698167042:jA5P\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"D*^aS+VOP\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags-list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags-list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"tags\": {\n    \"aliqua_7a\": \"DL+2:O\",\n    \"ad__\": \" \",\n    \"sed_f7\": \"V+\",\n    \"dolore4b\": \"Z @.cRn\",\n    \"ad_d2b\": \"J\",\n    \"do_\": \"0Y#p7*f#9C\",\n    \"elit_9\": \"r(L/Q\",\n    \"consequat_a\": \" \",\n    \"Duis__fa\": \"#4EE;i\",\n    \"ut_4\": \")9x8x2!0'\",\n    \"ut_d9\": \"~`wf\",\n    \"elit_913\": \"x(j0:-~[p\",\n    \"anim_3\": \"W@1]w![\",\n    \"tempor_475\": \"#Qg9Zsns</\",\n    \"doc\": \" \",\n    \"dolor6\": \">BLb\",\n    \"enima62\": \" \",\n    \"nonea\": \" \",\n    \"aliqua_043\": \"Nzb^<'fh*j\",\n    \"dolore_5\": \"p:o*.U9p\",\n    \"consectetur_1\": \"=\",\n    \"sint0e0\": \"}XPtIM\",\n    \"Duis_7e\": \"~OU.q?W']\",\n    \"sed3\": \"yp\",\n    \"Ut_3\": \"4!\",\n    \"adipisicing6\": \"a#_|WZ)\",\n    \"sit_294\": \"]D(^t8)i}\",\n    \"sint_b9\": \"ug=_/a&\",\n    \"cupidatat_0\": \"K\",\n    \"sunt140\": \"^2\",\n    \"veniam_\": \"okVDrx!`d\",\n    \"proident_a\": \"~GqdvH~k\",\n    \"in_5d\": \" \",\n    \"aute_f\": \"V M'@/JI\",\n    \"quis_7\": \"0^&CW=()>}\"\n  },\n  \"nextToken\": \"\\\"kp\"\n}",
+              "createdAt": "2026-07-28T10:35:01.000Z",
+              "updatedAt": "2026-07-28T10:35:01.000Z",
+              "uid": "35240-81eab2ab-3d84-4ddd-a196-1160b84fd159"
+            },
+            {
+              "id": "27c5dc6b-e758-4cfd-bf28-0fdb0aecc784",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceARN\": \"arn:aws-cn:iottwinmaker:-vo:445698167042:jA5P\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"D*^aS+VOP\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags-list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags-list"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:35:01.000Z",
+              "updatedAt": "2026-07-28T10:35:01.000Z",
+              "uid": "35240-27c5dc6b-e758-4cfd-bf28-0fdb0aecc784"
+            },
+            {
+              "id": "78377d90-59c5-4831-a7a2-b672a102a37f",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceARN\": \"arn:aws-cn:iottwinmaker:-vo:445698167042:jA5P\",\n  \"maxResults\": \"<integer>\",\n  \"nextToken\": \"D*^aS+VOP\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags-list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags-list"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:35:01.000Z",
+              "updatedAt": "2026-07-28T10:35:01.000Z",
+              "uid": "35240-78377d90-59c5-4831-a7a2-b672a102a37f"
+            }
+          ],
+          "createdAt": "2026-07-28T10:35:01.000Z",
+          "updatedAt": "2026-07-28T10:35:01.000Z",
+          "uid": "35240-37894a48-aa0e-45b7-8054-c3e3cb740f67"
+        }
+      ],
+      "id": "baee1c85-bc2c-40f3-b8f9-7be687dab13a",
+      "createdAt": "2026-07-28T10:35:01.000Z",
+      "updatedAt": "2026-07-28T10:35:01.000Z",
+      "uid": "35240-baee1c85-bc2c-40f3-b8f9-7be687dab13a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iottwinmaker.{{region}}.amazonaws.com"
+    }
+  ]
+}

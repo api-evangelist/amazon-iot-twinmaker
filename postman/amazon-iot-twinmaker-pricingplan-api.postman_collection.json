@@ -1,0 +1,939 @@
+{
+  "info": {
+    "_postman_id": "d7e0267e-cbba-40f1-b7d4-cd1b360852c3",
+    "name": "AWS IoT TwinMaker Pricingplan API",
+    "description": "IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:34:56.000Z",
+    "updatedAt": "2026-07-28T10:34:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7e0267e-cbba-40f1-b7d4-cd1b360852c3"
+  },
+  "item": [
+    {
+      "name": "pricingplan",
+      "item": [
+        {
+          "name": "Amazon IoT TwinMaker Get Pricing Plan",
+          "id": "db26afa2-afeb-47be-9af0-df4cab1efb11",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/pricingplan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pricingplan"
+              ]
+            },
+            "description": "Gets the pricing plan."
+          },
+          "response": [
+            {
+              "id": "c8607acf-20a0-44c6-b401-549d35642770",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"currentPricingPlan\": {\n    \"effectiveDateTime\": \"<dateTime>\",\n    \"pricingMode\": \"STANDARD\",\n    \"updateDateTime\": \"<dateTime>\",\n    \"updateReason\": \"OVERWRITTEN\",\n    \"billableEntityCount\": \"<integer>\",\n    \"bundleInformation\": {\n      \"bundleNames\": [\n        \"OLxk}N\"\n      ],\n      \"pricingTier\": \"TIER_3\"\n    }\n  },\n  \"pendingPricingPlan\": {\n    \"effectiveDateTime\": \"<dateTime>\",\n    \"pricingMode\": \"STANDARD\",\n    \"updateDateTime\": \"<dateTime>\",\n    \"updateReason\": \"PRICING_TIER_UPDATE\",\n    \"billableEntityCount\": \"<integer>\",\n    \"bundleInformation\": {\n      \"bundleNames\": [\n        \"T\"\n      ],\n      \"pricingTier\": \"TIER_2\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-c8607acf-20a0-44c6-b401-549d35642770"
+            },
+            {
+              "id": "ed449ab7-b028-479b-b9f4-840353e1c8cb",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-ed449ab7-b028-479b-b9f4-840353e1c8cb"
+            },
+            {
+              "id": "49641205-13f6-4fbf-a4f5-b1bde94061c3",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-49641205-13f6-4fbf-a4f5-b1bde94061c3"
+            },
+            {
+              "id": "eef050b4-ae97-4e04-8f44-2101749a70c6",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-eef050b4-ae97-4e04-8f44-2101749a70c6"
+            },
+            {
+              "id": "99caebea-24cf-4e28-b491-c47cb5d6709c",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-99caebea-24cf-4e28-b491-c47cb5d6709c"
+            }
+          ],
+          "createdAt": "2026-07-28T10:34:57.000Z",
+          "updatedAt": "2026-07-28T10:34:57.000Z",
+          "uid": "35240-db26afa2-afeb-47be-9af0-df4cab1efb11"
+        },
+        {
+          "name": "Amazon IoT TwinMaker Update Pricing Plan",
+          "id": "05b3ef7b-fd74-41bf-9e54-59180f455eb1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/pricingplan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pricingplan"
+              ]
+            },
+            "description": "Update the pricing plan."
+          },
+          "response": [
+            {
+              "id": "3dbc8ea0-5804-4ce4-8adc-116d97f2692e",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"currentPricingPlan\": {\n    \"effectiveDateTime\": \"<dateTime>\",\n    \"pricingMode\": \"STANDARD\",\n    \"updateDateTime\": \"<dateTime>\",\n    \"updateReason\": \"OVERWRITTEN\",\n    \"billableEntityCount\": \"<integer>\",\n    \"bundleInformation\": {\n      \"bundleNames\": [\n        \"OLxk}N\"\n      ],\n      \"pricingTier\": \"TIER_3\"\n    }\n  },\n  \"pendingPricingPlan\": {\n    \"effectiveDateTime\": \"<dateTime>\",\n    \"pricingMode\": \"STANDARD\",\n    \"updateDateTime\": \"<dateTime>\",\n    \"updateReason\": \"PRICING_TIER_UPDATE\",\n    \"billableEntityCount\": \"<integer>\",\n    \"bundleInformation\": {\n      \"bundleNames\": [\n        \"T\"\n      ],\n      \"pricingTier\": \"TIER_2\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-3dbc8ea0-5804-4ce4-8adc-116d97f2692e"
+            },
+            {
+              "id": "ce6e9b4d-e67a-416e-b85f-c1679c576acf",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-ce6e9b4d-e67a-416e-b85f-c1679c576acf"
+            },
+            {
+              "id": "5b20e6dd-e4c7-44e7-91fe-a15a04887efc",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-5b20e6dd-e4c7-44e7-91fe-a15a04887efc"
+            },
+            {
+              "id": "e8c9749e-353d-4e0a-8a85-6eb9b54bc7de",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-e8c9749e-353d-4e0a-8a85-6eb9b54bc7de"
+            },
+            {
+              "id": "e2530e87-aaa4-488e-92c3-1deaa962f677",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pricingMode\": \"BASIC\",\n  \"bundleNames\": [\n    \"\\\\H<~;Fw`\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/pricingplan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pricingplan"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:34:57.000Z",
+              "updatedAt": "2026-07-28T10:34:57.000Z",
+              "uid": "35240-e2530e87-aaa4-488e-92c3-1deaa962f677"
+            }
+          ],
+          "createdAt": "2026-07-28T10:34:57.000Z",
+          "updatedAt": "2026-07-28T10:34:57.000Z",
+          "uid": "35240-05b3ef7b-fd74-41bf-9e54-59180f455eb1"
+        }
+      ],
+      "id": "942628ab-f726-4edd-8c75-021d0b9ff664",
+      "createdAt": "2026-07-28T10:34:56.000Z",
+      "updatedAt": "2026-07-28T10:34:56.000Z",
+      "uid": "35240-942628ab-f726-4edd-8c75-021d0b9ff664"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iottwinmaker.{{region}}.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "info": {
+    "_postman_id": "83ed8c30-2cec-4652-b568-4c5d60f67882",
+    "name": "AWS IoT TwinMaker Pricingplan Tags#resourceARN&tagKeys API",
+    "description": "IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:35:03.000Z",
+    "updatedAt": "2026-07-28T10:35:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-83ed8c30-2cec-4652-b568-4c5d60f67882"
+  },
+  "item": [
+    {
+      "name": "tags#resourceARN&tagKeys",
+      "item": [
+        {
+          "name": "Amazon IoT TwinMaker Untag Resource",
+          "id": "8ab2dd2f-189a-43f4-b2fd-120729e70628",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tags?resourceARN=arn:aws:iottwinmaker:k0u65:956263866376:NkVF&tagKeys=Np-=.-@Z}&tagKeys=.L&tagKeys=.N&tagKeys=-{ZN{&tagKeys=L@=_}+__{&tagKeys=Z:/:=&tagKeys==p@}&tagKeys=_N{}Z:@&tagKeys=}&tagKeys=..:/N+/:&tagKeys=-&tagKeys=:{&tagKeys=pN+-=/+@Z&tagKeys=/&tagKeys=_p}L.:@ZZ_&tagKeys=_{:pL&tagKeys=ZN+ZN&tagKeys=L@Z}:=&tagKeys={:N}/=&tagKeys=}}_ZL=L.:-#resourceARN&tagKeys",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The ARN of the resource.",
+                  "key": "resourceARN",
+                  "value": "arn:aws:iottwinmaker:k0u65:956263866376:NkVF"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "Np-=.-@Z}"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": ".L"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": ".N"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "-{ZN{"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "L@=_}+__{"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "Z:/:="
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "=p@}"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "_N{}Z:@"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "}"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "..:/N+/:"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "-"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": ":{"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "pN+-=/+@Z"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "/"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "_p}L.:@ZZ_"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "_{:pL"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "ZN+ZN"
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "L@Z}:="
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "{:N}/="
+                },
+                {
+                  "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                  "key": "tagKeys",
+                  "value": "}}_ZL=L.:-"
+                }
+              ],
+              "hash": "resourceARN&tagKeys"
+            },
+            "description": "Removes tags from a resource."
+          },
+          "response": [
+            {
+              "id": "1a49be80-5b32-4dbe-a5a2-c2eb046ec8e5",
+              "name": "Success",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?resourceARN=arn:aws:iottwinmaker:k0u65:956263866376:NkVF&tagKeys=}}_ZL=L.:-#resourceARN&tagKeys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ARN of the resource.",
+                      "key": "resourceARN",
+                      "value": "arn:aws:iottwinmaker:k0u65:956263866376:NkVF"
+                    },
+                    {
+                      "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                      "key": "tagKeys",
+                      "value": "}}_ZL=L.:-"
+                    }
+                  ],
+                  "hash": "resourceARN&tagKeys"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:35:03.000Z",
+              "updatedAt": "2026-07-28T10:35:03.000Z",
+              "uid": "35240-1a49be80-5b32-4dbe-a5a2-c2eb046ec8e5"
+            },
+            {
+              "id": "9009cf82-0e35-4a0c-814f-1eef6dc66b58",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?resourceARN=arn:aws:iottwinmaker:k0u65:956263866376:NkVF&tagKeys=}}_ZL=L.:-#resourceARN&tagKeys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ARN of the resource.",
+                      "key": "resourceARN",
+                      "value": "arn:aws:iottwinmaker:k0u65:956263866376:NkVF"
+                    },
+                    {
+                      "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                      "key": "tagKeys",
+                      "value": "}}_ZL=L.:-"
+                    }
+                  ],
+                  "hash": "resourceARN&tagKeys"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:35:03.000Z",
+              "updatedAt": "2026-07-28T10:35:03.000Z",
+              "uid": "35240-9009cf82-0e35-4a0c-814f-1eef6dc66b58"
+            },
+            {
+              "id": "f170fcb6-37f9-483e-812b-b7c17852a2d0",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?resourceARN=arn:aws:iottwinmaker:k0u65:956263866376:NkVF&tagKeys=}}_ZL=L.:-#resourceARN&tagKeys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ARN of the resource.",
+                      "key": "resourceARN",
+                      "value": "arn:aws:iottwinmaker:k0u65:956263866376:NkVF"
+                    },
+                    {
+                      "description": "(Required) A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.",
+                      "key": "tagKeys",
+                      "value": "}}_ZL=L.:-"
+                    }
+                  ],
+                  "hash": "resourceARN&tagKeys"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:35:03.000Z",
+              "updatedAt": "2026-07-28T10:35:03.000Z",
+              "uid": "35240-f170fcb6-37f9-483e-812b-b7c17852a2d0"
+            }
+          ],
+          "createdAt": "2026-07-28T10:35:03.000Z",
+          "updatedAt": "2026-07-28T10:35:03.000Z",
+          "uid": "35240-8ab2dd2f-189a-43f4-b2fd-120729e70628"
+        }
+      ],
+      "id": "e9cb8b0a-520d-46e6-90ad-1afb942b95ca",
+      "createdAt": "2026-07-28T10:35:03.000Z",
+      "updatedAt": "2026-07-28T10:35:03.000Z",
+      "uid": "35240-e9cb8b0a-520d-46e6-90ad-1afb942b95ca"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://iottwinmaker.{{region}}.amazonaws.com"
+    }
+  ]
+}
