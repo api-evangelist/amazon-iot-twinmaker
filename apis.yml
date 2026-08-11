@@ -47,8 +47,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-queries-api
   name: Amazon IoT TwinMaker Queries API
   description: The Queries API from Amazon IoT TwinMaker — 1 operation(s) for queries.
@@ -67,8 +65,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-sync-jobs-api
   name: Amazon IoT TwinMaker Sync Jobs API
   description: The Sync Jobs API from Amazon IoT TwinMaker — 1 operation(s) for sync jobs.
@@ -87,8 +83,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-api
   name: Amazon IoT TwinMaker Tags API
   description: The Tags API from Amazon IoT TwinMaker — 1 operation(s) for tags.
@@ -107,8 +101,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-list-api
   name: Amazon IoT TwinMaker Tags List API
   description: The Tags List API from Amazon IoT TwinMaker — 1 operation(s) for tags list.
@@ -127,8 +119,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-resourcearn-tagkeys-api
   name: Amazon IoT TwinMaker Tags#resourceARN&tagKeys API
   description: >-
@@ -148,8 +138,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-workspaces-api
   name: Amazon IoT TwinMaker Workspaces API
   description: The Workspaces API from Amazon IoT TwinMaker — 15 operation(s) for workspaces.
@@ -168,8 +156,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-workspaces-list-api
   name: Amazon IoT TwinMaker Workspaces List API
   description: The Workspaces List API from Amazon IoT TwinMaker — 1 operation(s) for workspaces list.
@@ -188,8 +174,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-iot-twinmaker.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-iot-twinmaker/overview
