@@ -27,7 +27,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-pricingplan-api
   name: Amazon IoT TwinMaker Pricingplan API
