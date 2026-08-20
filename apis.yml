@@ -53,6 +53,8 @@ apis:
   humanURL: https://aws.amazon.com/iot-twinmaker/
   baseURL: https://iottwinmaker.amazonaws.com
   tags:
+  - Query
+  tags_raw:
   - Queries
   properties:
   - type: OpenAPI
@@ -126,6 +128,8 @@ apis:
   humanURL: https://aws.amazon.com/iot-twinmaker/
   baseURL: https://iottwinmaker.amazonaws.com
   tags:
+  - Tags#resourceArn&tagKeys
+  tags_raw:
   - Tags#resourceARN&tagKeys
   properties:
   - type: OpenAPI
