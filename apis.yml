@@ -140,7 +140,7 @@ apis:
   humanURL: https://aws.amazon.com/iot-twinmaker/
   baseURL: https://iottwinmaker.amazonaws.com
   tags:
-  - Tags#resourceARN&tagKeys
+  - Tags#resourceArn&tagKeys
   tags_raw:
   - Tags#resourceARN&tagKeys
   properties:
