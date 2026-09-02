@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS IoT TwinMaker Pricingplan Sync Jobs API
   description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
@@ -193,60 +193,50 @@ paths:
       tags:
       - Sync Jobs
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    SyncSource:
+    SyncJobState:
       type: string
-      pattern: '[a-zA-Z_0-9]+'
+      enum:
+      - CREATING
+      - INITIALIZING
+      - ACTIVE
+      - DELETING
+      - ERROR
     TwinMakerArn:
       type: string
       pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
       minLength: 20
       maxLength: 2048
+    SyncJobStatus:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob status state.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The SyncJob error.
+      description: The SyncJob status.
+    ThrottlingException: {}
     ServiceQuotaExceededException: {}
-    AccessDeniedException: {}
+    ResourceNotFoundException: {}
+    Id:
+      type: string
+      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 128
+    ErrorMessage:
+      type: string
+      minLength: 0
+      maxLength: 2048
+    RoleArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
+      minLength: 20
+      maxLength: 2048
+    InternalServerException: {}
     ErrorDetails:
       type: object
       properties:
@@ -259,6 +249,14 @@ components:
           - $ref: '#/components/schemas/ErrorMessage'
           - description: The error message.
       description: The error details.
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    SyncSource:
+      type: string
+      pattern: '[a-zA-Z_0-9]+'
+    AccessDeniedException: {}
     GetSyncJobResponse:
       type: object
       required:
@@ -298,48 +296,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The update date and time.
-    Id:
-      type: string
-      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 128
-    ResourceNotFoundException: {}
-    SyncJobState:
-      type: string
-      enum:
-      - CREATING
-      - INITIALIZING
-      - ACTIVE
-      - DELETING
-      - ERROR
-    RoleArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
-      minLength: 20
-      maxLength: 2048
-    SyncJobStatus:
-      type: object
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobState'
-          - description: The SyncJob status state.
-        error:
-          allOf:
-          - $ref: '#/components/schemas/ErrorDetails'
-          - description: The SyncJob error.
-      description: The SyncJob status.
-    ThrottlingException: {}
     ValidationException: {}
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
-    ErrorMessage:
-      type: string
-      minLength: 0
-      maxLength: 2048
-    InternalServerException: {}
     ErrorCode:
       type: string
       enum:
@@ -348,6 +305,49 @@ components:
       - SYNC_INITIALIZING_ERROR
       - SYNC_CREATING_ERROR
       - SYNC_PROCESSING_ERROR
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
