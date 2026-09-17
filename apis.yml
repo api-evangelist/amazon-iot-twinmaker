@@ -134,27 +134,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-resourcearn-tagkeys-api
-  name: Amazon IoT TwinMaker Tags#resourceARN&tagKeys API
-  description: >-
-    The Tags#resourceARN&tagKeys API from Amazon IoT TwinMaker — 1 operation(s) for tags#resourcearn&tagkeys.
-  humanURL: https://aws.amazon.com/iot-twinmaker/
-  baseURL: https://iottwinmaker.amazonaws.com
-  tags:
-  - Tags#resourceArn&tagKeys
-  tags_raw:
-  - Tags#resourceARN&tagKeys
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-iot-twinmaker-tags-resourcearn-tagkeys-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
-  - type: Pricing
-    url: https://aws.amazon.com/iot-twinmaker/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/iot-twinmaker/faqs/
 - aid: amazon-iot-twinmaker:amazon-iot-twinmaker-workspaces-api
   name: Amazon IoT TwinMaker Workspaces API
   description: The Workspaces API from Amazon IoT TwinMaker — 15 operation(s) for workspaces.
@@ -183,6 +162,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-iot-twinmaker-workspaces-list-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
+  - type: Pricing
+    url: https://aws.amazon.com/iot-twinmaker/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/iot-twinmaker/faqs/
+- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-resource-arn-tag-keys-api
+  name: Amazon IoT TwinMaker Tags#resource Arn&tag Keys API
+  description: >-
+    The Tags#resource Arn&tag Keys API from Amazon IoT TwinMaker — 1 operation(s) for tags#resource arn&tag
+    keys.
+  humanURL: https://aws.amazon.com/iot-twinmaker/
+  baseURL: https://iottwinmaker.amazonaws.com
+  tags:
+  - Tags#resource Arn&tag Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
   - type: GettingStarted
