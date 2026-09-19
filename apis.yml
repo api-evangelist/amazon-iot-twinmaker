@@ -140,6 +140,8 @@ apis:
   humanURL: https://aws.amazon.com/iot-twinmaker/
   baseURL: https://iottwinmaker.amazonaws.com
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
