@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-11-29'
   x-release: v4
   title: AWS IoT TwinMaker Pricingplan API
   description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iottwinmaker-2021-11-29.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -230,32 +231,8 @@ paths:
       - Pricingplan
 components:
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -272,47 +249,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    ThrottlingException: {}
-    PricingBundles:
-      type: array
-      items:
-        $ref: '#/components/schemas/BundleName'
-      minItems: 1
-      maxItems: 10
-    PricingTier:
-      type: string
-      enum:
-      - TIER_1
-      - TIER_2
-      - TIER_3
-      - TIER_4
-    UpdatePricingPlanResponse:
-      type: object
-      required:
-      - currentPricingPlan
-      properties:
-        currentPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: Update the current pricing plan.
-        pendingPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: Update the pending pricing plan.
-    GetPricingPlanResponse:
-      type: object
-      required:
-      - currentPricingPlan
-      properties:
-        currentPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: The chosen pricing plan for the current billing cycle.
-        pendingPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: The pending pricing plan.
+    ValidationException: {}
     BundleInformation:
       type: object
       required:
@@ -329,14 +291,42 @@ components:
       description: Information about the pricing bundle.
     Long:
       type: integer
-    UpdateReason:
+    UpdatePricingPlanResponse:
+      type: object
+      required:
+      - currentPricingPlan
+      properties:
+        currentPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: Update the current pricing plan.
+        pendingPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: Update the pending pricing plan.
+    BundleName:
       type: string
-      enum:
-      - DEFAULT
-      - PRICING_TIER_UPDATE
-      - ENTITY_COUNT_UPDATE
-      - PRICING_MODE_UPDATE
-      - OVERWRITTEN
+      pattern: .*
+      minLength: 1
+      maxLength: 256
+    ThrottlingException: {}
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    GetPricingPlanResponse:
+      type: object
+      required:
+      - currentPricingPlan
+      properties:
+        currentPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: The chosen pricing plan for the current billing cycle.
+        pendingPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: The pending pricing plan.
     PricingPlan:
       type: object
       required:
@@ -370,10 +360,27 @@ components:
           - $ref: '#/components/schemas/UpdateReason'
           - description: The update reason for changing a pricing plan.
       description: The pricing plan.
-    Timestamp:
+    UpdateReason:
       type: string
-      description: supports epoch seconds value
-      format: date-time
+      enum:
+      - DEFAULT
+      - PRICING_TIER_UPDATE
+      - ENTITY_COUNT_UPDATE
+      - PRICING_MODE_UPDATE
+      - OVERWRITTEN
+    PricingTier:
+      type: string
+      enum:
+      - TIER_1
+      - TIER_2
+      - TIER_3
+      - TIER_4
+    PricingBundles:
+      type: array
+      items:
+        $ref: '#/components/schemas/BundleName'
+      minItems: 1
+      maxItems: 10
     AccessDeniedException: {}
     PricingMode:
       type: string
@@ -381,13 +388,7 @@ components:
       - BASIC
       - STANDARD
       - TIERED_BUNDLE
-    ValidationException: {}
     InternalServerException: {}
-    BundleName:
-      type: string
-      pattern: .*
-      minLength: 1
-      maxLength: 256
   securitySchemes:
     hmac:
       type: apiKey

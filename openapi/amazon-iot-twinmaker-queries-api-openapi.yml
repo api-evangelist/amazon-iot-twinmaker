@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-11-29'
   x-release: v4
-  title: AWS IoT TwinMaker Pricingplan Queries API
+  title: AWS IoT TwinMaker Queries API
   description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iottwinmaker-2021-11-29.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -223,6 +224,24 @@ paths:
       - Queries
 components:
   schemas:
+    Rows:
+      type: array
+      items:
+        $ref: '#/components/schemas/Row'
+    ValidationException: {}
+    QueryTimeoutException: {}
+    ColumnDescriptions:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColumnDescription'
+    QueryResultValue:
+      type: object
+      properties: {}
+    NextToken:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 17880
     ExecuteQueryResponse:
       type: object
       properties:
@@ -238,6 +257,25 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The string that specifies the next page of results.
+    ColumnName:
+      type: string
+      pattern: .*
+    ThrottlingException: {}
+    ColumnType:
+      type: string
+      enum:
+      - NODE
+      - EDGE
+      - VALUE
+    Row:
+      type: object
+      properties:
+        rowData:
+          allOf:
+          - $ref: '#/components/schemas/RowData'
+          - description: The data in a row of query results.
+      description: Represents a single row in the query results.
+    ServiceQuotaExceededException: {}
     ColumnDescription:
       type: object
       properties:
@@ -250,58 +288,15 @@ components:
           - $ref: '#/components/schemas/ColumnType'
           - description: The type of the column description.
       description: A description of the column in the query results.
-    ThrottlingException: {}
-    ColumnType:
-      type: string
-      enum:
-      - NODE
-      - EDGE
-      - VALUE
-    ServiceQuotaExceededException: {}
-    NextToken:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 17880
-    ColumnDescriptions:
-      type: array
-      items:
-        $ref: '#/components/schemas/ColumnDescription'
     RowData:
       type: array
       items:
         $ref: '#/components/schemas/QueryResultValue'
-    InternalServerException: {}
-    ColumnName:
-      type: string
-      pattern: .*
-    Rows:
-      type: array
-      items:
-        $ref: '#/components/schemas/Row'
     AccessDeniedException: {}
-    ValidationException: {}
-    QueryTimeoutException: {}
-    Row:
-      type: object
-      properties:
-        rowData:
-          allOf:
-          - $ref: '#/components/schemas/RowData'
-          - description: The data in a row of query results.
-      description: Represents a single row in the query results.
-    QueryResultValue:
-      type: object
-      properties: {}
+    InternalServerException: {}
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -312,20 +307,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

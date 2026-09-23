@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-11-29'
   x-release: v4
-  title: AWS IoT TwinMaker Pricingplan Tags#resource ARN&tag Keys API
+  title: AWS IoT TwinMaker Tags#resource ARN&tag Keys API
   description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iottwinmaker-2021-11-29.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -112,7 +113,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: Tags#resourceARN&tagKeys
+- name: Tags#resource Arn&tag Keys
 paths:
   /tags#resourceARN&tagKeys:
     parameters:
@@ -170,41 +171,17 @@ paths:
         delay: 0
         dispatcher: FALLBACK
       tags:
-      - Tags#resourceARN&tagKeys
+      - Tags#resource Arn&tag Keys
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -215,8 +192,31 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    AccessDeniedException: {}
     ResourceNotFoundException: {}
     UntagResourceResponse:
       type: object
@@ -226,6 +226,7 @@ components:
       pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
       minLength: 1
       maxLength: 128
+    AccessDeniedException: {}
   securitySchemes:
     hmac:
       type: apiKey

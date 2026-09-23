@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-11-29'
   x-release: v4
-  title: AWS IoT TwinMaker Pricingplan Workspaces List API
+  title: AWS IoT TwinMaker Workspaces List API
   description: IoT TwinMaker is a service with which you can build operational digital twins of physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors, cameras, and enterprise applications so you can create data visualizations to monitor your physical factory, building, or industrial plant. You can use this real-world data to monitor operations and diagnose and repair errors.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/iottwinmaker-2021-11-29.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -195,49 +196,61 @@ paths:
       tags:
       - Workspaces List
 components:
+  parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    Description:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 2048
-    TwinMakerArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
-      minLength: 20
-      maxLength: 2048
-    ThrottlingException: {}
-    ServiceQuotaExceededException: {}
-    ListWorkspacesResponse:
-      type: object
-      properties:
-        workspaceSummaries:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceSummaries'
-          - description: A list of objects that contain information about the workspaces.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    NextToken:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 17880
+    ValidationException: {}
     Id:
       type: string
       pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 128
-    WorkspaceSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkspaceSummary'
-    InternalServerException: {}
-    Timestamp:
+    NextToken:
       type: string
-      description: supports epoch seconds value
-      format: date-time
+      pattern: .*
+      minLength: 0
+      maxLength: 17880
     WorkspaceSummary:
       type: object
       required:
@@ -267,50 +280,38 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time when the workspace was last updated.
       description: An object that contains information about a workspace.
-    ValidationException: {}
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+    WorkspaceSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/WorkspaceSummary'
+    TwinMakerArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      minLength: 20
+      maxLength: 2048
+    ThrottlingException: {}
+    ListWorkspacesResponse:
+      type: object
+      properties:
+        workspaceSummaries:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceSummaries'
+          - description: A list of objects that contain information about the workspaces.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    Description:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 2048
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    ServiceQuotaExceededException: {}
+    InternalServerException: {}
   securitySchemes:
     hmac:
       type: apiKey

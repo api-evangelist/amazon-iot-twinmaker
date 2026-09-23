@@ -1,14 +1,7 @@
 {
   "provider": "amazon-iot-twinmaker",
   "sources": [
-    "amazon-iot-twinmaker-pricingplan-api-openapi.yml",
-    "amazon-iot-twinmaker-queries-api-openapi.yml",
-    "amazon-iot-twinmaker-sync-jobs-api-openapi.yml",
-    "amazon-iot-twinmaker-tags-api-openapi.yml",
-    "amazon-iot-twinmaker-tags-list-api-openapi.yml",
-    "amazon-iot-twinmaker-tags-resourcearn-tagkeys-api-openapi.yml",
-    "amazon-iot-twinmaker-workspaces-api-openapi.yml",
-    "amazon-iot-twinmaker-workspaces-list-api-openapi.yml"
+    "_original/amazon-iot-twinmaker-openapi-original.yml"
   ],
   "outputs": [
     "amazon-iot-twinmaker-pricingplan-api-openapi.yml",
@@ -20,11 +13,67 @@
     "amazon-iot-twinmaker-workspaces-api-openapi.yml",
     "amazon-iot-twinmaker-workspaces-list-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-iot-twinmaker-openapi-original.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/entity-properties -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/component-types/{componentTypeId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /workspaces/{workspaceId}/component-types/{componentTypeId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /workspaces/{workspaceId}/component-types/{componentTypeId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths PUT /workspaces/{workspaceId}/component-types/{componentTypeId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/entities -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/scenes -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/sync-jobs/{syncSource} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /workspaces/{workspaceId}/sync-jobs/{syncSource} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /workspaces/{workspaceId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /workspaces/{workspaceId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths PUT /workspaces/{workspaceId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /workspaces/{workspaceId}/entities/{entityId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /workspaces/{workspaceId}/entities/{entityId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths PUT /workspaces/{workspaceId}/entities/{entityId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /workspaces/{workspaceId}/scenes/{sceneId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /workspaces/{workspaceId}/scenes/{sceneId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths PUT /workspaces/{workspaceId}/scenes/{sceneId} -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /queries/execution -> Queries",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /pricingplan -> Pricingplan",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /pricingplan -> Pricingplan",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/entity-properties/value -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/entity-properties/history -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths GET /sync-jobs/{syncSource} -> Sync Jobs",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/component-types-list -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/entities-list -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/scenes-list -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/sync-jobs-list -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list -> Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /tags-list -> Tags List",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces-list -> Workspaces List",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /tags -> Tags",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /tags#resourceARN&tagKeys -> Tags#resourceARN&tagKeys",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Pricingplan",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Queries",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Sync Jobs",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags List",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags#resourceARN&tagKeys",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces",
+    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces List",
+    "superseded outputs removed: amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 8 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-iot-twinmaker-pricingplan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-queries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-sync-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-tags-list-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-iot-twinmaker-workspaces-list-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
