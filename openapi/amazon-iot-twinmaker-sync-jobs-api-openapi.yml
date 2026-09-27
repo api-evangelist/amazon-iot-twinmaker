@@ -194,65 +194,24 @@ paths:
       tags:
       - Sync Jobs
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ValidationException: {}
-    ResourceNotFoundException: {}
-    Id:
+    ErrorCode:
       type: string
-      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 128
+      enum:
+      - VALIDATION_ERROR
+      - INTERNAL_FAILURE
+      - SYNC_INITIALIZING_ERROR
+      - SYNC_CREATING_ERROR
+      - SYNC_PROCESSING_ERROR
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    InternalServerException: {}
     SyncSource:
       type: string
       pattern: '[a-zA-Z_0-9]+'
-    RoleArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
-      minLength: 20
-      maxLength: 2048
+    ValidationException: {}
     SyncJobStatus:
       type: object
       properties:
@@ -265,12 +224,35 @@ components:
           - $ref: '#/components/schemas/ErrorDetails'
           - description: The SyncJob error.
       description: The SyncJob status.
+    ServiceQuotaExceededException: {}
+    Id:
+      type: string
+      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 128
     TwinMakerArn:
       type: string
       pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
       minLength: 20
       maxLength: 2048
     ThrottlingException: {}
+    RoleArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
+      minLength: 20
+      maxLength: 2048
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The error message.
+      description: The error details.
     SyncJobState:
       type: string
       enum:
@@ -279,6 +261,12 @@ components:
       - ACTIVE
       - DELETING
       - ERROR
+    ResourceNotFoundException: {}
+    ErrorMessage:
+      type: string
+      minLength: 0
+      maxLength: 2048
+    AccessDeniedException: {}
     GetSyncJobResponse:
       type: object
       required:
@@ -318,37 +306,49 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The update date and time.
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
-    ServiceQuotaExceededException: {}
-    ErrorDetails:
-      type: object
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: The error code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: The error message.
-      description: The error details.
-    ErrorMessage:
-      type: string
-      minLength: 0
-      maxLength: 2048
-    ErrorCode:
-      type: string
-      enum:
-      - VALIDATION_ERROR
-      - INTERNAL_FAILURE
-      - SYNC_INITIALIZING_ERROR
-      - SYNC_CREATING_ERROR
-      - SYNC_PROCESSING_ERROR
-    AccessDeniedException: {}
-    InternalServerException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

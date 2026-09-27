@@ -230,50 +230,23 @@ paths:
       tags:
       - Pricingplan
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    PricingMode:
+      type: string
+      enum:
+      - BASIC
+      - STANDARD
+      - TIERED_BUNDLE
+    InternalServerException: {}
+    BundleName:
+      type: string
+      pattern: .*
+      minLength: 1
+      maxLength: 256
     ValidationException: {}
     BundleInformation:
       type: object
@@ -289,31 +262,14 @@ components:
           - $ref: '#/components/schemas/PricingTier'
           - description: The pricing tier.
       description: Information about the pricing bundle.
-    Long:
-      type: integer
-    UpdatePricingPlanResponse:
-      type: object
-      required:
-      - currentPricingPlan
-      properties:
-        currentPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: Update the current pricing plan.
-        pendingPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: Update the pending pricing plan.
-    BundleName:
+    UpdateReason:
       type: string
-      pattern: .*
-      minLength: 1
-      maxLength: 256
-    ThrottlingException: {}
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
+      enum:
+      - DEFAULT
+      - PRICING_TIER_UPDATE
+      - ENTITY_COUNT_UPDATE
+      - PRICING_MODE_UPDATE
+      - OVERWRITTEN
     GetPricingPlanResponse:
       type: object
       required:
@@ -327,6 +283,22 @@ components:
           allOf:
           - $ref: '#/components/schemas/PricingPlan'
           - description: The pending pricing plan.
+    ThrottlingException: {}
+    PricingTier:
+      type: string
+      enum:
+      - TIER_1
+      - TIER_2
+      - TIER_3
+      - TIER_4
+    Long:
+      type: integer
+    PricingBundles:
+      type: array
+      items:
+        $ref: '#/components/schemas/BundleName'
+      minItems: 1
+      maxItems: 10
     PricingPlan:
       type: object
       required:
@@ -360,35 +332,63 @@ components:
           - $ref: '#/components/schemas/UpdateReason'
           - description: The update reason for changing a pricing plan.
       description: The pricing plan.
-    UpdateReason:
-      type: string
-      enum:
-      - DEFAULT
-      - PRICING_TIER_UPDATE
-      - ENTITY_COUNT_UPDATE
-      - PRICING_MODE_UPDATE
-      - OVERWRITTEN
-    PricingTier:
-      type: string
-      enum:
-      - TIER_1
-      - TIER_2
-      - TIER_3
-      - TIER_4
-    PricingBundles:
-      type: array
-      items:
-        $ref: '#/components/schemas/BundleName'
-      minItems: 1
-      maxItems: 10
+    UpdatePricingPlanResponse:
+      type: object
+      required:
+      - currentPricingPlan
+      properties:
+        currentPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: Update the current pricing plan.
+        pendingPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: Update the pending pricing plan.
     AccessDeniedException: {}
-    PricingMode:
-      type: string
-      enum:
-      - BASIC
-      - STANDARD
-      - TIERED_BUNDLE
-    InternalServerException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

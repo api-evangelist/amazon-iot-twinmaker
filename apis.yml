@@ -172,26 +172,6 @@ apis:
     url: https://aws.amazon.com/iot-twinmaker/pricing/
   - type: FAQ
     url: https://aws.amazon.com/iot-twinmaker/faqs/
-- aid: amazon-iot-twinmaker:amazon-iot-twinmaker-tags-resource-arn-tag-keys-api
-  name: Amazon IoT TwinMaker Tags#resource Arn&tag Keys API
-  description: >-
-    The Tags#resource Arn&tag Keys API from Amazon IoT TwinMaker — 1 operation(s) for tags#resource arn&tag
-    keys.
-  humanURL: https://aws.amazon.com/iot-twinmaker/
-  baseURL: https://iottwinmaker.amazonaws.com
-  tags:
-  - Tags#resource Arn&tag Keys
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/
-  - type: GettingStarted
-    url: https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html
-  - type: Pricing
-    url: https://aws.amazon.com/iot-twinmaker/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/iot-twinmaker/faqs/
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-iot-twinmaker/overview
@@ -278,5 +258,5 @@ integrations:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

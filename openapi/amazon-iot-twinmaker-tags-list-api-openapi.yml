@@ -181,8 +181,8 @@ paths:
       - Tags List
 components:
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -199,14 +199,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -224,6 +224,17 @@ components:
         type: string
       required: false
   schemas:
+    NextToken:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 17880
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     ListTagsForResourceResponse:
       type: object
       properties:
@@ -235,23 +246,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The string that specifies the next page of results.
-    NextToken:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 17880
     ResourceNotFoundException: {}
     TagValue:
       type: string
       pattern: .*
       minLength: 1
       maxLength: 256
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
     AccessDeniedException: {}
   securitySchemes:
     hmac:

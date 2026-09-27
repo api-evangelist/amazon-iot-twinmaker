@@ -9,7 +9,6 @@
     "amazon-iot-twinmaker-sync-jobs-api-openapi.yml",
     "amazon-iot-twinmaker-tags-api-openapi.yml",
     "amazon-iot-twinmaker-tags-list-api-openapi.yml",
-    "amazon-iot-twinmaker-tags-resourcearn-tagkeys-api-openapi.yml",
     "amazon-iot-twinmaker-workspaces-api-openapi.yml",
     "amazon-iot-twinmaker-workspaces-list-api-openapi.yml"
   ],
@@ -54,17 +53,16 @@
     "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /tags-list -> Tags List",
     "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /workspaces-list -> Workspaces List",
     "amazon-iot-twinmaker-openapi-original.yml: tagged paths POST /tags -> Tags",
-    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /tags#resourceARN&tagKeys -> Tags#resourceARN&tagKeys",
+    "amazon-iot-twinmaker-openapi-original.yml: tagged paths DELETE /tags#resourceARN&tagKeys -> Tags",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Pricingplan",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Queries",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Sync Jobs",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags List",
-    "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags#resourceARN&tagKeys",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces List",
     "superseded outputs removed: amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 8 total)"
+    "apis.yml register: written (+0 apis, 7 total)"
   ],
   "skipped": [
     "amazon-iot-twinmaker-pricingplan-api-openapi.yml: previously refined output, superseded by openapi/_original/",

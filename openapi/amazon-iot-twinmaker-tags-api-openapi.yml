@@ -182,10 +182,67 @@ paths:
         dispatcher: FALLBACK
       tags:
       - Tags
+  /tags#resourceARN&tagKeys:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: UntagResource
+      description: Removes tags from a resource.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UntagResourceResponse'
+        '480':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '481':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+      parameters:
+      - name: resourceARN
+        in: query
+        required: true
+        description: The ARN of the resource.
+        schema:
+          type: string
+          pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+          minLength: 20
+          maxLength: 2048
+      - name: tagKeys
+        in: query
+        required: true
+        description: A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagKey'
+          minItems: 0
+          maxItems: 50
+      summary: Amazon IoT TwinMaker Untag Resource
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - Tags
 components:
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -196,20 +253,20 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -230,14 +287,22 @@ components:
     TagResourceResponse:
       type: object
       properties: {}
-    TooManyTagsException: {}
     ResourceNotFoundException: {}
     TagValue:
       type: string
       pattern: .*
       minLength: 1
       maxLength: 256
+    TagKey:
+      type: string
+      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
+      minLength: 1
+      maxLength: 128
+    TooManyTagsException: {}
     AccessDeniedException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

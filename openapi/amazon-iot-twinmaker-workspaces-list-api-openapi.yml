@@ -196,61 +196,45 @@ paths:
       tags:
       - Workspaces List
 components:
-  parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    InternalServerException: {}
+    ListWorkspacesResponse:
+      type: object
+      properties:
+        workspaceSummaries:
+          allOf:
+          - $ref: '#/components/schemas/WorkspaceSummaries'
+          - description: A list of objects that contain information about the workspaces.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
     ValidationException: {}
+    ServiceQuotaExceededException: {}
     Id:
       type: string
       pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 128
-    NextToken:
+    TwinMakerArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      minLength: 20
+      maxLength: 2048
+    ThrottlingException: {}
+    Description:
       type: string
       pattern: .*
       minLength: 0
-      maxLength: 17880
+      maxLength: 2048
+    WorkspaceSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/WorkspaceSummary'
     WorkspaceSummary:
       type: object
       required:
@@ -280,38 +264,54 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time when the workspace was last updated.
       description: An object that contains information about a workspace.
-    WorkspaceSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkspaceSummary'
-    TwinMakerArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
-      minLength: 20
-      maxLength: 2048
-    ThrottlingException: {}
-    ListWorkspacesResponse:
-      type: object
-      properties:
-        workspaceSummaries:
-          allOf:
-          - $ref: '#/components/schemas/WorkspaceSummaries'
-          - description: A list of objects that contain information about the workspaces.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    Description:
+    NextToken:
       type: string
       pattern: .*
       minLength: 0
-      maxLength: 2048
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
-    ServiceQuotaExceededException: {}
-    InternalServerException: {}
+      maxLength: 17880
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
