@@ -12,9 +12,7 @@
     "amazon-iot-twinmaker-workspaces-api-openapi.yml",
     "amazon-iot-twinmaker-workspaces-list-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -61,8 +59,7 @@
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Tags List",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces",
     "amazon-iot-twinmaker-openapi-original.yml: declared missing tag: Workspaces List",
-    "superseded outputs removed: amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 7 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "amazon-iot-twinmaker-pricingplan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -70,7 +67,6 @@
     "amazon-iot-twinmaker-sync-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iot-twinmaker-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iot-twinmaker-tags-list-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-iot-twinmaker-tags-resource-arn-tag-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iot-twinmaker-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "amazon-iot-twinmaker-workspaces-list-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
