@@ -231,75 +231,13 @@ paths:
       - Pricingplan
 components:
   schemas:
-    InternalServerException: {}
+    AccessDeniedException: {}
+    ValidationException: {}
     BundleName:
       type: string
       pattern: .*
       minLength: 1
       maxLength: 256
-    ValidationException: {}
-    PricingBundles:
-      type: array
-      items:
-        $ref: '#/components/schemas/BundleName'
-      minItems: 1
-      maxItems: 10
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
-    UpdateReason:
-      type: string
-      enum:
-      - DEFAULT
-      - PRICING_TIER_UPDATE
-      - ENTITY_COUNT_UPDATE
-      - PRICING_MODE_UPDATE
-      - OVERWRITTEN
-    ThrottlingException: {}
-    PricingTier:
-      type: string
-      enum:
-      - TIER_1
-      - TIER_2
-      - TIER_3
-      - TIER_4
-    PricingMode:
-      type: string
-      enum:
-      - BASIC
-      - STANDARD
-      - TIERED_BUNDLE
-    BundleInformation:
-      type: object
-      required:
-      - bundleNames
-      properties:
-        bundleNames:
-          allOf:
-          - $ref: '#/components/schemas/PricingBundles'
-          - description: The bundle names.
-        pricingTier:
-          allOf:
-          - $ref: '#/components/schemas/PricingTier'
-          - description: The pricing tier.
-      description: Information about the pricing bundle.
-    Long:
-      type: integer
-    GetPricingPlanResponse:
-      type: object
-      required:
-      - currentPricingPlan
-      properties:
-        currentPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: The chosen pricing plan for the current billing cycle.
-        pendingPricingPlan:
-          allOf:
-          - $ref: '#/components/schemas/PricingPlan'
-          - description: The pending pricing plan.
-    AccessDeniedException: {}
     UpdatePricingPlanResponse:
       type: object
       required:
@@ -313,6 +251,27 @@ components:
           allOf:
           - $ref: '#/components/schemas/PricingPlan'
           - description: Update the pending pricing plan.
+    UpdateReason:
+      type: string
+      enum:
+      - DEFAULT
+      - PRICING_TIER_UPDATE
+      - ENTITY_COUNT_UPDATE
+      - PRICING_MODE_UPDATE
+      - OVERWRITTEN
+    GetPricingPlanResponse:
+      type: object
+      required:
+      - currentPricingPlan
+      properties:
+        currentPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: The chosen pricing plan for the current billing cycle.
+        pendingPricingPlan:
+          allOf:
+          - $ref: '#/components/schemas/PricingPlan'
+          - description: The pending pricing plan.
     PricingPlan:
       type: object
       required:
@@ -346,27 +305,50 @@ components:
           - $ref: '#/components/schemas/UpdateReason'
           - description: The update reason for changing a pricing plan.
       description: The pricing plan.
+    Long:
+      type: integer
+    PricingMode:
+      type: string
+      enum:
+      - BASIC
+      - STANDARD
+      - TIERED_BUNDLE
+    PricingBundles:
+      type: array
+      items:
+        $ref: '#/components/schemas/BundleName'
+      minItems: 1
+      maxItems: 10
+    BundleInformation:
+      type: object
+      required:
+      - bundleNames
+      properties:
+        bundleNames:
+          allOf:
+          - $ref: '#/components/schemas/PricingBundles'
+          - description: The bundle names.
+        pricingTier:
+          allOf:
+          - $ref: '#/components/schemas/PricingTier'
+          - description: The pricing tier.
+      description: Information about the pricing bundle.
+    InternalServerException: {}
+    ThrottlingException: {}
+    PricingTier:
+      type: string
+      enum:
+      - TIER_1
+      - TIER_2
+      - TIER_3
+      - TIER_4
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -377,14 +359,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string

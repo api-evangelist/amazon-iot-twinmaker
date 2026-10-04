@@ -240,59 +240,9 @@ paths:
       tags:
       - Tags
 components:
-  schemas:
-    TagValue:
-      type: string
-      pattern: .*
-      minLength: 1
-      maxLength: 256
-    TagKey:
-      type: string
-      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
-      minLength: 1
-      maxLength: 128
-    AccessDeniedException: {}
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    TooManyTagsException: {}
-    UntagResourceResponse:
-      type: object
-      properties: {}
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -303,6 +253,56 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    TagResourceResponse:
+      type: object
+      properties: {}
+    TagKey:
+      type: string
+      pattern: ([\p{L}\p{Z}\p{N}_.:/=+\-@]*)
+      minLength: 1
+      maxLength: 128
+    AccessDeniedException: {}
+    TooManyTagsException: {}
+    ResourceNotFoundException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      pattern: .*
+      minLength: 1
+      maxLength: 256
   securitySchemes:
     hmac:
       type: apiKey
