@@ -2577,55 +2577,338 @@ paths:
       - Workspaces
 components:
   schemas:
-    PropertyValues:
+    ComponentResponse:
+      type: object
+      properties:
+        componentName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the component.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The description of the component type.
+        componentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the component type.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/Status'
+          - description: The status of the component type.
+        definedIn:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The name of the property definition set in the request.
+        properties:
+          description: An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+        propertyGroups:
+          allOf:
+          - $ref: '#/components/schemas/ComponentPropertyGroupResponses'
+          - description: The property groups.
+        syncSource:
+          allOf:
+          - $ref: '#/components/schemas/SyncSource'
+          - description: The syncSource of the sync job, if this entity was created by a sync job.
+      description: An object that returns information about a component type create or update request.
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    ComponentRequest:
+      type: object
+      properties:
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The description of the component request.
+        componentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the component type.
+        properties:
+          description: An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
+        propertyGroups:
+          allOf:
+          - $ref: '#/components/schemas/ComponentPropertyGroupRequests'
+          - description: The property groups.
+      description: An object that sets information about a component type create or update request.
+    Relationship:
+      type: object
+      properties:
+        targetComponentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the target component type associated with this relationship.
+        relationshipType:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The type of the relationship.
+      description: An object that specifies a relationship with another component type.
+    ComponentPropertyGroupRequest:
+      type: object
+      properties:
+        groupType:
+          allOf:
+          - $ref: '#/components/schemas/GroupType'
+          - description: The group type.
+        propertyNames:
+          allOf:
+          - $ref: '#/components/schemas/PropertyNames'
+          - description: The property names.
+        updateType:
+          allOf:
+          - $ref: '#/components/schemas/PropertyGroupUpdateType'
+          - description: The update type.
+      description: The component property group request.
+    PropertyLatestValue:
+      type: object
+      required:
+      - propertyReference
+      properties:
+        propertyReference:
+          allOf:
+          - $ref: '#/components/schemas/EntityPropertyReference'
+          - description: An object that specifies information about a property.
+        propertyValue:
+          allOf:
+          - $ref: '#/components/schemas/DataValue'
+          - description: The value of the property.
+      description: The latest value of the property.
+    ResourceNotFoundException: {}
+    Boolean:
+      type: boolean
+    ListSyncJobsResponse:
+      type: object
+      properties:
+        syncJobSummaries:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobSummaries'
+          - description: The listed SyncJob summaries.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    PropertyDefinitionRequest:
+      type: object
+      properties:
+        dataType:
+          allOf:
+          - $ref: '#/components/schemas/DataType'
+          - description: An object that contains information about the data type.
+        isRequiredInEntity:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property is required.
+        isExternalId:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property ID comes from an external data store.
+        isStoredExternally:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property is stored externally.
+        isTimeSeries:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property consists of time series data.
+        defaultValue:
+          allOf:
+          - $ref: '#/components/schemas/DataValue'
+          - description: An object that contains the default value.
+        configuration:
+          allOf:
+          - $ref: '#/components/schemas/Configuration'
+          - description: A mapping that specifies configuration information about the property. Use this field to specify information that you read from and write to an external source.
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/PropertyDisplayName'
+          - description: A friendly name for the property.
+      description: An object that sets information about a property.
+    ComponentPropertyGroupRequests:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ComponentPropertyGroupRequest'
+    ExtendsFrom:
       type: array
       items:
-        $ref: '#/components/schemas/PropertyValue'
-      minItems: 1
-      maxItems: 10
-    S3Location:
-      type: string
-      pattern: .*(^arn:((aws)|(aws-cn)|(aws-us-gov)):s3:::)([a-zA-Z0-9_-]+$).*
-      minLength: 0
-      maxLength: 1024
-    UpdateEntityResponse:
+        $ref: '#/components/schemas/ComponentTypeId'
+    UpdateWorkspaceResponse:
       type: object
       required:
       - updateDateTime
-      - state
       properties:
         updateDateTime:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the entity was last updated.
+          - description: The date and time of the current update.
+    ComponentsMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ComponentResponse'
+    ConflictException: {}
+    PropertyRequests:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/PropertyRequest'
+    CreateComponentTypeResponse:
+      type: object
+      required:
+      - arn
+      - creationDateTime
+      - state
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the component type.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the entity was created.
         state:
           allOf:
           - $ref: '#/components/schemas/State'
-          - description: The current state of the entity update.
-    PropertyGroupUpdateType:
+          - description: The current state of the component type.
+    OrderBy:
+      type: object
+      required:
+      - propertyName
+      properties:
+        order:
+          allOf:
+          - $ref: '#/components/schemas/Order'
+          - description: The set order that filters results.
+        propertyName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The property name.
+      description: Filter criteria that orders the return output. It can be sorted in ascending or descending order.
+    DeleteEntityResponse:
+      type: object
+      required:
+      - state
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the deleted entity.
+    ErrorMessage:
+      type: string
+      minLength: 0
+      maxLength: 2048
+    Name:
+      type: string
+      pattern: '[a-zA-Z_\-0-9]+'
+      minLength: 1
+      maxLength: 256
+    ComponentPropertyGroupResponse:
+      type: object
+      required:
+      - groupType
+      - propertyNames
+      - isInherited
+      properties:
+        groupType:
+          allOf:
+          - $ref: '#/components/schemas/GroupType'
+          - description: The group type.
+        propertyNames:
+          allOf:
+          - $ref: '#/components/schemas/PropertyNames'
+          - description: The names of properties
+        isInherited:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property group is inherited from a parent entity
+      description: The component property group response.
+    ErrorEntries:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchPutPropertyErrorEntry'
+      minItems: 1
+      maxItems: 10
+    PropertyFilters:
+      type: array
+      items:
+        $ref: '#/components/schemas/PropertyFilter'
+      minItems: 1
+      maxItems: 10
+    ComponentTypeSummary:
+      type: object
+      required:
+      - arn
+      - componentTypeId
+      - creationDateTime
+      - updateDateTime
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the component type.
+        componentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the component type.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the component type was created.
+        updateDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the component type was last updated.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The description of the component type.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/Status'
+          - description: The current status of the component type.
+        componentTypeName:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeName'
+          - description: The component type name.
+      description: An object that contains information about a component type.
+    PropertyUpdateType:
       type: string
       enum:
       - UPDATE
       - DELETE
       - CREATE
-    AccessDeniedException: {}
-    SceneError:
-      type: object
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/SceneErrorCode'
-          - description: The SceneError code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: The SceneError message.
-      description: The scene error.
-    Expression:
+    LambdaArn:
       type: string
-      pattern: (^\$\{Parameters\.[a-zA-z]+([a-zA-z_0-9]*)}$)
-      minLength: 1
-      maxLength: 316
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):lambda:[a-z0-9-]+:[0-9]{12}:function:[\/a-zA-Z0-9_-]+
+      minLength: 20
+      maxLength: 2048
+    Double:
+      type: number
+      format: double
+    CreateSceneResponse:
+      type: object
+      required:
+      - arn
+      - creationDateTime
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the scene.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the scene was created.
+    MaxResults:
+      type: integer
+      minimum: 0
+      maximum: 200
+    FunctionsResponse:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/FunctionResponse'
+    IntervalInSeconds:
+      type: integer
     PropertyValueEntry:
       type: object
       required:
@@ -2640,6 +2923,375 @@ components:
           - $ref: '#/components/schemas/PropertyValues'
           - description: A list of objects that specify time series property values.
       description: An object that specifies information about time series property values. This object is used and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.
+    ListEntitiesResponse:
+      type: object
+      properties:
+        entitySummaries:
+          allOf:
+          - $ref: '#/components/schemas/EntitySummaries'
+          - description: A list of objects that contain information about the entities.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    SceneMetadataMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/SceneMetadataValue'
+    PropertyGroupUpdateType:
+      type: string
+      enum:
+      - UPDATE
+      - DELETE
+      - CREATE
+    ConnectorTimeoutException: {}
+    PropertyNames:
+      type: array
+      items:
+        $ref: '#/components/schemas/Name'
+    State:
+      type: string
+      enum:
+      - CREATING
+      - UPDATING
+      - DELETING
+      - ACTIVE
+      - ERROR
+    RequiredProperties:
+      type: array
+      items:
+        $ref: '#/components/schemas/Name'
+    Expression:
+      type: string
+      pattern: (^\$\{Parameters\.[a-zA-z]+([a-zA-z_0-9]*)}$)
+      minLength: 1
+      maxLength: 316
+    ConnectorFailureException: {}
+    DeleteSceneResponse:
+      type: object
+      properties: {}
+    FunctionResponse:
+      type: object
+      properties:
+        requiredProperties:
+          allOf:
+          - $ref: '#/components/schemas/RequiredProperties'
+          - description: The required properties of the function.
+        scope:
+          allOf:
+          - $ref: '#/components/schemas/Scope'
+          - description: The scope of the function.
+        implementedBy:
+          allOf:
+          - $ref: '#/components/schemas/DataConnector'
+          - description: The data connector.
+        isInherited:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Indicates whether this function is inherited.
+      description: The function response.
+    ThrottlingException: {}
+    ParentEntityId:
+      type: string
+      pattern: \$ROOT|^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|^[a-zA-Z0-9][a-zA-Z_\-0-9.:]*[a-zA-Z0-9]+
+      minLength: 1
+      maxLength: 128
+    PropertyValue:
+      type: object
+      required:
+      - value
+      properties:
+        timestamp:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - deprecated: true
+            description: The timestamp of a value for a time series property.This field is deprecated and will throw an error in the future. Use time instead.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/DataValue'
+          - description: An object that specifies a value for a time series property.
+        time:
+          allOf:
+          - $ref: '#/components/schemas/Time'
+          - description: '<p>ISO8601 DateTime of a value for a time series property.</p> <p>The time for when the property value was recorded in ISO 8601 format: <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p> <ul> <li> <p> <i>[YYYY]</i>: year</p> </li> <li> <p> <i>[MM]</i>: month</p> </li> <li> <p> <i>[DD]</i>: day</p> </li> <li> <p> <i>[hh]</i>: hour</p> </li> <li> <p> <i>[mm]</i>: minute</p> </li> <li> <p> <i>[ss]</i>: seconds</p> </li> <li> <p> <i>[.SSSSSSSSS]</i>: additional precision, where precedence is maintained. For example: [.573123] is equal to 573123000 nanoseconds.</p> </li> <li> <p> <i>Z</i>: default timezone UTC</p> </li> <li> <p> <i>± HH:mm</i>: time zone offset in Hours and Minutes.</p> </li> </ul> <p> <i>Required sub-fields</i>: YYYY-MM-DDThh:mm:ss and [Z/±HH:mm]</p>'
+      description: An object that contains information about a value for a time series property.
+    SceneError:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/SceneErrorCode'
+          - description: The SceneError code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The SceneError message.
+      description: The scene error.
+    AccessDeniedException: {}
+    S3Location:
+      type: string
+      pattern: .*(^arn:((aws)|(aws-cn)|(aws-us-gov)):s3:::)([a-zA-Z0-9_-]+$).*
+      minLength: 0
+      maxLength: 1024
+    PropertyGroupRequest:
+      type: object
+      properties:
+        groupType:
+          allOf:
+          - $ref: '#/components/schemas/GroupType'
+          - description: The group type.
+        propertyNames:
+          allOf:
+          - $ref: '#/components/schemas/PropertyNames'
+          - description: The names of properties.
+      description: <p/>
+    SyncResourceState:
+      type: string
+      enum:
+      - INITIALIZING
+      - PROCESSING
+      - DELETED
+      - IN_SYNC
+      - ERROR
+    LambdaFunction:
+      type: object
+      required:
+      - arn
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/LambdaArn'
+          - description: The ARN of the Lambda function.
+      description: The Lambda function.
+    GetPropertyValueResponse:
+      type: object
+      properties:
+        propertyValues:
+          allOf:
+          - $ref: '#/components/schemas/PropertyLatestValueMap'
+          - description: An object that maps strings to the properties and latest property values in the response. Each string in the mapping must be unique to this object.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+        tabularPropertyValues:
+          allOf:
+          - $ref: '#/components/schemas/TabularPropertyValues'
+          - description: A table of property values.
+    Order:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+    ListScenesResponse:
+      type: object
+      properties:
+        sceneSummaries:
+          allOf:
+          - $ref: '#/components/schemas/SceneSummaries'
+          - description: A list of objects that contain information about the scenes.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    Errors:
+      type: array
+      items:
+        $ref: '#/components/schemas/BatchPutPropertyError'
+      minItems: 1
+      maxItems: 10
+    PropertyLatestValueMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/PropertyLatestValue'
+    Long:
+      type: integer
+    TagValue:
+      type: string
+      pattern: .*
+      minLength: 1
+      maxLength: 256
+    ListSyncResourcesResponse:
+      type: object
+      properties:
+        syncResources:
+          allOf:
+          - $ref: '#/components/schemas/SyncResourceSummaries'
+          - description: The sync resources.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    SceneSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/SceneSummary'
+    ComponentTypeSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/ComponentTypeSummary'
+    PropertyDisplayName:
+      type: string
+      pattern: .*[^\u0000-\u001F\u007F]*.*
+      minLength: 0
+      maxLength: 256
+    PropertyFilter:
+      type: object
+      properties:
+        propertyName:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The property name associated with this property filter.
+        operator:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The operator associated with this property filter.
+        value:
+          allOf:
+          - $ref: '#/components/schemas/DataValue'
+          - description: The value associated with this property filter.
+      description: An object that filters items returned by a property request.
+    PropertyValueHistory:
+      type: object
+      required:
+      - entityPropertyReference
+      properties:
+        entityPropertyReference:
+          allOf:
+          - $ref: '#/components/schemas/EntityPropertyReference'
+          - description: An object that uniquely identifies an entity property.
+        values:
+          allOf:
+          - $ref: '#/components/schemas/Values'
+          - description: A list of objects that contain information about the values in the history of a time series property.
+      description: The history of values for a time series property.
+    DataType:
+      type: object
+      required:
+      - type
+      properties:
+        type:
+          allOf:
+          - $ref: '#/components/schemas/Type'
+          - description: The underlying type of the data type.
+        nestedType:
+          allOf:
+          - $ref: '#/components/schemas/DataType'
+          - description: The nested type in the data type.
+        allowedValues:
+          allOf:
+          - $ref: '#/components/schemas/DataValueList'
+          - description: The allowed values for this data type.
+        unitOfMeasure:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The unit of measure used in this data type.
+        relationship:
+          allOf:
+          - $ref: '#/components/schemas/Relationship'
+          - description: A relationship that associates a component with another component.
+      description: An object that specifies the data type of a property.
+    SceneMetadataValue:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 2048
+    ServiceQuotaExceededException: {}
+    CreateWorkspaceResponse:
+      type: object
+      required:
+      - arn
+      - creationDateTime
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the workspace.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the workspace was created.
+    ListEntitiesFilter:
+      type: object
+      properties:
+        parentEntityId:
+          allOf:
+          - $ref: '#/components/schemas/ParentEntityId'
+          - description: The parent of the entities in the list.
+        componentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the component type in the entities in the list.
+        externalId:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The external-Id property of a component. The external-Id property is the primary key of an external storage system.
+      description: An object that filters items in a list of entities.
+    InternalServerException: {}
+    Description:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 2048
+    Status:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the entity, component, component type, or workspace.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The error message.
+      description: An object that represents the status of an entity, component, component type, or workspace.
+    SyncJobSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/SyncJobSummary'
+    PropertyGroupsResponse:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/PropertyGroupResponse'
+    CreateSyncJobResponse:
+      type: object
+      required:
+      - arn
+      - creationDateTime
+      - state
+      properties:
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The SyncJob ARN.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time for the SyncJob creation.
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob response state.
+    DeleteComponentTypeResponse:
+      type: object
+      required:
+      - state
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the component type to be deleted.
+    InterpolationType:
+      type: string
+      enum:
+      - LINEAR
+    ValidationException: {}
+    PropertyValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PropertyValueHistory'
     ListComponentTypesResponse:
       type: object
       required:
@@ -2662,268 +3314,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/MaxResults'
           - description: Specifies the maximum number of results to display.
-    SyncResourceFilter:
-      type: object
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceState'
-          - description: The sync resource filter's state.
-        resourceType:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceType'
-          - description: The sync resource filter resource type
-        resourceId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The sync resource filter resource ID.
-        externalId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The external ID.
-      description: The sync resource filter.
-    Double:
-      type: number
-      format: double
-    PropertyUpdateType:
-      type: string
-      enum:
-      - UPDATE
-      - DELETE
-      - CREATE
-    CreateEntityResponse:
-      type: object
-      required:
-      - entityId
-      - arn
-      - creationDateTime
-      - state
-      properties:
-        entityId:
-          allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the entity.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the entity.
-        creationDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the entity was created.
-        state:
-          allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the entity.
-    SyncJobStatus:
-      type: object
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobState'
-          - description: The SyncJob status state.
-        error:
-          allOf:
-          - $ref: '#/components/schemas/ErrorDetails'
-          - description: The SyncJob error.
-      description: The SyncJob status.
-    SyncJobSummary:
-      type: object
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The SyncJob summary ARN.
-        workspaceId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The ID of the workspace that contains the sync job.
-        syncSource:
-          allOf:
-          - $ref: '#/components/schemas/SyncSource'
-          - description: The sync source.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobStatus'
-          - description: The SyncJob summaries status.
-        creationDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The creation date and time.
-        updateDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The update date and time.
-      description: The SyncJob summary.
-    ParentEntityUpdateType:
-      type: string
-      enum:
-      - UPDATE
-      - DELETE
-    Relationship:
-      type: object
-      properties:
-        targetComponentTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the target component type associated with this relationship.
-        relationshipType:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The type of the relationship.
-      description: An object that specifies a relationship with another component type.
-    DeleteEntityResponse:
-      type: object
-      required:
-      - state
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the deleted entity.
-    SceneCapability:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 256
-    PropertyGroupResponse:
-      type: object
-      required:
-      - groupType
-      - propertyNames
-      - isInherited
-      properties:
-        groupType:
-          allOf:
-          - $ref: '#/components/schemas/GroupType'
-          - description: The group types.
-        propertyNames:
-          allOf:
-          - $ref: '#/components/schemas/PropertyNames'
-          - description: The names of properties.
-        isInherited:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property group is inherited from a parent entity
-      description: The property group response
-    SyncResourceSummary:
-      type: object
-      properties:
-        resourceType:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceType'
-          - description: The resource type.
-        externalId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The external ID.
-        resourceId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The resource ID.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceStatus'
-          - description: The sync resource summary status.
-        updateDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The update date and time.
-      description: The sync resource summary.
-    ListSyncJobsResponse:
-      type: object
-      properties:
-        syncJobSummaries:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobSummaries'
-          - description: The listed SyncJob summaries.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    IntervalInSeconds:
-      type: integer
-    SyncSource:
-      type: string
-      pattern: '[a-zA-Z_0-9]+'
-    PropertyLatestValueMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/PropertyLatestValue'
-    ErrorEntries:
-      type: array
-      items:
-        $ref: '#/components/schemas/BatchPutPropertyErrorEntry'
-      minItems: 1
-      maxItems: 10
-    ServiceQuotaExceededException: {}
-    EntitySummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/EntitySummary'
-    OrderBy:
-      type: object
-      required:
-      - propertyName
-      properties:
-        order:
-          allOf:
-          - $ref: '#/components/schemas/Order'
-          - description: The set order that filters results.
-        propertyName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The property name.
-      description: Filter criteria that orders the return output. It can be sorted in ascending or descending order.
-    UpdateComponentTypeResponse:
-      type: object
-      required:
-      - workspaceId
-      - arn
-      - componentTypeId
-      - state
-      properties:
-        workspaceId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The ID of the workspace that contains the component type.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the component type.
-        componentTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the component type.
-        state:
-          allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the component type.
-    DataConnector:
-      type: object
-      properties:
-        lambda:
-          allOf:
-          - $ref: '#/components/schemas/LambdaFunction'
-          - description: The Lambda function associated with this data connector.
-        isNative:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
-      description: The data connector.
     DeleteWorkspaceResponse:
       type: object
       properties: {}
-    SceneSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/SceneSummary'
-    ComponentUpdateType:
-      type: string
-      enum:
-      - CREATE
-      - UPDATE
-      - DELETE
+    PropertyTableValue:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/DataValue'
     DataValue:
       type: object
       properties:
@@ -2964,402 +3361,35 @@ components:
           - $ref: '#/components/schemas/Expression'
           - description: An expression that produces the value.
       description: An object that specifies a value for a property.
-    SceneMetadataValue:
+    NextToken:
       type: string
       pattern: .*
       minLength: 0
-      maxLength: 2048
-    Boolean:
-      type: boolean
-    ComponentRequest:
-      type: object
-      properties:
-        description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The description of the component request.
-        componentTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the component type.
-        properties:
-          description: An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
-        propertyGroups:
-          allOf:
-          - $ref: '#/components/schemas/ComponentPropertyGroupRequests'
-          - description: The property groups.
-      description: An object that sets information about a component type create or update request.
-    ThrottlingException: {}
-    SyncJobSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/SyncJobSummary'
-    EntityName:
-      type: string
-      pattern: '[^\u0000-\u001F\u007F]+'
-      minLength: 1
-      maxLength: 256
-    ListComponentTypesFilter:
-      type: object
-      properties:
-        extendsFrom:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The component type that the component types in the list extend.
-        namespace:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The namespace to which the component types in the list belong.
-        isAbstract:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the component types in the list are abstract.
-      description: <p>An object that filters items in a list of component types.</p> <note> <p>Only one object is accepted as a valid input.</p> </note>
-    Description:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 2048
-    ValidationException: {}
-    DeleteComponentTypeResponse:
+      maxLength: 17880
+    CreateEntityResponse:
       type: object
       required:
+      - entityId
+      - arn
+      - creationDateTime
       - state
       properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the component type to be deleted.
-    DeleteSceneResponse:
-      type: object
-      properties: {}
-    PropertyValueList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PropertyValueHistory'
-    MaxResults:
-      type: integer
-      minimum: 0
-      maximum: 200
-    EntityPropertyReference:
-      type: object
-      required:
-      - propertyName
-      properties:
-        componentName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the component.
-        externalIdProperty:
-          allOf:
-          - $ref: '#/components/schemas/ExternalIdProperty'
-          - description: A mapping of external IDs to property names. External IDs uniquely identify properties from external data stores.
         entityId:
           allOf:
           - $ref: '#/components/schemas/EntityId'
           - description: The ID of the entity.
-        propertyName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the property.
-      description: An object that uniquely identifies an entity property.
-    SyncResourceSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/SyncResourceSummary'
-    ExternalIdProperty:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/String'
-    UpdateWorkspaceResponse:
-      type: object
-      required:
-      - updateDateTime
-      properties:
-        updateDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time of the current update.
-    Values:
-      type: array
-      items:
-        $ref: '#/components/schemas/PropertyValue'
-    PropertyGroupRequest:
-      type: object
-      properties:
-        groupType:
-          allOf:
-          - $ref: '#/components/schemas/GroupType'
-          - description: The group type.
-        propertyNames:
-          allOf:
-          - $ref: '#/components/schemas/PropertyNames'
-          - description: The names of properties.
-      description: <p/>
-    DataValueMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/DataValue'
-    ComponentTypeId:
-      type: string
-      pattern: '[a-zA-Z_\.\-0-9:]+'
-      minLength: 1
-      maxLength: 256
-    ComponentPropertyGroupRequest:
-      type: object
-      properties:
-        groupType:
-          allOf:
-          - $ref: '#/components/schemas/GroupType'
-          - description: The group type.
-        propertyNames:
-          allOf:
-          - $ref: '#/components/schemas/PropertyNames'
-          - description: The property names.
-        updateType:
-          allOf:
-          - $ref: '#/components/schemas/PropertyGroupUpdateType'
-          - description: The update type.
-      description: The component property group request.
-    ComponentPropertyGroupRequests:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/ComponentPropertyGroupRequest'
-    ComponentTypeName:
-      type: string
-      pattern: .*[^\u0000-\u001F\u007F]*.*
-      minLength: 0
-      maxLength: 256
-    SceneSummary:
-      type: object
-      required:
-      - sceneId
-      - contentLocation
-      - arn
-      - creationDateTime
-      - updateDateTime
-      properties:
-        sceneId:
-          allOf:
-          - $ref: '#/components/schemas/Id'
-          - description: The ID of the scene.
-        contentLocation:
-          allOf:
-          - $ref: '#/components/schemas/S3Url'
-          - description: The relative path that specifies the location of the content definition file.
         arn:
           allOf:
           - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the scene.
+          - description: The ARN of the entity.
         creationDateTime:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the scene was created.
-        updateDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the scene was last updated.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The scene description.
-      description: An object that contains information about a scene.
-    PropertyRequests:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/PropertyRequest'
-    DataType:
-      type: object
-      required:
-      - type
-      properties:
-        type:
-          allOf:
-          - $ref: '#/components/schemas/Type'
-          - description: The underlying type of the data type.
-        nestedType:
-          allOf:
-          - $ref: '#/components/schemas/DataType'
-          - description: The nested type in the data type.
-        allowedValues:
-          allOf:
-          - $ref: '#/components/schemas/DataValueList'
-          - description: The allowed values for this data type.
-        unitOfMeasure:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The unit of measure used in this data type.
-        relationship:
-          allOf:
-          - $ref: '#/components/schemas/Relationship'
-          - description: A relationship that associates a component with another component.
-      description: An object that specifies the data type of a property.
-    ComponentResponse:
-      type: object
-      properties:
-        componentName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the component.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The description of the component type.
-        componentTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the component type.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/Status'
-          - description: The status of the component type.
-        definedIn:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The name of the property definition set in the request.
-        properties:
-          description: An object that maps strings to the properties to set in the component type. Each string in the mapping must be unique to this object.
-        propertyGroups:
-          allOf:
-          - $ref: '#/components/schemas/ComponentPropertyGroupResponses'
-          - description: The property groups.
-        syncSource:
-          allOf:
-          - $ref: '#/components/schemas/SyncSource'
-          - description: The syncSource of the sync job, if this entity was created by a sync job.
-      description: An object that returns information about a component type create or update request.
-    Integer:
-      type: integer
-    Long:
-      type: integer
-    LambdaFunction:
-      type: object
-      required:
-      - arn
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/LambdaArn'
-          - description: The ARN of the Lambda function.
-      description: The Lambda function.
-    S3Url:
-      type: string
-      pattern: '[sS]3://[A-Za-z0-9._/-]+'
-      minLength: 0
-      maxLength: 256
-    PropertyNames:
-      type: array
-      items:
-        $ref: '#/components/schemas/Name'
-    Order:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-    ErrorMessage:
-      type: string
-      minLength: 0
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    ComponentsMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/ComponentResponse'
-    FunctionsResponse:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/FunctionResponse'
-    BatchPutPropertyValuesResponse:
-      type: object
-      required:
-      - errorEntries
-      properties:
-        errorEntries:
-          allOf:
-          - $ref: '#/components/schemas/ErrorEntries'
-          - description: Entries that caused errors in the batch put operation.
-    ConnectorFailureException: {}
-    UpdateSceneResponse:
-      type: object
-      required:
-      - updateDateTime
-      properties:
-        updateDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the scene was last updated.
-    FunctionResponse:
-      type: object
-      properties:
-        requiredProperties:
-          allOf:
-          - $ref: '#/components/schemas/RequiredProperties'
-          - description: The required properties of the function.
-        scope:
-          allOf:
-          - $ref: '#/components/schemas/Scope'
-          - description: The scope of the function.
-        implementedBy:
-          allOf:
-          - $ref: '#/components/schemas/DataConnector'
-          - description: The data connector.
-        isInherited:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Indicates whether this function is inherited.
-      description: The function response.
-    Configuration:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Value'
-    DeleteSyncJobResponse:
-      type: object
-      required:
-      - state
-      properties:
+          - description: The date and time when the entity was created.
         state:
           allOf:
-          - $ref: '#/components/schemas/SyncJobState'
-          - description: The SyncJob response state.
-    InternalServerException: {}
-    Id:
-      type: string
-      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 128
-    Errors:
-      type: array
-      items:
-        $ref: '#/components/schemas/BatchPutPropertyError'
-      minItems: 1
-      maxItems: 10
-    BatchPutPropertyError:
-      type: object
-      required:
-      - errorCode
-      - errorMessage
-      - entry
-      properties:
-        errorCode:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The error code.
-        errorMessage:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The error message.
-        entry:
-          allOf:
-          - $ref: '#/components/schemas/PropertyValueEntry'
-          - description: An object that contains information about errors returned by the <code>BatchPutProperty</code> action.
-      description: An error returned by the <code>BatchPutProperty</code> action.
-    String:
-      type: string
-      pattern: .*
-      minLength: 1
-      maxLength: 256
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the entity.
     GetSceneResponse:
       type: object
       required:
@@ -3414,226 +3444,134 @@ components:
           allOf:
           - $ref: '#/components/schemas/SceneError'
           - description: The SceneResponse error.
-    PropertyDefinitionsResponse:
+    UpdateSceneResponse:
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/PropertyDefinitionResponse'
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
-    ListEntitiesFilter:
-      type: object
+      required:
+      - updateDateTime
       properties:
-        parentEntityId:
+        updateDateTime:
           allOf:
-          - $ref: '#/components/schemas/ParentEntityId'
-          - description: The parent of the entities in the list.
-        componentTypeId:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the component type in the entities in the list.
-        externalId:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The external-Id property of a component. The external-Id property is the primary key of an external storage system.
-      description: An object that filters items in a list of entities.
-    NextToken:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the scene was last updated.
+    SceneCapability:
       type: string
       pattern: .*
       minLength: 0
-      maxLength: 17880
-    GetPropertyValueHistoryResponse:
+      maxLength: 256
+    OrderByList:
+      type: array
+      items:
+        $ref: '#/components/schemas/OrderBy'
+      minItems: 1
+      maxItems: 10
+    ComponentTypeId:
+      type: string
+      pattern: '[a-zA-Z_\.\-0-9:]+'
+      minLength: 1
+      maxLength: 256
+    PropertyDefinitionResponse:
       type: object
       required:
-      - propertyValues
-      properties:
-        propertyValues:
-          allOf:
-          - $ref: '#/components/schemas/PropertyValueList'
-          - description: An object that maps strings to the property definitions in the component type. Each string in the mapping must be unique to this object.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    ComponentPropertyGroupResponse:
-      type: object
-      required:
-      - groupType
-      - propertyNames
+      - dataType
+      - isTimeSeries
+      - isRequiredInEntity
+      - isExternalId
+      - isStoredExternally
+      - isImported
+      - isFinal
       - isInherited
       properties:
-        groupType:
+        dataType:
           allOf:
-          - $ref: '#/components/schemas/GroupType'
-          - description: The group type.
-        propertyNames:
+          - $ref: '#/components/schemas/DataType'
+          - description: An object that contains information about the data type.
+        isTimeSeries:
           allOf:
-          - $ref: '#/components/schemas/PropertyNames'
-          - description: The names of properties
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property consists of time series data.
+        isRequiredInEntity:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property is required in an entity.
+        isExternalId:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property ID comes from an external data store.
+        isStoredExternally:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property is stored externally.
+        isImported:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property definition is imported from an external data store.
+        isFinal:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property definition can be updated.
         isInherited:
           allOf:
           - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property group is inherited from a parent entity
-      description: The component property group response.
-    PropertyFilter:
-      type: object
-      properties:
-        propertyName:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The property name associated with this property filter.
-        operator:
-          allOf:
-          - $ref: '#/components/schemas/String'
-          - description: The operator associated with this property filter.
-        value:
+          - description: A Boolean value that specifies whether the property definition is inherited from a parent entity.
+        defaultValue:
           allOf:
           - $ref: '#/components/schemas/DataValue'
-          - description: The value associated with this property filter.
-      description: An object that filters items returned by a property request.
-    ConflictException: {}
-    ParentEntityId:
-      type: string
-      pattern: \$ROOT|^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|^[a-zA-Z0-9][a-zA-Z_\-0-9.:]*[a-zA-Z0-9]+
-      minLength: 1
-      maxLength: 128
-    SyncResourceState:
-      type: string
-      enum:
-      - INITIALIZING
-      - PROCESSING
-      - DELETED
-      - IN_SYNC
-      - ERROR
-    Status:
-      type: object
-      properties:
-        state:
+          - description: An object that contains the default value.
+        configuration:
           allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the entity, component, component type, or workspace.
-        error:
+          - $ref: '#/components/schemas/Configuration'
+          - description: A mapping that specifies configuration information about the property.
+        displayName:
           allOf:
-          - $ref: '#/components/schemas/ErrorDetails'
-          - description: The error message.
-      description: An object that represents the status of an entity, component, component type, or workspace.
-    TabularPropertyValue:
-      type: array
-      items:
-        $ref: '#/components/schemas/PropertyTableValue'
-    ErrorDetails:
-      type: object
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: The error code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: The error message.
-      description: The error details.
-    GeneratedSceneMetadataMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/SceneMetadataValue'
-    CreateSceneResponse:
-      type: object
-      required:
-      - arn
-      - creationDateTime
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the scene.
-        creationDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the scene was created.
-    PropertyGroupsResponse:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/PropertyGroupResponse'
-    ListScenesResponse:
-      type: object
-      properties:
-        sceneSummaries:
-          allOf:
-          - $ref: '#/components/schemas/SceneSummaries'
-          - description: A list of objects that contain information about the scenes.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    ErrorCode:
+          - $ref: '#/components/schemas/PropertyDisplayName'
+          - description: A friendly name for the property.
+      description: An object that contains response data from a property definition request.
+    Scope:
       type: string
       enum:
-      - VALIDATION_ERROR
-      - INTERNAL_FAILURE
-      - SYNC_INITIALIZING_ERROR
-      - SYNC_CREATING_ERROR
-      - SYNC_PROCESSING_ERROR
-    SyncJobState:
+      - ENTITY
+      - WORKSPACE
+    RoleArn:
       type: string
-      enum:
-      - CREATING
-      - INITIALIZING
-      - ACTIVE
-      - DELETING
-      - ERROR
-    TwinMakerArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
       minLength: 20
       maxLength: 2048
-    PropertyValue:
+    BatchPutPropertyErrorEntry:
       type: object
       required:
-      - value
+      - errors
       properties:
-        timestamp:
+        errors:
           allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - deprecated: true
-            description: The timestamp of a value for a time series property.This field is deprecated and will throw an error in the future. Use time instead.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/DataValue'
-          - description: An object that specifies a value for a time series property.
-        time:
-          allOf:
-          - $ref: '#/components/schemas/Time'
-          - description: '<p>ISO8601 DateTime of a value for a time series property.</p> <p>The time for when the property value was recorded in ISO 8601 format: <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p> <ul> <li> <p> <i>[YYYY]</i>: year</p> </li> <li> <p> <i>[MM]</i>: month</p> </li> <li> <p> <i>[DD]</i>: day</p> </li> <li> <p> <i>[hh]</i>: hour</p> </li> <li> <p> <i>[mm]</i>: minute</p> </li> <li> <p> <i>[ss]</i>: seconds</p> </li> <li> <p> <i>[.SSSSSSSSS]</i>: additional precision, where precedence is maintained. For example: [.573123] is equal to 573123000 nanoseconds.</p> </li> <li> <p> <i>Z</i>: default timezone UTC</p> </li> <li> <p> <i>± HH:mm</i>: time zone offset in Hours and Minutes.</p> </li> </ul> <p> <i>Required sub-fields</i>: YYYY-MM-DDThh:mm:ss and [Z/±HH:mm]</p>'
-      description: An object that contains information about a value for a time series property.
-    PropertyLatestValue:
+          - $ref: '#/components/schemas/Errors'
+          - description: A list of objects that contain information about errors returned by the <code>BatchPutProperty</code> action.
+      description: An object that contains information about errors returned by the <code>BatchPutProperty</code> action.
+    PropertyValues:
+      type: array
+      items:
+        $ref: '#/components/schemas/PropertyValue'
+      minItems: 1
+      maxItems: 10
+    PropertyRequest:
       type: object
-      required:
-      - propertyReference
       properties:
-        propertyReference:
+        definition:
           allOf:
-          - $ref: '#/components/schemas/EntityPropertyReference'
+          - $ref: '#/components/schemas/PropertyDefinitionRequest'
           - description: An object that specifies information about a property.
-        propertyValue:
+        value:
           allOf:
           - $ref: '#/components/schemas/DataValue'
           - description: The value of the property.
-      description: The latest value of the property.
-    ListSyncResourcesResponse:
+        updateType:
+          allOf:
+          - $ref: '#/components/schemas/PropertyUpdateType'
+          - description: The update type of the update property request.
+      description: An object that sets information about a property.
+    Configuration:
       type: object
-      properties:
-        syncResources:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceSummaries'
-          - description: The sync resources.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
+      additionalProperties:
+        $ref: '#/components/schemas/Value'
     GetComponentTypeResponse:
       type: object
       required:
@@ -3707,22 +3645,74 @@ components:
           allOf:
           - $ref: '#/components/schemas/ComponentTypeName'
           - description: The component type name.
-    Name:
+    UpdateComponentTypeResponse:
+      type: object
+      required:
+      - workspaceId
+      - arn
+      - componentTypeId
+      - state
+      properties:
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The ID of the workspace that contains the component type.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the component type.
+        componentTypeId:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The ID of the component type.
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the component type.
+    EntityName:
       type: string
-      pattern: '[a-zA-Z_\-0-9]+'
+      pattern: '[^\u0000-\u001F\u007F]+'
       minLength: 1
       maxLength: 256
-    TagValue:
-      type: string
-      pattern: .*
-      minLength: 1
-      maxLength: 256
-    Time:
-      type: string
-      description: Timestamp represented in ISO 8601 format
-      minLength: 20
-      maxLength: 35
-    ConnectorTimeoutException: {}
+    GetPropertyValueHistoryResponse:
+      type: object
+      required:
+      - propertyValues
+      properties:
+        propertyValues:
+          allOf:
+          - $ref: '#/components/schemas/PropertyValueList'
+          - description: An object that maps strings to the property definitions in the component type. Each string in the mapping must be unique to this object.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The string that specifies the next page of results.
+    PropertyGroupResponse:
+      type: object
+      required:
+      - groupType
+      - propertyNames
+      - isInherited
+      properties:
+        groupType:
+          allOf:
+          - $ref: '#/components/schemas/GroupType'
+          - description: The group types.
+        propertyNames:
+          allOf:
+          - $ref: '#/components/schemas/PropertyNames'
+          - description: The names of properties.
+        isInherited:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the property group is inherited from a parent entity
+      description: The property group response
+    SceneCapabilities:
+      type: array
+      items:
+        $ref: '#/components/schemas/SceneCapability'
+      minItems: 0
+      maxItems: 50
     GetWorkspaceResponse:
       type: object
       required:
@@ -3761,94 +3751,83 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time when the workspace was last updated.
-    ComponentTypeSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentTypeSummary'
-    PropertyFilters:
-      type: array
-      items:
-        $ref: '#/components/schemas/PropertyFilter'
-      minItems: 1
-      maxItems: 10
-    ComponentTypeSummary:
+    EntityPropertyReference:
       type: object
       required:
-      - arn
-      - componentTypeId
-      - creationDateTime
-      - updateDateTime
+      - propertyName
       properties:
-        arn:
+        componentName:
           allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the component type.
-        componentTypeId:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the component.
+        externalIdProperty:
           allOf:
-          - $ref: '#/components/schemas/ComponentTypeId'
-          - description: The ID of the component type.
-        creationDateTime:
+          - $ref: '#/components/schemas/ExternalIdProperty'
+          - description: A mapping of external IDs to property names. External IDs uniquely identify properties from external data stores.
+        entityId:
           allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the component type was created.
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the entity.
+        propertyName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the property.
+      description: An object that uniquely identifies an entity property.
+    GeneratedSceneMetadataMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/SceneMetadataValue'
+    UpdateEntityResponse:
+      type: object
+      required:
+      - updateDateTime
+      - state
+      properties:
         updateDateTime:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the component type was last updated.
-        description:
+          - description: The date and time when the entity was last updated.
+        state:
           allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The description of the component type.
-        status:
-          allOf:
-          - $ref: '#/components/schemas/Status'
-          - description: The current status of the component type.
-        componentTypeName:
-          allOf:
-          - $ref: '#/components/schemas/ComponentTypeName'
-          - description: The component type name.
-      description: An object that contains information about a component type.
-    GetPropertyValueResponse:
+          - $ref: '#/components/schemas/State'
+          - description: The current state of the entity update.
+    SyncResourceFilter:
       type: object
       properties:
-        propertyValues:
+        state:
           allOf:
-          - $ref: '#/components/schemas/PropertyLatestValueMap'
-          - description: An object that maps strings to the properties and latest property values in the response. Each string in the mapping must be unique to this object.
-        nextToken:
+          - $ref: '#/components/schemas/SyncResourceState'
+          - description: The sync resource filter's state.
+        resourceType:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-        tabularPropertyValues:
+          - $ref: '#/components/schemas/SyncResourceType'
+          - description: The sync resource filter resource type
+        resourceId:
           allOf:
-          - $ref: '#/components/schemas/TabularPropertyValues'
-          - description: A table of property values.
-    RelationshipValue:
+          - $ref: '#/components/schemas/Id'
+          - description: The sync resource filter resource ID.
+        externalId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The external ID.
+      description: The sync resource filter.
+    BatchPutPropertyValuesResponse:
       type: object
+      required:
+      - errorEntries
       properties:
-        targetEntityId:
+        errorEntries:
           allOf:
-          - $ref: '#/components/schemas/EntityId'
-          - description: The ID of the target entity associated with this relationship value.
-        targetComponentName:
-          allOf:
-          - $ref: '#/components/schemas/Name'
-          - description: The name of the target component associated with the relationship value.
-      description: A value that associates a component and an entity.
-    InterpolationType:
-      type: string
-      enum:
-      - LINEAR
-    PropertyDisplayName:
-      type: string
-      pattern: .*[^\u0000-\u001F\u007F]*.*
-      minLength: 0
-      maxLength: 256
-    RoleArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
-      minLength: 20
-      maxLength: 2048
+          - $ref: '#/components/schemas/ErrorEntries'
+          - description: Entries that caused errors in the batch put operation.
+    DataValueList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DataValue'
+      minItems: 0
+      maxItems: 50
     GetEntityResponse:
       type: object
       required:
@@ -3910,12 +3889,188 @@ components:
           allOf:
           - $ref: '#/components/schemas/SyncSource'
           - description: The syncSource of the sync job, if this entity was created by a sync job.
-    DataValueList:
+    ParentEntityUpdateType:
+      type: string
+      enum:
+      - UPDATE
+      - DELETE
+    String:
+      type: string
+      pattern: .*
+      minLength: 1
+      maxLength: 256
+    ListComponentTypesFilter:
+      type: object
+      properties:
+        extendsFrom:
+          allOf:
+          - $ref: '#/components/schemas/ComponentTypeId'
+          - description: The component type that the component types in the list extend.
+        namespace:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The namespace to which the component types in the list belong.
+        isAbstract:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the component types in the list are abstract.
+      description: <p>An object that filters items in a list of component types.</p> <note> <p>Only one object is accepted as a valid input.</p> </note>
+    FunctionRequest:
+      type: object
+      properties:
+        requiredProperties:
+          allOf:
+          - $ref: '#/components/schemas/RequiredProperties'
+          - description: The required properties of the function.
+        scope:
+          allOf:
+          - $ref: '#/components/schemas/Scope'
+          - description: The scope of the function.
+        implementedBy:
+          allOf:
+          - $ref: '#/components/schemas/DataConnector'
+          - description: The data connector.
+      description: The function request body.
+    SyncJobStatus:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob status state.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The SyncJob error.
+      description: The SyncJob status.
+    TabularPropertyValues:
       type: array
       items:
-        $ref: '#/components/schemas/DataValue'
-      minItems: 0
-      maxItems: 50
+        $ref: '#/components/schemas/TabularPropertyValue'
+    ErrorCode:
+      type: string
+      enum:
+      - VALIDATION_ERROR
+      - INTERNAL_FAILURE
+      - SYNC_INITIALIZING_ERROR
+      - SYNC_CREATING_ERROR
+      - SYNC_PROCESSING_ERROR
+    TwinMakerArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      minLength: 20
+      maxLength: 2048
+    BatchPutPropertyError:
+      type: object
+      required:
+      - errorCode
+      - errorMessage
+      - entry
+      properties:
+        errorCode:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The error code.
+        errorMessage:
+          allOf:
+          - $ref: '#/components/schemas/String'
+          - description: The error message.
+        entry:
+          allOf:
+          - $ref: '#/components/schemas/PropertyValueEntry'
+          - description: An object that contains information about errors returned by the <code>BatchPutProperty</code> action.
+      description: An error returned by the <code>BatchPutProperty</code> action.
+    Values:
+      type: array
+      items:
+        $ref: '#/components/schemas/PropertyValue'
+    Id:
+      type: string
+      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 128
+    SceneErrorCode:
+      type: string
+      enum:
+      - MATTERPORT_ERROR
+    ComponentPropertyGroupResponses:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/ComponentPropertyGroupResponse'
+    ComponentUpdateType:
+      type: string
+      enum:
+      - CREATE
+      - UPDATE
+      - DELETE
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The error message.
+      description: The error details.
+    SyncSource:
+      type: string
+      pattern: '[a-zA-Z_0-9]+'
+    S3Url:
+      type: string
+      pattern: '[sS]3://[A-Za-z0-9._/-]+'
+      minLength: 0
+      maxLength: 256
+    DataConnector:
+      type: object
+      properties:
+        lambda:
+          allOf:
+          - $ref: '#/components/schemas/LambdaFunction'
+          - description: The Lambda function associated with this data connector.
+        isNative:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: A Boolean value that specifies whether the data connector is native to IoT TwinMaker.
+      description: The data connector.
+    TabularPropertyValue:
+      type: array
+      items:
+        $ref: '#/components/schemas/PropertyTableValue'
+    RelationshipValue:
+      type: object
+      properties:
+        targetEntityId:
+          allOf:
+          - $ref: '#/components/schemas/EntityId'
+          - description: The ID of the target entity associated with this relationship value.
+        targetComponentName:
+          allOf:
+          - $ref: '#/components/schemas/Name'
+          - description: The name of the target component associated with the relationship value.
+      description: A value that associates a component and an entity.
+    ExternalIdProperty:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/String'
+    Integer:
+      type: integer
+    SyncResourceType:
+      type: string
+      enum:
+      - ENTITY
+      - COMPONENT_TYPE
+    DeleteSyncJobResponse:
+      type: object
+      required:
+      - state
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob response state.
     EntitySummary:
       type: object
       required:
@@ -3963,17 +4118,87 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The last date and time when the entity was updated.
       description: An object that contains information about an entity.
-    SceneMetadataMap:
+    DataValueMap:
       type: object
       minProperties: 0
       maxProperties: 50
       additionalProperties:
-        $ref: '#/components/schemas/SceneMetadataValue'
-    Scope:
+        $ref: '#/components/schemas/DataValue'
+    SceneSummary:
+      type: object
+      required:
+      - sceneId
+      - contentLocation
+      - arn
+      - creationDateTime
+      - updateDateTime
+      properties:
+        sceneId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The ID of the scene.
+        contentLocation:
+          allOf:
+          - $ref: '#/components/schemas/S3Url'
+          - description: The relative path that specifies the location of the content definition file.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/TwinMakerArn'
+          - description: The ARN of the scene.
+        creationDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the scene was created.
+        updateDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The date and time when the scene was last updated.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The scene description.
+      description: An object that contains information about a scene.
+    Type:
       type: string
       enum:
-      - ENTITY
-      - WORKSPACE
+      - RELATIONSHIP
+      - STRING
+      - LONG
+      - BOOLEAN
+      - INTEGER
+      - DOUBLE
+      - LIST
+      - MAP
+    ComponentTypeName:
+      type: string
+      pattern: .*[^\u0000-\u001F\u007F]*.*
+      minLength: 0
+      maxLength: 256
+    Time:
+      type: string
+      description: Timestamp represented in ISO 8601 format
+      minLength: 20
+      maxLength: 35
+    SyncResourceStatus:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncResourceState'
+          - description: The sync resource status state.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The status error.
+      description: The sync resource status.
+    SyncJobState:
+      type: string
+      enum:
+      - CREATING
+      - INITIALIZING
+      - ACTIVE
+      - DELETING
+      - ERROR
     ComponentUpdateRequest:
       type: object
       properties:
@@ -3998,328 +4223,85 @@ components:
           - $ref: '#/components/schemas/ComponentPropertyGroupRequests'
           - description: The property group updates.
       description: The component update request.
-    CreateSyncJobResponse:
-      type: object
-      required:
-      - arn
-      - creationDateTime
-      - state
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The SyncJob ARN.
-        creationDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time for the SyncJob creation.
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobState'
-          - description: The SyncJob response state.
-    CreateComponentTypeResponse:
-      type: object
-      required:
-      - arn
-      - creationDateTime
-      - state
-      properties:
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the component type.
-        creationDateTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the entity was created.
-        state:
-          allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The current state of the component type.
-    State:
-      type: string
-      enum:
-      - CREATING
-      - UPDATING
-      - DELETING
-      - ACTIVE
-      - ERROR
-    RequiredProperties:
+    SyncResourceSummaries:
       type: array
       items:
-        $ref: '#/components/schemas/Name'
+        $ref: '#/components/schemas/SyncResourceSummary'
     EntityId:
       type: string
       pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|^[a-zA-Z0-9][a-zA-Z_\-0-9.:]*[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 128
-    SceneErrorCode:
-      type: string
-      enum:
-      - MATTERPORT_ERROR
-    OrderByList:
-      type: array
-      items:
-        $ref: '#/components/schemas/OrderBy'
-      minItems: 1
-      maxItems: 10
-    LambdaArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):lambda:[a-z0-9-]+:[0-9]{12}:function:[\/a-zA-Z0-9_-]+
-      minLength: 20
-      maxLength: 2048
-    PropertyDefinitionRequest:
+    SyncJobSummary:
       type: object
-      properties:
-        dataType:
-          allOf:
-          - $ref: '#/components/schemas/DataType'
-          - description: An object that contains information about the data type.
-        isRequiredInEntity:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property is required.
-        isExternalId:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property ID comes from an external data store.
-        isStoredExternally:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property is stored externally.
-        isTimeSeries:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property consists of time series data.
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/DataValue'
-          - description: An object that contains the default value.
-        configuration:
-          allOf:
-          - $ref: '#/components/schemas/Configuration'
-          - description: A mapping that specifies configuration information about the property. Use this field to specify information that you read from and write to an external source.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/PropertyDisplayName'
-          - description: A friendly name for the property.
-      description: An object that sets information about a property.
-    ExtendsFrom:
-      type: array
-      items:
-        $ref: '#/components/schemas/ComponentTypeId'
-    FunctionRequest:
-      type: object
-      properties:
-        requiredProperties:
-          allOf:
-          - $ref: '#/components/schemas/RequiredProperties'
-          - description: The required properties of the function.
-        scope:
-          allOf:
-          - $ref: '#/components/schemas/Scope'
-          - description: The scope of the function.
-        implementedBy:
-          allOf:
-          - $ref: '#/components/schemas/DataConnector'
-          - description: The data connector.
-      description: The function request body.
-    SyncResourceStatus:
-      type: object
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncResourceState'
-          - description: The sync resource status state.
-        error:
-          allOf:
-          - $ref: '#/components/schemas/ErrorDetails'
-          - description: The status error.
-      description: The sync resource status.
-    PropertyTableValue:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/DataValue'
-    PropertyValueHistory:
-      type: object
-      required:
-      - entityPropertyReference
-      properties:
-        entityPropertyReference:
-          allOf:
-          - $ref: '#/components/schemas/EntityPropertyReference'
-          - description: An object that uniquely identifies an entity property.
-        values:
-          allOf:
-          - $ref: '#/components/schemas/Values'
-          - description: A list of objects that contain information about the values in the history of a time series property.
-      description: The history of values for a time series property.
-    SceneCapabilities:
-      type: array
-      items:
-        $ref: '#/components/schemas/SceneCapability'
-      minItems: 0
-      maxItems: 50
-    CreateWorkspaceResponse:
-      type: object
-      required:
-      - arn
-      - creationDateTime
       properties:
         arn:
           allOf:
           - $ref: '#/components/schemas/TwinMakerArn'
-          - description: The ARN of the workspace.
+          - description: The SyncJob summary ARN.
+        workspaceId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The ID of the workspace that contains the sync job.
+        syncSource:
+          allOf:
+          - $ref: '#/components/schemas/SyncSource'
+          - description: The sync source.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobStatus'
+          - description: The SyncJob summaries status.
         creationDateTime:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
-          - description: The date and time when the workspace was created.
+          - description: The creation date and time.
+        updateDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The update date and time.
+      description: The SyncJob summary.
+    SyncResourceSummary:
+      type: object
+      properties:
+        resourceType:
+          allOf:
+          - $ref: '#/components/schemas/SyncResourceType'
+          - description: The resource type.
+        externalId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The external ID.
+        resourceId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The resource ID.
+        status:
+          allOf:
+          - $ref: '#/components/schemas/SyncResourceStatus'
+          - description: The sync resource summary status.
+        updateDateTime:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The update date and time.
+      description: The sync resource summary.
+    EntitySummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/EntitySummary'
+    Value:
+      type: string
+      pattern: .*
+    PropertyDefinitionsResponse:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/PropertyDefinitionResponse'
     GroupType:
       type: string
       enum:
       - TABULAR
-    PropertyRequest:
-      type: object
-      properties:
-        definition:
-          allOf:
-          - $ref: '#/components/schemas/PropertyDefinitionRequest'
-          - description: An object that specifies information about a property.
-        value:
-          allOf:
-          - $ref: '#/components/schemas/DataValue'
-          - description: The value of the property.
-        updateType:
-          allOf:
-          - $ref: '#/components/schemas/PropertyUpdateType'
-          - description: The update type of the update property request.
-      description: An object that sets information about a property.
-    SyncResourceType:
-      type: string
-      enum:
-      - ENTITY
-      - COMPONENT_TYPE
-    Type:
-      type: string
-      enum:
-      - RELATIONSHIP
-      - STRING
-      - LONG
-      - BOOLEAN
-      - INTEGER
-      - DOUBLE
-      - LIST
-      - MAP
-    Value:
-      type: string
-      pattern: .*
-    ListEntitiesResponse:
-      type: object
-      properties:
-        entitySummaries:
-          allOf:
-          - $ref: '#/components/schemas/EntitySummaries'
-          - description: A list of objects that contain information about the entities.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The string that specifies the next page of results.
-    BatchPutPropertyErrorEntry:
-      type: object
-      required:
-      - errors
-      properties:
-        errors:
-          allOf:
-          - $ref: '#/components/schemas/Errors'
-          - description: A list of objects that contain information about errors returned by the <code>BatchPutProperty</code> action.
-      description: An object that contains information about errors returned by the <code>BatchPutProperty</code> action.
-    ComponentPropertyGroupResponses:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/ComponentPropertyGroupResponse'
-    TabularPropertyValues:
-      type: array
-      items:
-        $ref: '#/components/schemas/TabularPropertyValue'
-    PropertyDefinitionResponse:
-      type: object
-      required:
-      - dataType
-      - isTimeSeries
-      - isRequiredInEntity
-      - isExternalId
-      - isStoredExternally
-      - isImported
-      - isFinal
-      - isInherited
-      properties:
-        dataType:
-          allOf:
-          - $ref: '#/components/schemas/DataType'
-          - description: An object that contains information about the data type.
-        isTimeSeries:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property consists of time series data.
-        isRequiredInEntity:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property is required in an entity.
-        isExternalId:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property ID comes from an external data store.
-        isStoredExternally:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property is stored externally.
-        isImported:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property definition is imported from an external data store.
-        isFinal:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property definition can be updated.
-        isInherited:
-          allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: A Boolean value that specifies whether the property definition is inherited from a parent entity.
-        defaultValue:
-          allOf:
-          - $ref: '#/components/schemas/DataValue'
-          - description: An object that contains the default value.
-        configuration:
-          allOf:
-          - $ref: '#/components/schemas/Configuration'
-          - description: A mapping that specifies configuration information about the property.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/PropertyDisplayName'
-          - description: A friendly name for the property.
-      description: An object that contains response data from a property definition request.
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -4330,14 +4312,32 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

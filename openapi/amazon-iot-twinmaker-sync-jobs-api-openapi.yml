@@ -195,7 +195,77 @@ paths:
       - Sync Jobs
 components:
   schemas:
+    InternalServerException: {}
+    Timestamp:
+      type: string
+      description: supports epoch seconds value
+      format: date-time
+    SyncJobStatus:
+      type: object
+      properties:
+        state:
+          allOf:
+          - $ref: '#/components/schemas/SyncJobState'
+          - description: The SyncJob status state.
+        error:
+          allOf:
+          - $ref: '#/components/schemas/ErrorDetails'
+          - description: The SyncJob error.
+      description: The SyncJob status.
+    ValidationException: {}
+    ErrorCode:
+      type: string
+      enum:
+      - VALIDATION_ERROR
+      - INTERNAL_FAILURE
+      - SYNC_INITIALIZING_ERROR
+      - SYNC_CREATING_ERROR
+      - SYNC_PROCESSING_ERROR
+    ResourceNotFoundException: {}
+    TwinMakerArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
+      minLength: 20
+      maxLength: 2048
+    Id:
+      type: string
+      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 128
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The error code.
+        message:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The error message.
+      description: The error details.
+    ThrottlingException: {}
+    SyncSource:
+      type: string
+      pattern: '[a-zA-Z_0-9]+'
     AccessDeniedException: {}
+    RoleArn:
+      type: string
+      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
+      minLength: 20
+      maxLength: 2048
+    SyncJobState:
+      type: string
+      enum:
+      - CREATING
+      - INITIALIZING
+      - ACTIVE
+      - DELETING
+      - ERROR
+    ErrorMessage:
+      type: string
+      minLength: 0
+      maxLength: 2048
     GetSyncJobResponse:
       type: object
       required:
@@ -235,104 +305,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: The update date and time.
-    RoleArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iam::[0-9]{12}:role/.*
-      minLength: 20
-      maxLength: 2048
-    ValidationException: {}
-    SyncJobStatus:
-      type: object
-      properties:
-        state:
-          allOf:
-          - $ref: '#/components/schemas/SyncJobState'
-          - description: The SyncJob status state.
-        error:
-          allOf:
-          - $ref: '#/components/schemas/ErrorDetails'
-          - description: The SyncJob error.
-      description: The SyncJob status.
-    ErrorDetails:
-      type: object
-      properties:
-        code:
-          allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: The error code.
-        message:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: The error message.
-      description: The error details.
-    SyncSource:
-      type: string
-      pattern: '[a-zA-Z_0-9]+'
     ServiceQuotaExceededException: {}
-    ErrorCode:
-      type: string
-      enum:
-      - VALIDATION_ERROR
-      - INTERNAL_FAILURE
-      - SYNC_INITIALIZING_ERROR
-      - SYNC_CREATING_ERROR
-      - SYNC_PROCESSING_ERROR
-    ErrorMessage:
-      type: string
-      minLength: 0
-      maxLength: 2048
-    SyncJobState:
-      type: string
-      enum:
-      - CREATING
-      - INITIALIZING
-      - ACTIVE
-      - DELETING
-      - ERROR
-    TwinMakerArn:
-      type: string
-      pattern: arn:((aws)|(aws-cn)|(aws-us-gov)):iottwinmaker:[a-z0-9-]+:[0-9]{12}:[\/a-zA-Z0-9_\-\.:]+
-      minLength: 20
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    InternalServerException: {}
-    Id:
-      type: string
-      pattern: '[a-zA-Z_0-9][a-zA-Z_\-0-9]*[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 128
-    ThrottlingException: {}
-    Timestamp:
-      type: string
-      description: supports epoch seconds value
-      format: date-time
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -343,8 +325,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string

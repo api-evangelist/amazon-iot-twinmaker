@@ -224,50 +224,19 @@ paths:
       - Queries
 components:
   schemas:
-    NextToken:
-      type: string
-      pattern: .*
-      minLength: 0
-      maxLength: 17880
-    ColumnDescription:
-      type: object
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ColumnName'
-          - description: The name of the column description.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/ColumnType'
-          - description: The type of the column description.
-      description: A description of the column in the query results.
-    AccessDeniedException: {}
     Rows:
       type: array
       items:
         $ref: '#/components/schemas/Row'
-    ColumnType:
-      type: string
-      enum:
-      - NODE
-      - EDGE
-      - VALUE
-    Row:
-      type: object
-      properties:
-        rowData:
-          allOf:
-          - $ref: '#/components/schemas/RowData'
-          - description: The data in a row of query results.
-      description: Represents a single row in the query results.
-    RowData:
+    InternalServerException: {}
+    ColumnDescriptions:
       type: array
       items:
-        $ref: '#/components/schemas/QueryResultValue'
-    ServiceQuotaExceededException: {}
+        $ref: '#/components/schemas/ColumnDescription'
     QueryResultValue:
       type: object
       properties: {}
+    ValidationException: {}
     ExecuteQueryResponse:
       type: object
       properties:
@@ -283,44 +252,57 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The string that specifies the next page of results.
+    NextToken:
+      type: string
+      pattern: .*
+      minLength: 0
+      maxLength: 17880
+    ThrottlingException: {}
     QueryTimeoutException: {}
-    ColumnDescriptions:
+    RowData:
       type: array
       items:
-        $ref: '#/components/schemas/ColumnDescription'
-    InternalServerException: {}
-    ThrottlingException: {}
+        $ref: '#/components/schemas/QueryResultValue'
+    AccessDeniedException: {}
+    ColumnDescription:
+      type: object
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ColumnName'
+          - description: The name of the column description.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/ColumnType'
+          - description: The type of the column description.
+      description: A description of the column in the query results.
+    ColumnType:
+      type: string
+      enum:
+      - NODE
+      - EDGE
+      - VALUE
+    Row:
+      type: object
+      properties:
+        rowData:
+          allOf:
+          - $ref: '#/components/schemas/RowData'
+          - description: The data in a row of query results.
+      description: Represents a single row in the query results.
     ColumnName:
       type: string
       pattern: .*
-    ValidationException: {}
+    ServiceQuotaExceededException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -331,8 +313,26 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
