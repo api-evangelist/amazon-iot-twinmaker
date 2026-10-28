@@ -1,4 +1,4 @@
-# Amazon IoT TwinMaker (amazon-iot-twinmaker)
+# Amazon IoT TwinMaker
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,127 +66,261 @@
 
 AWS IoT TwinMaker makes it easier for developers to create digital twins of real-world systems such as buildings, factories, and industrial equipment. You can use AWS IoT TwinMaker to build operational digital twin applications to visualize, monitor, and diagnose complex operational systems.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-iot-twinmaker/refs/heads/main/apis.yml)
+**Areas:** AWS · 3D Visualization · Digital Twin · Industrial IoT · IoT
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon IoT TwinMaker on APIs.io
 
-## Tags:
+Everything profiled for Amazon IoT TwinMaker is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-iot-twinmaker/](https://apis.io/providers/amazon-iot-twinmaker/)** — or go straight to one of the APIs or properties below.
 
- - AWS, 3D Visualization, Digital Twin, Industrial IoT, IoT
+### APIs (12)
 
-## Timestamps
+- [Amazon IoT TwinMaker Pricingplan API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-pricingplan-api/) — The Pricingplan API from Amazon IoT TwinMaker — 1 operation(s) for pricingplan.
+- [Amazon IoT TwinMaker Queries API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-queries-api/) — The Queries API from Amazon IoT TwinMaker — 1 operation(s) for queries.
+- [Amazon IoT TwinMaker Sync Jobs API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-sync-jobs-api/) — The Sync Jobs API from Amazon IoT TwinMaker — 1 operation(s) for sync jobs.
+- [Amazon IoT TwinMaker Tags API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-tags-api/) — The Tags API from Amazon IoT TwinMaker — 1 operation(s) for tags.
+- [Amazon IoT TwinMaker Tags List API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-tags-list-api/) — The Tags List API from Amazon IoT TwinMaker — 1 operation(s) for tags list.
+- [Amazon IoT TwinMaker Workspaces API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-workspaces-api/) — The Workspaces API from Amazon IoT TwinMaker — 15 operation(s) for workspaces.
+- [Amazon IoT TwinMaker Workspaces List API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-workspaces-list-api/) — The Workspaces List API from Amazon IoT TwinMaker — 1 operation(s) for workspaces list.
+- [Amazon IoT TwinMaker Iot Twinmaker Component Types API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-component-types-api/) — The Iot Twinmaker Component Types API from Amazon IoT TwinMaker — 1 operation(s) for iot twinmaker component types.
+- [Amazon IoT TwinMaker Iot Twinmaker Entities API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-entities-api/) — The Iot Twinmaker Entities API from Amazon IoT TwinMaker — 2 operation(s) for iot twinmaker entities.
+- [Amazon IoT TwinMaker Iot Twinmaker Entity Properties API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-entity-properties-api/) — The Iot Twinmaker Entity Properties API from Amazon IoT TwinMaker — 3 operation(s) for iot twinmaker entity properties.
+- [Amazon IoT TwinMaker Iot Twinmaker Operations API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-operations-api/) — The Iot Twinmaker Operations API from Amazon IoT TwinMaker — 11 operation(s) for iot twinmaker operations.
+- [Amazon IoT TwinMaker Iot Twinmaker Scenes API](https://apis.io/apis/amazon-iot-twinmaker/amazon-iot-twinmaker-scenes-api/) — The Iot Twinmaker Scenes API from Amazon IoT TwinMaker — 2 operation(s) for iot twinmaker scenes.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AWS IoT TwinMaker API
-The AWS IoT TwinMaker API provides access to workspaces, scenes, entities, components, and sync jobs for building and managing digital twin applications.
+#### Agentic access (1)
 
-**Human URL:** [https://aws.amazon.com/iot-twinmaker/](https://aws.amazon.com/iot-twinmaker/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Amazon Iot Twinmaker Agentic Access](https://apis.io/agentic-access/amazon-iot-twinmaker/amazon-iot-twinmaker-agentic-access/)
 
- - 3D Visualization, Digital Twin, IoT
+#### JSON Schema (189)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/)
-- [OpenAPI](openapi/amazon-iot-twinmaker-openapi-original.yml)
-- [GettingStarted](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/twinmaker-gs.html)
-- [Pricing](https://aws.amazon.com/iot-twinmaker/pricing/)
-- [FAQ](https://aws.amazon.com/iot-twinmaker/faqs/)
+- [BatchPutPropertyError](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error/)
+- [BatchPutPropertyErrorEntry](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error-entry/)
+- [BatchPutPropertyValuesRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-request/)
+- [BatchPutPropertyValuesResponse](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-response/)
+- [BundleInformation](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-bundle-information/)
+- [ColumnDescription](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-column-description/)
+- [ColumnDescriptions](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-column-descriptions/)
+- [ColumnType](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-column-type/)
+- [ComponentPropertyGroupRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-property-group-request/)
+- [ComponentPropertyGroupRequests](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-property-group-requests/)
+- [ComponentPropertyGroupResponse](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-property-group-response/)
+- [ComponentPropertyGroupResponses](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-property-group-responses/)
+- [ComponentRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-request/)
+- [ComponentResponse](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-response/)
+- [ComponentTypeSummaries](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-type-summaries/)
+- [ComponentTypeSummary](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-type-summary/)
+- [ComponentUpdateRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-update-request/)
+- [ComponentUpdateType](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-update-type/)
+- [ComponentUpdatesMapRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-component-updates-map-request/)
+- [ComponentsMap](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-components-map/)
+- [ComponentsMapRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-components-map-request/)
+- [Configuration](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-configuration/)
+- [CreateComponentTypeRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-create-component-type-request/)
+- [CreateComponentTypeResponse](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-create-component-type-response/)
+- [CreateEntityRequest](https://apis.io/schemas/amazon-iot-twinmaker/iot-twinmaker-create-entity-request/)
+- …and 164 more published on APIs.io
 
-## Common Properties
+#### JSON Structure (189)
 
-- [Portal](https://aws.amazon.com/iot-twinmaker/)
+Data models expressed in JSON Structure.
+
+- [Iot Twinmaker Batch Put Property Error Entry Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error-entry-structure/)
+- [Iot Twinmaker Batch Put Property Error Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error-structure/)
+- [Iot Twinmaker Batch Put Property Values Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-request-structure/)
+- [Iot Twinmaker Batch Put Property Values Response Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-response-structure/)
+- [Iot Twinmaker Bundle Information Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-bundle-information-structure/)
+- [Iot Twinmaker Column Description Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-column-description-structure/)
+- [Iot Twinmaker Column Descriptions Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-column-descriptions-structure/)
+- [Iot Twinmaker Column Type Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-column-type-structure/)
+- [Iot Twinmaker Component Property Group Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-property-group-request-structure/)
+- [Iot Twinmaker Component Property Group Requests Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-property-group-requests-structure/)
+- [Iot Twinmaker Component Property Group Response Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-property-group-response-structure/)
+- [Iot Twinmaker Component Property Group Responses Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-property-group-responses-structure/)
+- [Iot Twinmaker Component Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-request-structure/)
+- [Iot Twinmaker Component Response Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-response-structure/)
+- [Iot Twinmaker Component Type Summaries Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-type-summaries-structure/)
+- [Iot Twinmaker Component Type Summary Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-type-summary-structure/)
+- [Iot Twinmaker Component Update Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-update-request-structure/)
+- [Iot Twinmaker Component Update Type Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-update-type-structure/)
+- [Iot Twinmaker Component Updates Map Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-component-updates-map-request-structure/)
+- [Iot Twinmaker Components Map Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-components-map-request-structure/)
+- [Iot Twinmaker Components Map Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-components-map-structure/)
+- [Iot Twinmaker Configuration Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-configuration-structure/)
+- [Iot Twinmaker Create Component Type Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-create-component-type-request-structure/)
+- [Iot Twinmaker Create Component Type Response Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-create-component-type-response-structure/)
+- [Iot Twinmaker Create Entity Request Structure](https://apis.io/json-structure/amazon-iot-twinmaker/iot-twinmaker-create-entity-request-structure/)
+- …and 164 more published on APIs.io
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Iot Twinmaker Context](https://apis.io/jsonld/amazon-iot-twinmaker/amazon-iot-twinmaker-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Iot Twinmaker Vocabulary](https://apis.io/vocabularies/amazon-iot-twinmaker/amazon-iot-twinmaker-vocabulary/)
+
+#### Examples (169)
+
+Example requests and responses.
+
+- [Iot Twinmaker Batch Put Property Error Entry Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error-entry-example/)
+- [Iot Twinmaker Batch Put Property Error Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-error-example/)
+- [Iot Twinmaker Batch Put Property Values Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-request-example/)
+- [Iot Twinmaker Batch Put Property Values Response Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-batch-put-property-values-response-example/)
+- [Iot Twinmaker Bundle Information Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-bundle-information-example/)
+- [Iot Twinmaker Column Description Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-column-description-example/)
+- [Iot Twinmaker Column Descriptions Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-column-descriptions-example/)
+- [Iot Twinmaker Component Property Group Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-property-group-request-example/)
+- [Iot Twinmaker Component Property Group Requests Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-property-group-requests-example/)
+- [Iot Twinmaker Component Property Group Response Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-property-group-response-example/)
+- [Iot Twinmaker Component Property Group Responses Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-property-group-responses-example/)
+- [Iot Twinmaker Component Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-request-example/)
+- [Iot Twinmaker Component Response Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-response-example/)
+- [Iot Twinmaker Component Type Summaries Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-type-summaries-example/)
+- [Iot Twinmaker Component Type Summary Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-type-summary-example/)
+- [Iot Twinmaker Component Update Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-update-request-example/)
+- [Iot Twinmaker Component Updates Map Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-component-updates-map-request-example/)
+- [Iot Twinmaker Components Map Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-components-map-example/)
+- [Iot Twinmaker Components Map Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-components-map-request-example/)
+- [Iot Twinmaker Configuration Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-configuration-example/)
+- [Iot Twinmaker Create Component Type Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-create-component-type-request-example/)
+- [Iot Twinmaker Create Component Type Response Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-create-component-type-response-example/)
+- [Iot Twinmaker Create Entity Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-create-entity-request-example/)
+- [Iot Twinmaker Create Entity Response Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-create-entity-response-example/)
+- [Iot Twinmaker Create Scene Request Example](https://apis.io/examples/amazon-iot-twinmaker/iot-twinmaker-create-scene-request-example/)
+- …and 144 more published on APIs.io
+
+#### Collections (16)
+
+Postman and Open Collection request collections.
+
+- [AWS IoT TwinMaker Pricingplan API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-pricingplan-api/)
+- [AWS IoT TwinMaker Pricingplan Queries API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-queries-api/)
+- [AWS IoT TwinMaker Pricingplan Sync Jobs API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-sync-jobs-api/)
+- [AWS IoT TwinMaker Pricingplan Tags API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-tags-api/)
+- [AWS IoT TwinMaker Pricingplan Tags List API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-tags-list-api/)
+- [AWS IoT TwinMaker Pricingplan Tags#resourceARN&tagKeys API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-tags-resourcearn-tagkeys-api/)
+- [AWS IoT TwinMaker Pricingplan Workspaces API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-workspaces-api/)
+- [AWS IoT TwinMaker Pricingplan Workspaces List API](https://apis.io/collections/amazon-iot-twinmaker/open-amazon-iot-twinmaker-workspaces-list-api/)
+- [AWS IoT TwinMaker Pricingplan API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-pricingplan-api/)
+- [AWS IoT TwinMaker Pricingplan Queries API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-queries-api/)
+- [AWS IoT TwinMaker Pricingplan Sync Jobs API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-sync-jobs-api/)
+- [AWS IoT TwinMaker Pricingplan Tags API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-tags-api/)
+- [AWS IoT TwinMaker Pricingplan Tags List API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-tags-list-api/)
+- [AWS IoT TwinMaker Pricingplan Tags#resourceARN&tagKeys API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-tags-resourcearn-tagkeys-api/)
+- [AWS IoT TwinMaker Pricingplan Workspaces API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-workspaces-api/)
+- [AWS IoT TwinMaker Pricingplan Workspaces List API](https://apis.io/collections/amazon-iot-twinmaker/postman-amazon-iot-twinmaker-workspaces-list-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon IoT TwinMaker — jsonschema rules](https://apis.io/rules/amazon-iot-twinmaker/amazon-iot-twinmaker-jsonschema-spectral-rules/)
+- [Amazon IoT TwinMaker API Rules](https://apis.io/rules/amazon-iot-twinmaker/amazon-iot-twinmaker-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Iot Twinmaker Authentication](https://apis.io/security/amazon-iot-twinmaker/amazon-iot-twinmaker-authentication/)
+- [Amazon Iot Twinmaker Domain Security](https://apis.io/security/amazon-iot-twinmaker/amazon-iot-twinmaker-domain-security/)
+- [Amazon Iot Twinmaker Trust Center](https://apis.io/security/amazon-iot-twinmaker/amazon-iot-twinmaker-trust-center/)
+- [Amazon Iot Twinmaker Vulnerability Disclosure](https://apis.io/security/amazon-iot-twinmaker/amazon-iot-twinmaker-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Iot Twinmaker Plans Pricing](https://apis.io/plans/amazon-iot-twinmaker/amazon-iot-twinmaker-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Iot Twinmaker Rate Limits](https://apis.io/rate-limits/amazon-iot-twinmaker/amazon-iot-twinmaker-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Iot Twinmaker Finops](https://apis.io/finops/amazon-iot-twinmaker/amazon-iot-twinmaker-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/iot-twinmaker/)
 - [Documentation](https://docs.aws.amazon.com/iot-twinmaker/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/iot/tag/aws-iot-twinmaker/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/iottwinmaker/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Digital Twin Modeling | Model physical systems as entities with components and property relationships. |
-| 3D Scene Integration | Build interactive 3D visualization scenes connected to live IoT data. |
-| Data Connectors | Connect to existing data sources with built-in and custom data connectors. |
-| Knowledge Graph | Explore entity relationships and property graphs for complex systems. |
+**Kin Score 56.2** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 59.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 58.3 |
+| Access clarity | 53.9 |
 
-| Name | Description |
-|------|-------------|
-| Smart Building Management | Create digital twins of buildings for energy optimization and maintenance. |
-| Factory Digital Twin | Visualize production lines and equipment in 3D for operators. |
-| Remote Operations | Enable remote monitoring and diagnosis of industrial equipment. |
+**Agent readiness 27.7** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS IoT SiteWise | Connects SiteWise asset data to TwinMaker entity components. |
-| Amazon Grafana | Visualizes TwinMaker data in Grafana dashboards. |
-| AWS IoT Core | Receives real-time device data for digital twin updates. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-iot-twinmaker/](https://apis.io/providers/amazon-iot-twinmaker/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [AWS IoT TwinMaker API](openapi/amazon-iot-twinmaker-openapi-original.yml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon IoT TwinMaker: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-189 schema files covering key resources and operations.
-
-### JSON Structure
-
-189 JSON Structure files converted from JSON Schema.
-
-### JSON-LD
-
-- [Amazon IoT TwinMaker Context](json-ld/amazon-iot-twinmaker-context.jsonld)
-
-### Examples
-
-189 example JSON files generated from schemas.
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [AWS IoT TwinMaker API](capabilities/shared/iot-twinmaker.yaml) — operations for amazon iot twinmaker management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Digital Twin Management](capabilities/digital-twin-management.yaml) | Amazon IoT TwinMaker | 8 | Solutions Architect, Industrial Engineer |
-
-## Vocabulary
-
-- [Amazon IoT TwinMaker Vocabulary](vocabulary/amazon-iot-twinmaker-vocabulary.yaml) — Unified taxonomy mapping resources, actions, workflows, and personas
-
-## Rules
-
-- [Amazon IoT TwinMaker Spectral Rules](rules/amazon-iot-twinmaker-spectral-rules.yml) — 14 rules across 6 categories enforcing Amazon IoT TwinMaker API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-iot-twinmaker/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
