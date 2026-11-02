@@ -82,7 +82,7 @@ plans:
 rate_limit_statements:
 - The AWS IoT TwinMaker unified data access APIs retrieve up to 20 KB of data per API call.
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
