@@ -82,13 +82,14 @@ plans:
 rate_limit_statements:
 - The AWS IoT TwinMaker unified data access APIs retrieve up to 20 KB of data per API call.
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
   - metered
   - subscription
   units:
+  - period
   - request
   plans:
   - name: Free Tier
@@ -120,7 +121,7 @@ x-canonical:
     model: subscription
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - month
   - name: Standard pricing plan - queries (per pricing example)
@@ -136,7 +137,7 @@ x-canonical:
     model: metered
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - month
   - name: Tiered bundle Tier 2 (1,001 - 5,000 entities)
@@ -144,7 +145,7 @@ x-canonical:
     model: metered
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - month
   - name: Tiered bundle Tier 3 (5,001 - 10,000 entities)
@@ -152,7 +153,7 @@ x-canonical:
     model: metered
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - month
   - name: Tiered bundle Tier 4 (10,001 - 20,000 entities)
@@ -160,7 +161,7 @@ x-canonical:
     model: metered
     model_how: derived
     units:
-    - other
+    - period
     periods:
     - month
   - name: '> 20,000 entities'
